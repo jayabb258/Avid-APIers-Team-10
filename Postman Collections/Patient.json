@@ -286,7 +286,7 @@
 					"response": []
 				},
 				{
-					"name": "new dietcian",
+					"name": "NEW Dietician",
 					"event": [
 						{
 							"listen": "test",
@@ -354,7 +354,7 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									"});"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
