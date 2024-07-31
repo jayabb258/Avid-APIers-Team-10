@@ -209,12 +209,16 @@
 								"exec": [
 									"pm.test(\"Extract value and set global variable\", function () {\r",
 									"    const responseBody = pm.response.json();\r",
-									"    const token = responseBody.token;\r",
+									"    const ID = responseBody.ID;\r",
 									"\r",
-									"    pm.globals.set(\"BearerTokenDietcian\", token);\r",
+									"    pm.globals.set(\"password for patients\",loginPassword);\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const  loginPassword = responseBody.loginPassword;\r",
+									"\r",
+									"    pm.globals.set(\"password for patients\",loginPassword);\r",
 									"    \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
 									"});\r",
 									"});"
 								],
@@ -238,14 +242,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"string\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"Firstname\": \"string\",\r\n  \"HospitalCity\": \"string\",\r\n  \"HospitalName\": \"string\",\r\n  \"HospitalPincode\": \"string\",\r\n  \"HospitalStreet\": \"string\",\r\n  \"Lastname\": \"string\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+							"raw": "{\r\n  \"ContactNumber\": \"9045783410\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Selenium@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"1234\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+						"url": "{{BaseURL}}/dietician"
 					},
 					"response": []
 				},
