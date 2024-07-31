@@ -297,8 +297,8 @@
 									"    const responseBody = pm.response.json();\r",
 									"    const id = responseBody.id;\r",
 									"    const  loginPassword = responseBody.loginPassword;\r",
-									"  pm.globals.set(\"id for patients\",id);\r",
-									"    pm.globals.set(\"password for patients\",loginPassword);\r",
+									"  pm.globals.set(\"DieticianId\",id);\r",
+									"    pm.globals.set(\"Dieticianpassword\",loginPassword);\r",
 									"    \r",
 									"    \r",
 									"\r",
@@ -374,7 +374,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{password for patients}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"{{DieticianId}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
