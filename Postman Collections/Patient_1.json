@@ -182,7 +182,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity/{Average Glucos}"
+						"url": "{{BaseURL}}/morbidity/morbi_test_name"
 					},
 					"response": []
 				}
