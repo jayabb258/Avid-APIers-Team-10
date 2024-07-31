@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "401e7bf0-2abc-41b6-95df-a455883b5303",
+		"name": "Dietitian Team 10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "df261ba2-65ed-429c-86c1-39fee62b9f39"
+		},
+		{
+			"name": "New Request",
+			"id": "ec45093b-21cc-4415-82da-161d56fd3afe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
