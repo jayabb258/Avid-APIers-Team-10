@@ -166,6 +166,18 @@
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "77aca47f-a8c5-42cb-af97-592ed83debc8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
