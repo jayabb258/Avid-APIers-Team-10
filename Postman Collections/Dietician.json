@@ -210,12 +210,11 @@
 									"pm.test(\"Extract value and set global variable\", function () {\r",
 									"    const responseBody = pm.response.json();\r",
 									"    const id = responseBody.id;\r",
-									"pm.globals.set(\"id for patients\",id);\r",
-									"    pm.globals.set(\"password for patients\",loginPassword);\r",
-									"    const responseBody = pm.response.json();\r",
 									"    const  loginPassword = responseBody.loginPassword;\r",
-									"\r",
+									"  pm.globals.set(\"id for patients\",id);\r",
 									"    pm.globals.set(\"password for patients\",loginPassword);\r",
+									"    \r",
+									"    \r",
 									"    \r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
@@ -228,6 +227,59 @@
 						}
 					],
 					"id": "db030c4c-6cd6-4209-93a3-2909bf92bb4d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenNeethu}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"9045783410\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Selenium@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/dietician"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dietcian By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const id = responseBody.id;\r",
+									"    const  loginPassword = responseBody.loginPassword;\r",
+									"  pm.globals.set(\"id for patients\",id);\r",
+									"    pm.globals.set(\"password for patients\",loginPassword);\r",
+									"    \r",
+									"    \r",
+									"    \r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "7e82d2b0-2998-4bce-a14e-bf50d7fad076",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
