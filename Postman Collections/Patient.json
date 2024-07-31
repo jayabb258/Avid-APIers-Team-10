@@ -131,18 +131,6 @@
 			"name": "Dietician",
 			"item": [],
 			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
-		},
-		{
-			"name": "New Request",
-			"id": "ec45093b-21cc-4415-82da-161d56fd3afe",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	]
 }
