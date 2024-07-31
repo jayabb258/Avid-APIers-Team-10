@@ -76,8 +76,26 @@
 		},
 		{
 			"name": "Patient",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "6006ea1d-8878-400f-855c-2eab83cc9992",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "83adc9cc-cfc0-4639-b11e-b7ef90e8992b"
+		},
+		{
+			"name": "Dietician",
+			"item": [],
+			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
 		},
 		{
 			"name": "New Request",
