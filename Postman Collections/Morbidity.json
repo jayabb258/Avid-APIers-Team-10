@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Dietcian",
+			"name": "User",
 			"item": [
 				{
 					"name": "New Request",
@@ -37,14 +37,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": Team10@gmail.com\r\n}",
+							"raw": "{\r\n  \"password\": \"{{pw}}\",\r\n  \"userLoginEmail\": \"{{UserID}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+						"url": "{{BaseURL}}/login"
 					},
 					"response": []
 				},
