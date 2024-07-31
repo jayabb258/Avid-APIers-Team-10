@@ -54,21 +54,18 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c6939220-a245-4246-b9a0-53927457265c",
+						"id": "8d5d4647-187b-4fd9-b99c-a04b156d9068",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
-							"{\r",
-							"  \"password\": \"test\",\r",
-							"  \"userLoginEmail\": \"Team10@gmail.com\"\r",
-							"}"
+							""
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "ad518ac5-abde-4500-b612-32913e8d4fa3",
+						"id": "8789d544-00e8-4c13-a1ce-4e4b5238d2cd",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
