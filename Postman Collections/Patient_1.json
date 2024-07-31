@@ -139,7 +139,9 @@
 								"exec": [
 									"pm.test(\"Extract value and set global variable\", function () {\r",
 									"    const responseBody = pm.response.json();\r",
-									"    const morbi_test_name = responseBody.morbidityTestName;\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    const morbi_test_name = responseBody.morbidityId;\r",
 									"    console.log('morbidity name',morbi_test_name)\r",
 									"\r",
 									"    pm.globals.set(\"morbidity_test_name\", morbi_test_name);\r",
