@@ -203,7 +203,7 @@
 					"name": "PreRequisites",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "Gather Dietitian Token",
 							"id": "0e33247d-6a43-4d80-85f2-ca88c69c59d2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
