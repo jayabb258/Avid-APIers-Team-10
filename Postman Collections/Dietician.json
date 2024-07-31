@@ -131,6 +131,24 @@
 				},
 				{
 					"name": "GET operation -200- AS ADMIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const morbi_test_name = responseBody.morbidityTestName;\r",
+									"\r",
+									"    pm.globals.set(\"morbi_test_name\", morbi_test_name);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "f1d6178c-5f0e-4445-a397-ced24bbff717",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
