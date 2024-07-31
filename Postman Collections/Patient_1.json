@@ -37,7 +37,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}\r\n",
+							"raw": "{\r\n  \"password\": \"{{pw}}\",\r\n  \"userLoginEmail\": \"{{UserID}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
