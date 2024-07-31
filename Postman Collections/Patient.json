@@ -38,6 +38,35 @@
 			"item": [
 				{
 					"name": "User Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
+								"exec": [
+									"pm.globals.set(\"variable_key\", \"variable_value\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.globals.set(\"Bearertk\", token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "e3c52da5-21c9-4beb-a388-fa34676d4865",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -65,6 +94,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
