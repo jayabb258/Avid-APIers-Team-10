@@ -401,18 +401,10 @@
 							"script": {
 								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const id = responseBody.id;\r",
-									"    const  loginPassword = responseBody.loginPassword;\r",
-									"  pm.globals.set(\"id for patients\",id);\r",
-									"    pm.globals.set(\"password for patients\",loginPassword);\r",
+									"\r",
 									"    \r",
-									"    \r",
-									"    \r",
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -431,7 +423,7 @@
 								"token": "{{BearerTokenNeethu}}"
 							}
 						},
-						"method": "POST",
+						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -442,7 +434,7 @@
 								}
 							}
 						},
-						"url": "{{BaseURL}}/dietician"
+						"url": "{{BaseURL}}/dietician/{{id for patients}}"
 					},
 					"response": []
 				}
