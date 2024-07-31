@@ -176,7 +176,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Retrieve Thyroid Morbidity",
 					"id": "45135f18-a8c2-4288-af3e-8924753f2639",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
