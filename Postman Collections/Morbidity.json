@@ -79,7 +79,7 @@
 			"name": "Morbidity",
 			"item": [
 				{
-					"name": "User Login",
+					"name": "Admin User Login",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -130,7 +130,7 @@
 					"response": []
 				},
 				{
-					"name": "Moribidity GET positive",
+					"name": "GET operation -200- AS ADMIN",
 					"id": "f1d6178c-5f0e-4445-a397-ced24bbff717",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -140,6 +140,25 @@
 							"type": "bearer",
 							"bearer": {
 								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "GET operation -200- AS DIETICIAN",
+					"id": "7dd367e1-d664-4dc7-9e57-82f034f8ce39",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
 							}
 						},
 						"method": "GET",
