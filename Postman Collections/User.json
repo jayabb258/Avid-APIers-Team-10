@@ -9,14 +9,24 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "newuser",
 					"id": "0963a031-0ba4-4f62-af70-efef1d621071",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
 					},
 					"response": []
 				}
