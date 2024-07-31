@@ -10,6 +10,24 @@
 			"item": [
 				{
 					"name": "newuser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.globals.set(\"Bearertk\", token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "0963a031-0ba4-4f62-af70-efef1d621071",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
