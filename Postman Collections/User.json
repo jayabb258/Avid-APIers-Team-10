@@ -197,6 +197,42 @@
 			"id": "83adc9cc-cfc0-4639-b11e-b7ef90e8992b"
 		},
 		{
+			"name": "Patient - PUT & POST",
+			"item": [
+				{
+					"name": "PreRequisites",
+					"item": [
+						{
+							"name": "New Request",
+							"id": "0e33247d-6a43-4d80-85f2-ca88c69c59d2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "79eb9308-cb24-4c8e-9279-7410cedf7b22"
+				},
+				{
+					"name": "New Request",
+					"id": "2f3dd6c2-563b-4276-beb7-133361bedb2d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "281e42fe-d5cc-4640-9205-e2deeebfa918"
+		},
+		{
 			"name": "Dietician",
 			"item": [
 				{
