@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "401e7bf0-2abc-41b6-95df-a455883b5303",
+		"name": "Dietitian Team 10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "newuser",
+					"id": "0963a031-0ba4-4f62-af70-efef1d621071",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+					},
+					"response": []
+				}
+			],
+			"id": "df261ba2-65ed-429c-86c1-39fee62b9f39"
+		},
+		{
+			"name": "Morbidity",
+			"item": [
+				{
+					"name": "User Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
+								"exec": [
+									"pm.globals.set(\"variable_key\", \"variable_value\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.globals.set(\"Bearertk\", token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "e3c52da5-21c9-4beb-a388-fa34676d4865",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"{{pw}}\",\r\n  \"userLoginEmail\": \"{{UserID}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Moribidity GET positive",
+					"id": "f1d6178c-5f0e-4445-a397-ced24bbff717",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
+					},
+					"response": []
+				}
+			],
+			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "6006ea1d-8878-400f-855c-2eab83cc9992",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "83adc9cc-cfc0-4639-b11e-b7ef90e8992b"
+		},
+		{
+			"name": "Dietician",
+			"item": [],
+			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
+		}
+	]
+}
