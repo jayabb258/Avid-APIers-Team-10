@@ -11,6 +11,24 @@
 			"id": "df261ba2-65ed-429c-86c1-39fee62b9f39"
 		},
 		{
+			"name": "Morbidity",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "f1d6178c-5f0e-4445-a397-ced24bbff717",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
+		},
+		{
 			"name": "New Request",
 			"id": "ec45093b-21cc-4415-82da-161d56fd3afe",
 			"protocolProfileBehavior": {
