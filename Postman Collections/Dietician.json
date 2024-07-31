@@ -49,7 +49,34 @@
 					"response": []
 				}
 			],
-			"id": "df261ba2-65ed-429c-86c1-39fee62b9f39"
+			"id": "df261ba2-65ed-429c-86c1-39fee62b9f39",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c6939220-a245-4246-b9a0-53927457265c",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"{\r",
+							"  \"password\": \"test\",\r",
+							"  \"userLoginEmail\": \"Team10@gmail.com\"\r",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad518ac5-abde-4500-b612-32913e8d4fa3",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Morbidity",
