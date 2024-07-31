@@ -228,6 +228,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenNeethu}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -239,7 +245,7 @@
 								}
 							}
 						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+						"url": "{{BaseURL}}/login"
 					},
 					"response": []
 				},
