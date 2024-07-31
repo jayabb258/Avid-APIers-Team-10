@@ -204,13 +204,44 @@
 					"item": [
 						{
 							"name": "Gather Dietitian Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "096cb141-cc07-441f-a45a-11bc74a0e33a",
+										"exec": [
+											"//Generate random contact number\r",
+											"pm.globals.set(\"phoneNumber\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));\r",
+											"pm.globals.set(\"dob\", pm.variables.replaceIn(\"{{$$randomDatePast}}\"));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "0e33247d-6a43-4d80-85f2-ca88c69c59d2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearertk}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{phoneNumber}}\",\r\n  \"DateOfBirth\": \"{{dob}}\",\r\n  \"Education\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"Firstname\": \"string\",\r\n  \"HospitalCity\": \"string\",\r\n  \"HospitalName\": \"string\",\r\n  \"HospitalPincode\": \"string\",\r\n  \"HospitalStreet\": \"string\",\r\n  \"Lastname\": \"string\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
 							},
 							"response": []
 						}
@@ -395,7 +426,7 @@
 							"script": {
 								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"/*pm.test(\"Extract value and set global variable\", function () {\r",
 									"    const responseBody = pm.response.json();\r",
 									"    const token = responseBody.token;\r",
 									"\r",
@@ -404,7 +435,7 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									"});"
+									"});*/"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -416,7 +447,13 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "POST",
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenNeethu}}"
+							}
+						},
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -427,7 +464,7 @@
 								}
 							}
 						},
-						"url": "{{BaseURL}}/login"
+						"url": "{{BaseURL}}/logoutdietician"
 					},
 					"response": []
 				},
