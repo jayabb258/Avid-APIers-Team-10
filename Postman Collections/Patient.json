@@ -163,19 +163,26 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
+						"url": "{{BaseURL}}/morbidity"
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Get Patients Morbidity Details",
 					"id": "77aca47f-a8c5-42cb-af97-592ed83debc8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{BaseURL}}/patient/testReports/1"
 					},
 					"response": []
 				}
