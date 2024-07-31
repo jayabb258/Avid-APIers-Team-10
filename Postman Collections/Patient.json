@@ -20,7 +20,7 @@
 									"    const responseBody = pm.response.json();\r",
 									"    const token = responseBody.token;\r",
 									"\r",
-									"    pm.globals.set(\"Bearertk\", token);\r",
+									"    pm.globals.set(\"BearerTokenNeethu\", token);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -141,7 +141,7 @@
 									"    const responseBody = pm.response.json();\r",
 									"\r",
 									"    console.log('pm.response',pm.response.json())\r",
-									"    const morbi_test_name = responseBody.morbidityId;\r",
+									"    const morbi_test_name = responseBody.morbidityId[0];\r",
 									"    console.log('morbidity name',morbi_test_name)\r",
 									"\r",
 									"    pm.globals.set(\"morbidity_test_name\", morbi_test_name);\r",
