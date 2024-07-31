@@ -168,7 +168,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Patients Morbidity Details",
+					"name": "Retrieve Morbidity condition by Test name",
 					"id": "77aca47f-a8c5-42cb-af97-592ed83debc8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -182,7 +182,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/patient/testReports/1"
+						"url": "{{BaseURL}}/morbidity/{Thyroid}"
 					},
 					"response": []
 				}
