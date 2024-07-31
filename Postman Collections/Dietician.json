@@ -211,8 +211,8 @@
 									"    const responseBody = pm.response.json();\r",
 									"    const token = responseBody.token;\r",
 									"\r",
-									"    pm.globals.set(\"BearerTokenNeethu\", token);\r",
-									"    \r",
+									"    pm.globals.set(\"BearerTokenAdmin\", token);\r",
+									"\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
@@ -287,7 +287,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{BearerTokenNeethu}}"
+								"token": "{{BearerTokenAdmin}}"
 							}
 						},
 						"method": "POST",
