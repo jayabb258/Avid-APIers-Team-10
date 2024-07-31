@@ -10,6 +10,24 @@
 			"item": [
 				{
 					"name": "newuser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.globals.set(\"Bearertk\", token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "0963a031-0ba4-4f62-af70-efef1d621071",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -19,7 +37,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}\r\n",
+							"raw": "{\r\n  \"password\": \"{{pw}}\",\r\n  \"userLoginEmail\": \"{{UserID}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -131,18 +149,6 @@
 			"name": "Dietician",
 			"item": [],
 			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
-		},
-		{
-			"name": "New Request",
-			"id": "ec45093b-21cc-4415-82da-161d56fd3afe",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	]
 }
