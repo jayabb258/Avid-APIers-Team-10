@@ -470,13 +470,7 @@
 							"script": {
 								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const token = responseBody.token;\r",
-									"\r",
-									"    pm.globals.set(\"BearerTokenDieticin\", token);\r",
-									"\r",
-									"});"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -509,7 +503,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{Dieticianpassword}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"Purple76\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
