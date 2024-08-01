@@ -9,14 +9,24 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "User Login",
 					"id": "a1e3d24b-5917-4ab9-9900-7b27cdb69460",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/login"
 					},
 					"response": []
 				}
