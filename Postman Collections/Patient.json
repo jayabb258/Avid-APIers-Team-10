@@ -195,6 +195,25 @@
 					"response": []
 				},
 				{
+					"name": "Retrieve Thyroid",
+					"id": "9585f6d2-4856-48d1-be0c-618eb5525924",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/TSH"
+					},
+					"response": []
+				},
+				{
 					"name": "Retrieve DiabetesTest HBA1C",
 					"id": "feb88aea-c422-4415-893f-a7f345722443",
 					"protocolProfileBehavior": {
