@@ -348,6 +348,59 @@
 						"header": []
 					},
 					"response": []
+				},
+				{
+					"name": "CreateDietcian Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "fea6280e-bb02-4328-8153-3c44650d892f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMTBAZ21haWwuY29tIiwiaWF0IjoxNzIyNTM4MTIyLCJleHAiOjE3MjI1NjY5MjJ9.7ALGV1S3lf64o6MQCt76-Z4dGGsr_-DRG4q2KZoKEejAgB2mpxnGCMwnmTXv9YRmL5ZXfZ6Kra_lgJzNjMB37w"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"9045783411\",\r\n  \"DateOfBirth\": \"2024-04-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"api@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/dietician"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patient",
+					"id": "eed53957-7984-4254-9fa1-3e53e54954b3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "83adc9cc-cfc0-4639-b11e-b7ef90e8992b"
@@ -620,62 +673,6 @@
 						}
 					],
 					"id": "db030c4c-6cd6-4209-93a3-2909bf92bb4d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"9045783410\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Nn@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician"
-					},
-					"response": []
-				},
-				{
-					"name": "CreateDietcian Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const id = responseBody.id;\r",
-									"    const  loginPassword = responseBody.loginPassword;\r",
-									"  pm.globals.set(\"DieticianId\",id);\r",
-									"    pm.globals.set(\"Dieticianpassword\",loginPassword);\r",
-									"    \r",
-									"    \r",
-									"\r",
-									"    pm.test(\"Content-Type is present\", function () {\r",
-									"        pm.response.to.have.header(\"Content-Type\");\r",
-									"    });\r",
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "fea6280e-bb02-4328-8153-3c44650d892f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
