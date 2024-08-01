@@ -412,6 +412,18 @@
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient"
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "47d30db1-3a4e-4d27-a9f5-cf428d48f42e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "83adc9cc-cfc0-4639-b11e-b7ef90e8992b"
