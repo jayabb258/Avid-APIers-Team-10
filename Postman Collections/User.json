@@ -284,15 +284,26 @@
 											"pm.globals.set(\"phoneNumber\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));\r",
 											"pm.globals.set(\"dob\", pm.variables.replaceIn(\"{{$randomDatePast}}\"));\r",
 											"\r",
-											"// Import ID & PW for dietitian\r",
-											"\r",
-											"\r",
-											"pm.test(\"Extract value and set global variable\", function () {\r",
-											"    let responseBody = pm.response.json();\r",
-											"    let dietid = responseBody.id;\r",
-											"    let pwdiet = responseBody.loginPassword;\r",
-											"\r",
-											"    pm.globals.set(\"dietid\", dietid);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "dcd3af76-1ec8-403a-bb2e-74cb8589a2dd",
+										"exec": [
+											"// Import ID & PW for dietitian",
+											"",
+											"",
+											"pm.test(\"Extract value and set global variable\", function () {",
+											"    let responseBody = pm.response.json();",
+											"    let dietid = responseBody.id;",
+											"    let pwdiet = responseBody.loginPassword;",
+											"",
+											"    pm.globals.set(\"dietid\", dietid);",
 											"    pm.globals.set(\"pwdiet\", pwdiet);});"
 										],
 										"type": "text/javascript",
