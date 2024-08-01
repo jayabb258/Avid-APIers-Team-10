@@ -286,7 +286,7 @@
 			"name": "Dietician",
 			"item": [
 				{
-					"name": "newuser",
+					"name": "AdminNewuser",
 					"event": [
 						{
 							"listen": "test",
@@ -314,12 +314,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenNeethu}}"
-							}
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
