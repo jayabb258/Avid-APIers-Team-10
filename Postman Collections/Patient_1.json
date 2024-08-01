@@ -482,7 +482,7 @@
 					"response": []
 				},
 				{
-					"name": "dietician logout Copy",
+					"name": "GetALLDieticians",
 					"event": [
 						{
 							"listen": "test",
