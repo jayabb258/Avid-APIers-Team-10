@@ -521,6 +521,52 @@
 					"response": []
 				},
 				{
+					"name": "GetALLDieticians",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+								"exec": [
+									"\r",
+									"    \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "75654dff-d3e7-42ed-be23-ea75aad9336d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenNeethu}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/dietician"
+					},
+					"response": []
+				},
+				{
 					"name": "NEW Dietician",
 					"event": [
 						{
@@ -565,7 +611,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"9045783410\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Selenium@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+							"raw": "{\r\n  \"ContactNumber\": \"9045783410\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Nn@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -799,52 +845,6 @@
 							}
 						},
 						"url": "{{BaseURL}}/logoutdietician"
-					},
-					"response": []
-				},
-				{
-					"name": "GetALLDieticians",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"\r",
-									"    \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "75654dff-d3e7-42ed-be23-ea75aad9336d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenNeethu}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician"
 					},
 					"response": []
 				},
