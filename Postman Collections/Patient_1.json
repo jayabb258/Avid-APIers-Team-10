@@ -379,7 +379,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"9045783411\",\r\n  \"DateOfBirth\": \"2024-04-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"api@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+							"raw": "{\r\n  \"ContactNumber\": \"9045783444\",\r\n  \"DateOfBirth\": \"2024-03-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"api10@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -397,6 +397,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Fab33"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
