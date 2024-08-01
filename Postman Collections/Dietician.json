@@ -821,7 +821,7 @@
 								}
 							}
 						},
-						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+						"url": "{{BaseURL}}/dietician/295"
 					},
 					"response": []
 				}
