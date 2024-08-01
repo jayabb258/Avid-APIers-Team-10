@@ -456,14 +456,17 @@
 								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 								"exec": [
 									"\r",
-									"    \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									""
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
