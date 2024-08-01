@@ -273,7 +273,7 @@
 							"response": []
 						},
 						{
-							"name": "Gather Dietitian Token",
+							"name": "Gather Dietitian Credentials",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -281,8 +281,12 @@
 										"id": "096cb141-cc07-441f-a45a-11bc74a0e33a",
 										"exec": [
 											"//Generate random contact number\r",
-											"pm.globals.set(\"phoneNumber\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));\r",
-											"pm.globals.set(\"dob\", pm.variables.replaceIn(\"{{$randomDatePast}}\"));\r",
+											"let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number\r",
+											"pm.globals.set(\"phoneNumber\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens\r",
+											"\r",
+											"//generate random DOB\r",
+											"const mydate = new Date(pm.variables.replaceIn(\"{{$randomDatePast}}\")); //Generate a past date\r",
+											"pm.globals.set(\"dob\", mydate.toISOString());//format it into ISO timestamp\r",
 											"\r",
 											""
 										],
