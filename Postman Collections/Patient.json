@@ -470,7 +470,7 @@
 							"script": {
 								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 								"exec": [
-									""
+									"pm.globals.set(\"BearerTokenDieticin\", \"token\");"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -503,7 +503,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"Purple76\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"{{Dieticianpassword}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -651,7 +651,7 @@
 								}
 							}
 						},
-						"url": "{{BaseURL}}/dietician/{{DieticianID}}"
+						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
 					},
 					"response": []
 				}
