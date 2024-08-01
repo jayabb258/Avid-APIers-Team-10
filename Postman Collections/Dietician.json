@@ -271,6 +271,25 @@
 					"response": []
 				},
 				{
+					"name": "Retrieve Diabetes Test Fasting Glucose",
+					"id": "2141f545-f742-4ce0-8d09-832992440720",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/Fasting Glucose"
+					},
+					"response": []
+				},
+				{
 					"name": "Retrieve Diabetes Test  Plasma Glucose",
 					"id": "2453aa7a-36a2-4cf9-b4b9-076648683ee0",
 					"protocolProfileBehavior": {
