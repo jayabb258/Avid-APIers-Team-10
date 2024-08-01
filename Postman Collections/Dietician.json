@@ -176,7 +176,7 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve Thyroid Morbidity",
+					"name": "Retrieve Thyroid  Test TSH",
 					"id": "45135f18-a8c2-4288-af3e-8924753f2639",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -195,8 +195,27 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve Thyroid",
+					"name": "Retrieve Thyroid Test T3",
 					"id": "9585f6d2-4856-48d1-be0c-618eb5525924",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/TSH"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid Test T4",
+					"id": "0758c68f-e811-4bd7-b3fd-83e99cb64bb2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
