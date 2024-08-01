@@ -193,6 +193,25 @@
 						"url": "{{BaseURL}}/morbidity/TSH"
 					},
 					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes  Morbidity",
+					"id": "feb88aea-c422-4415-893f-a7f345722443",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/TSH"
+					},
+					"response": []
 				}
 			],
 			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
