@@ -648,7 +648,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{BearerTokenNeethu}}"
+								"token": "{{BearerTokenAdmin}}"
 							}
 						},
 						"method": "GET",
@@ -662,7 +662,7 @@
 								}
 							}
 						},
-						"url": "{{BaseURL}}/dietician"
+						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
 					},
 					"response": []
 				},
