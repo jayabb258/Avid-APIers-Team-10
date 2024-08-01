@@ -695,6 +695,68 @@
 					"response": []
 				},
 				{
+					"name": "dietician Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.globals.set(\"BearerTokenDietician\", token);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e3c228f4-ad8a-4c9a-be04-87aaffe910cd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "df13c0b1-a9ae-410b-b1a9-0e719a1c8631",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenAdmin}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"{{Dieticianpassword}}\",\r\n  \"userLoginEmail\": \"Nn@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+					},
+					"response": []
+				},
+				{
 					"name": "dietician logout",
 					"event": [
 						{
