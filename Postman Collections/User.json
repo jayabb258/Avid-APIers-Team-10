@@ -222,6 +222,57 @@
 					"name": "PreRequisites",
 					"item": [
 						{
+							"name": "Admin User Login Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
+										"exec": [
+											"pm.globals.set(\"variable_key\", \"variable_value\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
+										"exec": [
+											"pm.test(\"Extract value and set global variable\", function () {\r",
+											"    const responseBody = pm.response.json();\r",
+											"    const token = responseBody.token;\r",
+											"\r",
+											"    pm.globals.set(\"AdminToken\", token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "83bdd35f-c550-4149-9b93-b002500e9bd0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\":\"{{pw}}\",\r\n  \"userLoginEmail\":\"{{UserID}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/login"
+							},
+							"response": []
+						},
+						{
 							"name": "Gather Dietitian Token",
 							"event": [
 								{
@@ -231,7 +282,16 @@
 										"exec": [
 											"//Generate random contact number\r",
 											"pm.globals.set(\"phoneNumber\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));\r",
-											"pm.globals.set(\"dob\", pm.variables.replaceIn(\"{{$$randomDatePast}}\"));"
+											"pm.globals.set(\"dob\", pm.variables.replaceIn(\"{{$$randomDatePast}}\"));\r",
+											"\r",
+											"\r",
+											"pm.test(\"Extract value and set global variable\", function () {\r",
+											"    let responseBody = pm.response.json();\r",
+											"    let dietid = responseBody.id;\r",
+											"    let pwdiet = responseBody.loginPassword;\r",
+											"\r",
+											"    pm.globals.set(\"dietid\", dietid);\r",
+											"    pm.globals.set(\"dietid\", pwdiet);});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -246,7 +306,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{Bearertk}}"
+										"token": "{{AdminToken}}"
 									}
 								},
 								"method": "POST",
