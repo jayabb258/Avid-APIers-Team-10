@@ -397,8 +397,19 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{ \"FirstName\": \"jaya\",\n\"LastName\": \"G\",\n\"ContactNumber\": \"9988776655\",\n\"Email\": \"api@gmail.com\",\n\"Allergy\": \"Soy\",\n\"FoodPreference\": \"Vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1986-02-14\"\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient"
 					},
 					"response": []
 				}
