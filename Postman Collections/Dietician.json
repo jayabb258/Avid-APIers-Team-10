@@ -338,6 +338,28 @@
 			"name": "Patient-GET & DELETE",
 			"item": [
 				{
+					"name": "Dietician Login",
+					"id": "b333214e-cb83-4b95-8558-80a59883a529",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Carnation77\",\r\n  \"userLoginEmail\": \"api10@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/login"
+					},
+					"response": []
+				},
+				{
 					"name": "New Request",
 					"id": "6006ea1d-8878-400f-855c-2eab83cc9992",
 					"protocolProfileBehavior": {
