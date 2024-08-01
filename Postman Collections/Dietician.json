@@ -195,7 +195,7 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve Diabetes  Morbidity",
+					"name": "Retrieve Diabetes  Morbidity_HBA1C",
 					"id": "feb88aea-c422-4415-893f-a7f345722443",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -209,7 +209,26 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity/TSH"
+						"url": "{{BaseURL}}/morbidity/HBA1C"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes  Morbidity_HBA1C Copy",
+					"id": "347c37b2-1c8c-455c-b0f7-34b68e15b9cb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/HBA1C"
 					},
 					"response": []
 				}
