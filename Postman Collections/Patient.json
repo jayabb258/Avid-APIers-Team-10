@@ -198,7 +198,7 @@
 			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
 		},
 		{
-			"name": "Patient",
+			"name": "Patient-GET & DELETE",
 			"item": [
 				{
 					"name": "New Request",
