@@ -214,8 +214,27 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve Diabetes  Morbidity_HBA1C Copy",
+					"name": "Retrieve Diabetes  Morbidity Average Glucose",
 					"id": "347c37b2-1c8c-455c-b0f7-34b68e15b9cb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/HBA1C"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes  Morbidity Average Glucose Copy",
+					"id": "2453aa7a-36a2-4cf9-b4b9-076648683ee0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
