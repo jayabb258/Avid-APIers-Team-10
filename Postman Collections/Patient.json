@@ -829,7 +829,7 @@
 					"response": []
 				},
 				{
-					"name": "dietician Update",
+					"name": "Update Dietician",
 					"event": [
 						{
 							"listen": "test",
