@@ -482,7 +482,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"251\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"{{DieticianId}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
