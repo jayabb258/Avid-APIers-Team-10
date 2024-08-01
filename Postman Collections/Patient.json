@@ -280,18 +280,20 @@
 									"script": {
 										"id": "096cb141-cc07-441f-a45a-11bc74a0e33a",
 										"exec": [
-											"//Generate random contact number\r",
-											"pm.globals.set(\"phoneNumber\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));\r",
-											"pm.globals.set(\"dob\", pm.variables.replaceIn(\"{{$$randomDatePast}}\"));\r",
+											"// //Generate random contact number\r",
+											"// pm.globals.set(\"phoneNumber\", pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"));\r",
+											"// pm.globals.set(\"dob\", pm.variables.replaceIn(\"{{$randomDatePast}}\"));\r",
+											"\r",
+											"//Import ID & PW for dietitian\r",
 											"\r",
 											"\r",
-											"pm.test(\"Extract value and set global variable\", function () {\r",
-											"    let responseBody = pm.response.json();\r",
-											"    let dietid = responseBody.id;\r",
-											"    let pwdiet = responseBody.loginPassword;\r",
+											"// pm.test(\"Extract value and set global variable\", function () {\r",
+											"//     let responseBody = pm.response.json();\r",
+											"//     let dietid = responseBody.id;\r",
+											"//     let pwdiet = responseBody.loginPassword;\r",
 											"\r",
-											"    pm.globals.set(\"dietid\", dietid);\r",
-											"    pm.globals.set(\"dietid\", pwdiet);});"
+											"//     pm.globals.set(\"dietid\", dietid);\r",
+											"//     pm.globals.set(\"pwdiet\", pwdiet);});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -313,7 +315,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{phoneNumber}}\",\r\n  \"DateOfBirth\": \"{{dob}}\",\r\n  \"Education\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"Firstname\": \"string\",\r\n  \"HospitalCity\": \"string\",\r\n  \"HospitalName\": \"string\",\r\n  \"HospitalPincode\": \"string\",\r\n  \"HospitalStreet\": \"string\",\r\n  \"Lastname\": \"string\"\r\n \r\n}\r\n",
+									"raw": "// {\r\n//   \"ContactNumber\": \"{{phoneNumber}}\",\r\n//   \"DateOfBirth\": \"{{dob}}\",\r\n//   \"Education\": \"string\",\r\n//   \"Email\": \"string\",\r\n//   \"Firstname\": \"string\",\r\n//   \"HospitalCity\": \"string\",\r\n//   \"HospitalName\": \"string\",\r\n//   \"HospitalPincode\": \"string\",\r\n//   \"HospitalStreet\": \"string\",\r\n//   \"Lastname\": \"string\"\r\n \r\n// }\r\n\r\nhttps://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician\r\n\r\nEndPoint:/dietician\r\n\t{\r\n  \"ContactNumber\": \"string\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"Firstname\": \"string\",\r\n  \"HospitalCity\": \"string\",\r\n  \"HospitalName\": \"string\",\r\n  \"HospitalPincode\": \"string\",\r\n  \"HospitalStreet\": \"string\",\r\n  \"Lastname\": \"string\"\r\n \r\n}\r\n\r\nhttps://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician\r\n\r\nEndPoint:/dietician\r\n\t{\r\n  \"ContactNumber\": \"string\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"Firstname\": \"string\",\r\n  \"HospitalCity\": \"string\",\r\n  \"HospitalName\": \"string\",\r\n  \"HospitalPincode\": \"string\",\r\n  \"HospitalStreet\": \"string\",\r\n  \"Lastname\": \"string\"\r\n \r\n}\r\n\r\n\r\n\t{\r\n  \"ContactNumber\": \"741-940-5769\",\r\n  \"DateOfBirth\": \"2000-07-26T18:49:44.553Z\",\r\n  \"Education\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"Firstname\": \"string\",\r\n  \"HospitalCity\": \"string\",\r\n  \"HospitalName\": \"string\",\r\n  \"HospitalPincode\": \"string\",\r\n  \"HospitalStreet\": \"string\",\r\n  \"Lastname\": \"string\",\r\n  \"id\": 0,\r\n  \"loginPassword\": \"string\"\r\n}\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
