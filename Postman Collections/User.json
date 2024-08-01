@@ -465,8 +465,12 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"packages": {},
-								"type": "text/javascript"
+								"id": "e3c228f4-ad8a-4c9a-be04-87aaffe910cd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -485,7 +489,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{DieticianId}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}\r\n",
+							"raw": "{\r\n  \"password\": \"{{Dieticianpassword}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
