@@ -621,6 +621,52 @@
 					"response": []
 				},
 				{
+					"name": "GetDieticianwithID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+								"exec": [
+									"\r",
+									"    \r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "251300a6-be4c-49cd-b836-4372deb0d174",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenNeethu}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/dietician"
+					},
+					"response": []
+				},
+				{
 					"name": "Delete dietcian By ID",
 					"event": [
 						{
