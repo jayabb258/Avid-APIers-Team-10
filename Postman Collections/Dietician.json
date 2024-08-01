@@ -420,7 +420,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{DieticianId}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"251\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -554,7 +554,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{BearerTokenNeethu}}"
+								"token": "{{BearerTokenAdmin}}"
 							}
 						},
 						"method": "DELETE",
@@ -568,7 +568,7 @@
 								}
 							}
 						},
-						"url": "{{BaseURL}}/dietician/{{id for patients}}"
+						"url": "{{BaseURL}}/dietician/{{DieticianID}}"
 					},
 					"response": []
 				}
