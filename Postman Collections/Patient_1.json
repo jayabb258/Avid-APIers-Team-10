@@ -366,8 +366,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhcGkxMEBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NDIxMTEsImV4cCI6MTcyMjU3MDkxMX0.-zCgfmt9bWTweFpSv5qHp6N_rNaG1qLwagJXXcIip_WTs5zt4GjAmQSZuqLggQQeXDKFZOKfHs0B4EnrfcGaTg"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{BaseURL}}/patient"
 					},
 					"response": []
 				},
