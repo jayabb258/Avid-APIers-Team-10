@@ -1174,7 +1174,7 @@
 											"    const responseBody = pm.response.json();\r",
 											"    const token = responseBody.token;\r",
 											"\r",
-											"    pm.globals.set(\"AdminToken\", token);\r",
+											"    pm.globals.set(\"DietTokenKB\", token);\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -1187,11 +1187,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{AdminToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"password\":\"{{pw}}\",\r\n  \"userLoginEmail\":\"{{UserID}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
+									"raw": "{\r\n  \"password\":\"{{pwdiet}}\",\r\n  \"userLoginEmail\":\"{{dietid}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
