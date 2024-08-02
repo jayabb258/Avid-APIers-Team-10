@@ -875,62 +875,6 @@
 					"response": []
 				},
 				{
-					"name": "NEW Dietician Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const id = responseBody.id;\r",
-									"    const  loginPassword = responseBody.loginPassword;\r",
-									"  pm.globals.set(\"DieticianId\",id);\r",
-									"    pm.globals.set(\"Dieticianpassword\",loginPassword);\r",
-									"    \r",
-									"    \r",
-									"\r",
-									"    pm.test(\"Content-Type is present\", function () {\r",
-									"        pm.response.to.have.header(\"Content-Type\");\r",
-									"    });\r",
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "19358abd-2182-469a-93f4-76118c2bb952",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"9045783419\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Selenium@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"@#%\",\r\n  \"HospitalName\": \"678\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician"
-					},
-					"response": []
-				},
-				{
 					"name": "Update Dietician",
 					"event": [
 						{
@@ -1128,7 +1072,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{BearerTokenNeethu}}"
+								"token": "{{BearerTokenAdmin}}"
 							}
 						},
 						"method": "GET",
@@ -1187,7 +1131,7 @@
 								}
 							}
 						},
-						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+						"url": "{{BaseURL}}/dietician/604"
 					},
 					"response": []
 				}
