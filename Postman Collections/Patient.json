@@ -378,8 +378,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBYUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NzI2NzgsImV4cCI6MTcyMjYwMTQ3OH0.RYuGLmOJMeDJ0fvhZdyLEkD0Xvxn8ojW1ick9sxe5-xvaTzdSeBoP-EWXeNxHnpwwEvKIo9nQiLuQyRIcHWEFg"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
 					},
 					"response": []
 				}
