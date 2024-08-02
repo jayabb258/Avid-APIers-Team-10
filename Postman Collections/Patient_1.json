@@ -439,12 +439,17 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"jaya\",\n\"LastName\": \"G\",\n\"ContactNumber\": \"9988776555\",\n\"Email\": \"rest@gmail.com\",\n\"Allergy\": \"Soy\",\n\"FoodPreference\": \"Vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1986-08-14\"\n}\n",
+									"value": "{ \"FirstName\": \"jaya\",\n\"LastName\": \"G\",\n\"ContactNumber\": \"9988775555\",\n\"Email\": \"test1@gmail.com\",\n\"Allergy\": \"Soy\",\n\"FoodPreference\": \"Vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1986-05-14\"\n}\n",
 									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "e15azMbfN/Diabetic_and_Hemogram_Test_Thyrocare_lab.pdf[1].pdf"
 								}
 							]
 						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient"
+						"url": "{{BaseURL}}/patient"
 					},
 					"response": []
 				},
@@ -473,6 +478,18 @@
 							}
 						},
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+					},
+					"response": []
+				},
+				{
+					"name": "patient-morbidity",
+					"id": "4f0bb02a-be49-482b-b1cc-94da6bb75080",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
