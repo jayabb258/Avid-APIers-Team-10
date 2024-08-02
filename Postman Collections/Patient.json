@@ -1150,6 +1150,57 @@
 								"url": "{{BaseURL}}/dietician"
 							},
 							"response": []
+						},
+						{
+							"name": "Dietitian Login - Generate Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
+										"exec": [
+											"pm.globals.set(\"variable_key\", \"variable_value\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
+										"exec": [
+											"pm.test(\"Extract value and set global variable\", function () {\r",
+											"    const responseBody = pm.response.json();\r",
+											"    const token = responseBody.token;\r",
+											"\r",
+											"    pm.globals.set(\"AdminToken\", token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "29447780-c6e0-45d8-9a2b-4f7b03a9a60d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\":\"{{pw}}\",\r\n  \"userLoginEmail\":\"{{UserID}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/login"
+							},
+							"response": []
 						}
 					],
 					"id": "79eb9308-cb24-4c8e-9279-7410cedf7b22"
