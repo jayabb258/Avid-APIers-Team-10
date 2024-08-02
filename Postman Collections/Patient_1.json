@@ -218,6 +218,74 @@
 				},
 				{
 					"name": "GET AllMorbidities -200- AS DIETICIAN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "824122c3-d3be-4d68-97ff-99b109d0ef0d",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"   //  pm.collectionVariables.set('MorbidityTestNames',responseBody[i].morbidityTestName);\r",
+									"    if(responseBody[i].morbidityTestName==='Fasting Glucose')\r",
+									"    {\r",
+									"         pm.collectionVariables.set('MorbidityTestName_Fasting_G',responseBody[i].morbidityTestName);\r",
+									"      \r",
+									"          console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"}\r",
+									" if (responseBody[i].morbidityTestName==='Average Glucose')\r",
+									"{\r",
+									"  pm.collectionVariables.set('MorbidityTestName_Average_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='Plasma Glucose')\r",
+									"{\r",
+									"  pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='HbA1c')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='TSH')\r",
+									"{\r",
+									"    // console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_TSH ',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T3')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_T3',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T4')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_T4 ',responseBody[i].morbidityTestName);\r",
+									" \r",
+									"}\r",
+									"\r",
+									"\r",
+									"}})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "7dd367e1-d664-4dc7-9e57-82f034f8ce39",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1543,6 +1611,36 @@
 				"url": "{{BaseURL}}/patient/300"
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "MorbidityTestName_Fasting_G",
+			"value": ""
+		},
+		{
+			"key": "MorbidityTestName_Average_G",
+			"value": ""
+		},
+		{
+			"key": "MorbidityTestName_Plasma_G",
+			"value": ""
+		},
+		{
+			"key": "MorbidityTestName_HBA1C",
+			"value": ""
+		},
+		{
+			"key": "thyroid_TSH ",
+			"value": ""
+		},
+		{
+			"key": "thyroid_T3",
+			"value": ""
+		},
+		{
+			"key": "thyroid_T4 ",
+			"value": ""
 		}
 	]
 }
