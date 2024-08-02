@@ -168,8 +168,38 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve Thyroid Test T4",
-					"id": "65c887d5-5f04-42d2-94bc-4e2a982eefd8",
+					"name": "GET operation -200- AS ADMIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     \r",
+									"    if(i===2)\r",
+									"    {\r",
+									"      \r",
+									"          console.log('morbidity name',responseBody[i].morbidityTestName) \r",
+									"\r",
+									" pm.globals.set(\"morbidity_test_name\", responseBody[i].morbidityTestName)\r",
+									"}\r",
+									"\r",
+									"}\r",
+									"  \r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "f1d6178c-5f0e-4445-a397-ced24bbff717",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -182,7 +212,26 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
+						"url": "{{BaseURL}}/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "GET AllMorbidities -200- AS DIETICIAN",
+					"id": "7dd367e1-d664-4dc7-9e57-82f034f8ce39",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
 					},
 					"response": []
 				},
@@ -263,38 +312,8 @@
 					"response": []
 				},
 				{
-					"name": "GET operation -200- AS ADMIN",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
-								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     \r",
-									"    if(i===2)\r",
-									"    {\r",
-									"      \r",
-									"          console.log('morbidity name',responseBody[i].morbidityTestName) \r",
-									"\r",
-									" pm.globals.set(\"morbidity_test_name\", responseBody[i].morbidityTestName)\r",
-									"}\r",
-									"\r",
-									"}\r",
-									"  \r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "f1d6178c-5f0e-4445-a397-ced24bbff717",
+					"name": "Retrieve Thyroid Test T4",
+					"id": "65c887d5-5f04-42d2-94bc-4e2a982eefd8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -307,13 +326,13 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity"
+						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
 					},
 					"response": []
 				},
 				{
-					"name": "GET AllMorbidities -200- AS DIETICIAN",
-					"id": "7dd367e1-d664-4dc7-9e57-82f034f8ce39",
+					"name": "Retrieve Thyroid Test T3",
+					"id": "059a7369-f2e4-4d30-8701-f5bf813b154d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -326,7 +345,26 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity"
+						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid Test TSH",
+					"id": "c58f1649-5f1e-4ede-9af1-46bbade4b2e6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
 					},
 					"response": []
 				},
