@@ -432,7 +432,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
+						"url": "{{BaseURL}}/morbidity/{{thyroid_TSH}}"
 					},
 					"response": []
 				},
