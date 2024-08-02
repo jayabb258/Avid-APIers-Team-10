@@ -31,8 +31,36 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Create Dietician",
 					"id": "158c432c-4e56-4b08-a658-b3ef3fe0c10a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"9045783531\",\r\n  \"DateOfBirth\": \"2023-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Aa@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/dietician"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "19f2156c-3757-434d-a8d9-7ac519fe3d01",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
