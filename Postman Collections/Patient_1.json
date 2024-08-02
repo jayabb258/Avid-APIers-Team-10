@@ -797,7 +797,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{BearerTokenNeethu}}"
+								"token": "{{BearerTokenAdmin}}"
 							}
 						},
 						"method": "GET",
