@@ -114,7 +114,7 @@
 			]
 		},
 		{
-			"name": "Morbidity",
+			"name": "Morbidity Positive Testing",
 			"item": [
 				{
 					"name": "Admin User Login",
@@ -217,7 +217,7 @@
 					"response": []
 				},
 				{
-					"name": "GET operation -200- AS DIETICIAN",
+					"name": "GET AllMorbidities -200- AS DIETICIAN",
 					"id": "7dd367e1-d664-4dc7-9e57-82f034f8ce39",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -408,6 +408,404 @@
 				}
 			],
 			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
+		},
+		{
+			"name": "MorbityTesting NegativeScenarios",
+			"item": [
+				{
+					"name": "Admin User Login Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
+								"exec": [
+									"pm.globals.set(\"variable_key\", \"variable_value\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.globals.set(\"Bearertk\", token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "65eab61f-bb33-4e8e-8b65-93058c3a1f4a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//   \"password\":\"{{pw}}\",\r\n//   \"userLoginEmail\":\"{{UserID}}\"\r\n// }\r\n\r\n{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "GET operation -200- AS ADMIN Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "98bc9adf-e6c3-4aff-8233-2a4c0f00fa55",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "GET AllMorbidities withinvalid endpoint- AS DIETICIAN Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbcdfa96-f59f-4a00-9429-9a2b77463a49",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"   //  pm.collectionVariables.set('MorbidityTestNames',responseBody[i].morbidityTestName);\r",
+									"    if(responseBody[i].morbidityTestName==='Fasting Glucose')\r",
+									"    {\r",
+									"         pm.collectionVariables.set('MorbidityTestName_Fasting_G',responseBody[i].morbidityTestName);\r",
+									"      \r",
+									"          console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"}\r",
+									" if (responseBody[i].morbidityTestName==='Average Glucose')\r",
+									"{\r",
+									"  pm.collectionVariables.set('MorbidityTestName_Average_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='Plasma Glucose')\r",
+									"{\r",
+									"  pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='HbA1c')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='TSH')\r",
+									"{\r",
+									"    // console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_TSH ',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T3')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_T3',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T4')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_T4 ',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									"\r",
+									"}})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "389e073a-6b90-4760-b7b8-f20f4412b9d3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Morbidity with wrong testname",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6d2ac6e9-e4b3-442d-87d0-3fc54d7dc0bb",
+								"exec": [
+									"//First do pm.collectionVariables.get('arrayname')\r",
+									"const testNameMap =pm.collectionVariables.get('MorbidityTestNames');\r",
+									"//const data=pm.collectionVariables.get('MorbidityTestNames');\r",
+									"\r",
+									"console.log(testNameMap);\r",
+									"\r",
+									"function getTestNameById(MorbidityId) {\r",
+									"\r",
+									"    for(i=0;i<testNameMap.length;i++)\r",
+									"    {\r",
+									"        const morbidity_id=testNameMap[i].morbidityId;\r",
+									"        console.log('morbidity_id---',morbidity_id);\r",
+									"        if(morbidity_id==='DIA_FG')\r",
+									"        {\r",
+									"            console.log('testNameMap[i].morbidityTestName',testNameMap[i].morbidityTestName);\r",
+									"    pm.collectionVariables.set('MorbidityTestNames',testNameMap[i].morbidityTestName);\r",
+									"        }\r",
+									"\r",
+									"\r",
+									"       // console.log('morbidity name',responseBody[i].morbidityTestName)\r",
+									"       // if(testNameMap[i].MorbidityIdmorbidityTestName)\r",
+									"    }\r",
+									"//    // const item = testNameMap.find(obj => obj.morbidityTestId === MorbidityId);\r",
+									"//    console.log('MorbidityId',MorbidityId)\r",
+									"// console.log('found morbity test nameeeeeeeeeeeee',item)\r",
+									"//     return item ? item.morbidityTestName : null; // Return null if not found\r",
+									"}\r",
+									"\r",
+									"// Example usage\r",
+									"// const morbidityTestName = getTestNameById(\"DIA_FG\");\r",
+									"// console.log(morbidityTestName);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "13757a5b-590a-4643-ad2b-6d509b601940",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/fever"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid  invalid testname",
+					"id": "28e480c6-8496-48e3-ad10-e03e9907994b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/TSHh"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid Test T3 with invalidtestname",
+					"id": "5b205ae1-9b55-4301-a6b3-85876d1d2022",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/T3333333"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid Test T4 with wrong testname",
+					"id": "bd623db5-b65f-4d1a-9543-017a9f4b7c4e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/T444"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve DiabetesTest HBA1C negativeTesting Copy",
+					"id": "4464a4c0-30be-4a57-ab33-4563db34b04c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test Average Glucose with invalid testname",
+					"id": "77fcf65b-f6ad-454c-8eb1-64ea67b21040",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/avg glucos"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test Fasting Glucose with invalid testname",
+					"id": "156f9b71-2015-4556-a75e-81f2fc83b33c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/fasting glucose123"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test  Plasma Glucose with inavalid Test_name",
+					"id": "809b8f56-2606-4685-96e7-fb41cefb43dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/plasma glucoseeee"
+					},
+					"response": []
+				},
+				{
+					"name": "GET using Dietician Token Copy",
+					"id": "1918ee4f-eb6b-41ec-8a75-d0ad747f1f6b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBYUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NzI2NzgsImV4cCI6MTcyMjYwMTQ3OH0.RYuGLmOJMeDJ0fvhZdyLEkD0Xvxn8ojW1ick9sxe5-xvaTzdSeBoP-EWXeNxHnpwwEvKIo9nQiLuQyRIcHWEFg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
+					},
+					"response": []
+				}
+			],
+			"id": "9ad3e2f1-0eb0-438c-8be6-959437a4950a"
 		},
 		{
 			"name": "Patient-GET & DELETE",
