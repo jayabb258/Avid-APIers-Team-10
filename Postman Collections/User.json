@@ -1147,24 +1147,6 @@
 			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
 		},
 		{
-			"name": "Dietician Ishu",
-			"item": [
-				{
-					"name": "New Request",
-					"id": "666c5e9c-c64e-463f-8ae7-0e2f157bfa12",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			],
-			"id": "a34b90c4-68e1-4ba9-b0ef-2676f4c45174"
-		},
-		{
 			"name": "Delete Patient",
 			"id": "3c02e8d4-83c8-49c5-a470-c90647538c90",
 			"protocolProfileBehavior": {
