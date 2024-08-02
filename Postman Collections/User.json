@@ -168,6 +168,101 @@
 					"response": []
 				},
 				{
+					"name": "Retrieve Thyroid Test T4",
+					"id": "65c887d5-5f04-42d2-94bc-4e2a982eefd8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve DiabetesTest HBA1C",
+					"id": "84cf1358-6264-4142-891f-215c8e7dc9f9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_HBA1C}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test Average Glucose",
+					"id": "e57de8fc-c2e1-437c-b239-c2edb189df14",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Average_G}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test Fasting Glucose",
+					"id": "49d926f4-fa9b-4824-8755-1f51e56bbf0b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Fasting_G}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test  Plasma Glucose",
+					"id": "25d86b33-145d-49fb-aded-344ca1c05a2b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Plasma_G}}"
+					},
+					"response": []
+				},
+				{
 					"name": "GET operation -200- AS ADMIN",
 					"event": [
 						{
@@ -232,158 +327,6 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{BaseURL}}/morbidity"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Morbidity condition by Test name",
-					"id": "77aca47f-a8c5-42cb-af97-592ed83debc8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{morbidity_test_name}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Thyroid  Test TSH",
-					"id": "45135f18-a8c2-4288-af3e-8924753f2639",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/TSH"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Thyroid Test T3",
-					"id": "9585f6d2-4856-48d1-be0c-618eb5525924",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/TSH"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Thyroid Test T4",
-					"id": "0758c68f-e811-4bd7-b3fd-83e99cb64bb2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/TSH"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve DiabetesTest HBA1C",
-					"id": "feb88aea-c422-4415-893f-a7f345722443",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/HBA1C"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Diabetes Test Average Glucose",
-					"id": "347c37b2-1c8c-455c-b0f7-34b68e15b9cb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/HBA1C"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Diabetes Test Fasting Glucose",
-					"id": "2141f545-f742-4ce0-8d09-832992440720",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/Fasting Glucose"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Diabetes Test  Plasma Glucose",
-					"id": "2453aa7a-36a2-4cf9-b4b9-076648683ee0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/Plasma Glucose"
 					},
 					"response": []
 				},
