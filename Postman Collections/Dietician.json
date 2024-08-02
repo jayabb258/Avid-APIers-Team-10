@@ -370,6 +370,18 @@
 						"url": "{{BaseURL}}/morbidity/Plasma Glucose"
 					},
 					"response": []
+				},
+				{
+					"name": "GET using Dietician Token",
+					"id": "2b7c0042-ba46-42c5-9798-90db27a823a7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
