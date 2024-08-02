@@ -59,7 +59,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Dietician Login",
 					"id": "19f2156c-3757-434d-a8d9-7ac519fe3d01",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1161,7 +1161,20 @@
 		},
 		{
 			"name": "Dietician Ishu",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "666c5e9c-c64e-463f-8ae7-0e2f157bfa12",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "a34b90c4-68e1-4ba9-b0ef-2676f4c45174"
 		},
 		{
