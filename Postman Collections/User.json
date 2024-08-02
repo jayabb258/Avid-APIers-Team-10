@@ -1018,6 +1018,10 @@
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": "{{BaseURL}}/patient/testReports/300"
 					},
 					"response": []
