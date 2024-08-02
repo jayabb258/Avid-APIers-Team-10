@@ -1085,7 +1085,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{Dieticianpassword}}\",\r\n  \"userLoginEmail\": \"Nn@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"{{Dieticianpassword}}\",\r\n  \"userLoginEmail\": \"{{DieticianEmail}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
