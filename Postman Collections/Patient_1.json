@@ -1337,14 +1337,14 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "Key",
-									"value": "patientInfo",
+									"key": "patientInfo",
+									"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"string\",\n\"Email\": \"string\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
 									"type": "text"
 								},
 								{
-									"key": "Value",
-									"value": "",
-									"type": "text"
+									"key": "file",
+									"type": "file",
+									"src": "NHPFbvXXu/test.csv"
 								}
 							]
 						},
