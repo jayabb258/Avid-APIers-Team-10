@@ -406,15 +406,20 @@
 							"script": {
 								"id": "950286ed-c4e7-4d15-8c3a-10d84ce81c0b",
 								"exec": [
-									"const thyroid=pm.collectionVariables.get('thyroid_T');\r",
-									"if(thyroid==undefined\r",
-									")\r",
+									"const thyroidT4=pm.collectionVariables.get('thyroid_T4');\r",
+									"if(thyroidT4==undefined)\r",
 									"{\r",
-									"console.log('ccccccccccccc',thyroid)\r",
-									"}\r",
-									"else{\r",
 									"\r",
-									"}"
+									"pm.collectionVariables.set('thyroid_T4',T4)\r",
+									"}\r",
+									"\r",
+									"const thyroidT3=pm.collectionVariables.get('thyroid_T3');\r",
+									"if(thyroidT3==undefined)\r",
+									"{\r",
+									"\r",
+									"pm.collectionVariables.set('thyroid_T3',T3)\r",
+									"}\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
