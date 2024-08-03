@@ -1254,6 +1254,25 @@
 						"url": "{{BaseURL}}/dietician/861"
 					},
 					"response": []
+				},
+				{
+					"name": "GET DIETITIAN 861 864 Copy 2",
+					"id": "6f397f2f-79b0-4c63-9708-331901095379",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{AdminToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/dietician/861"
+					},
+					"response": []
 				}
 			],
 			"id": "281e42fe-d5cc-4640-9205-e2deeebfa918"
