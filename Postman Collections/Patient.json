@@ -2264,8 +2264,8 @@
 											"});",
 											"",
 											"",
-											"pm.test(\"Error message shows Allergy selection is wrong\", function () {",
-											"    pm.expect(pm.response.text()).to.include(\"Invalid Allergy Category\");",
+											"pm.test(\"Error message shows Cuisine Category selection is wrong\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Invalid Cuisine Category\");",
 											"});",
 											"",
 											"",
@@ -2333,6 +2333,163 @@
 										{
 											"key": "patientInfo",
 											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"Japanese\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef51c28-d3c7-46b0-be9b-23781b2180b5"
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient"
+							},
+							"response": []
+						},
+						{
+							"name": "5.\tCreate New Patient Patient that already exists Mandatory Field FirstName missing",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e690cf65-12d5-401d-a4cd-9918cd68508d",
+										"exec": [
+											"",
+											"",
+											"// // Load lodash library code",
+											"// const lodash = require('lodash');",
+											"",
+											"",
+											"// //Select Random Allergy",
+											"// var allergy = lodash.sample([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+											"",
+											"// pm.environment.set(\"allergyKB\",allergy);",
+											"",
+											"// // Select Random cuisine",
+											"",
+											"",
+											"// var cuisine = lodash.sample([\"ndian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
+											"",
+											"// pm.environment.set(\"cuisineKB\",cuisine);",
+											"",
+											"// //select Random food preference",
+											"",
+											"// var foodpref = lodash.sample([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
+											"",
+											"// pm.environment.set(\"foodpref\",foodpref);",
+											"",
+											"",
+											"// //Generate random contact number",
+											"// let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number",
+											"// pm.environment.set(\"phoneptKB\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
+											"",
+											"",
+											"// //generate random email address",
+											"",
+											"// let mail = pm.variables.replaceIn(\"{{$randomEmail}}\");// Generate random email",
+											"// pm.environment.set(\"mailptKB\",mail);",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
+										"exec": [
+											"",
+											"let response = pm.response.json();",
+											"// pm.environment.set(\"patientIdKB\", response.patientId);",
+											"",
+											"//Check error message - single &  extended",
+											"",
+											"//Status Code is 400 & Status description",
+											"",
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Status code name is Bad Request\", function () {",
+											"    pm.response.to.have.status(\"Bad Request\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Error message shows duplicate patient\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"DUPLICATE_ENTITY\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Error message shows duplicate patient exists due to same Dob and contact number\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Patient already exists with given DateOfBirth and ContactNumber\");",
+											"});",
+											"",
+											"",
+											"",
+											"// Content header check",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"",
+											"//validation of content type",
+											"pm.test('Content-Type Header is application-json', () => {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+											"})",
+											"//Data type validation",
+											"pm.test('All Data types are correct', () => {",
+											"    pm.expect(response.errorCode).to.be.a('string');",
+											"    pm.expect(response.errorMessage).to.be.a('string');",
+											"})",
+											"",
+											"//check if all items are present",
+											"",
+											"",
+											"var schema = {",
+											"    properties: {",
+											"    errorCode: {",
+											"      type: \"string\",",
+											"    },",
+											"    errorMessage: {",
+											"      type: \"string\",",
+											"    },",
+											"  },",
+											"  required: [",
+											"    \"errorCode\",",
+											"    \"errorMessage\"",
+											"  ],",
+											"};",
+											"",
+											"pm.test(\"Schema is valid\", () => {",
+											"  pm.response.to.have.jsonSchema(schema);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "a1444f38-f9e3-423e-9662-691bcc400784",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
 											"type": "text"
 										},
 										{
