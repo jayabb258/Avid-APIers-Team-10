@@ -1246,7 +1246,21 @@
 										"exec": [
 											"",
 											"let response = pm.response.json();",
-											"pm.environment.set(\"patientIdKB\", response.patientId);"
+											"pm.environment.set(\"patientIdKB\", response.patientId);",
+											"",
+											"// Successful POST request",
+											"",
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"});",
+											"",
+											"// Status code name ",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"    pm.response.to.have.status(\"Created\");",
+											"});",
+											"",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
