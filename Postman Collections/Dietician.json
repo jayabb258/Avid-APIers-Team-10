@@ -1173,7 +1173,7 @@
 					"name": "Tests",
 					"item": [
 						{
-							"name": "POST Patient Positive",
+							"name": "2.\tCreate New Patient positive",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1263,6 +1263,30 @@
 									]
 								},
 								"url": "{{BaseURL}}/patient"
+							},
+							"response": []
+						},
+						{
+							"name": "3.\tUpdate Patient by UserId",
+							"id": "a5967d4c-bfd1-430a-9298-f6784c089a26",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "4.\tAdd New Reports with/without Vitals for existing Patient",
+							"id": "b3e6a50e-c495-49c9-93fe-a378f7df6619",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
