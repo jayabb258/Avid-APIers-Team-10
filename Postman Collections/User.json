@@ -1327,6 +1327,19 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
+								"exec": [
+									"",
+									"let response = pm.response.json();",
+									"pm.environment.set(\"patientIdKB\", response.patientId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"id": "6482d75e-6914-4623-b319-1df4f129590d",
@@ -1358,6 +1371,18 @@
 							]
 						},
 						"url": "{{BaseURL}}/patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patient",
+					"id": "68a5bccb-a933-42d3-b375-5abf1aaf4a2a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
