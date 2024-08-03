@@ -1036,6 +1036,69 @@
 					"name": "PreRequisites",
 					"item": [
 						{
+							"name": "Temporary",
+							"item": [
+								{
+									"name": "GET DIETITIAN 861 864",
+									"id": "2f3dd6c2-563b-4276-beb7-133361bedb2d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{AdminToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{BaseURL}}/dietician/861"
+									},
+									"response": []
+								},
+								{
+									"name": "GET DIETITIAN 861 864 Copy",
+									"id": "1a2ea5f7-bc59-4ddb-8da7-3b146e9e4c1e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{AdminToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{BaseURL}}/dietician"
+									},
+									"response": []
+								},
+								{
+									"name": "GET DIETITIAN 861 864 Copy 2",
+									"id": "6f397f2f-79b0-4c63-9708-331901095379",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{AdminToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": "{{BaseURL}}/dietician/864"
+									},
+									"response": []
+								}
+							],
+							"id": "2c84e4ff-ec2c-41f9-8e43-cab7afff15d8"
+						},
+						{
 							"name": "Admin User Login Copy",
 							"event": [
 								{
@@ -1149,7 +1212,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "// {\r\n//   \"ContactNumber\": \"{{phoneNumber}}\",\r\n//   \"DateOfBirth\": \"{{dob}}\",\r\n//   \"Education\": \"string\",\r\n//   \"Email\": \"string\",\r\n//   \"Firstname\": \"string\",\r\n//   \"HospitalCity\": \"string\",\r\n//   \"HospitalName\": \"string\",\r\n//   \"HospitalPincode\": \"string\",\r\n//   \"HospitalStreet\": \"string\",\r\n//   \"Lastname\": \"string\"\r\n \r\n// }\r\n\r\n\t{\r\n  \"ContactNumber\": \"{{phoneNumber}}\",\r\n  \"DateOfBirth\": \"{{dob}}\",\r\n  \"Education\": \"PhD\",\r\n  \"Email\": \"diet@avidapier.com\",\r\n  \"Firstname\": \"Donna\",\r\n  \"HospitalCity\": \"Macon\",\r\n  \"HospitalName\": \"Summer Haven\",\r\n  \"HospitalPincode\": \"335001\",\r\n  \"HospitalStreet\": \"24 Boulevard\",\r\n  \"Lastname\": \"Summers\"\r\n \r\n}\r\n\r\n\r\n// \t{\r\n//   \"ContactNumber\": \"1251246353\",\r\n//   \"DateOfBirth\": \"1998-07-26T18:14:08.570Z\",\r\n//   \"Education\": \"PhD\",\r\n//   \"Email\": \"diet@avidapier.com\",\r\n//   \"Firstname\": \"Donna\",\r\n//   \"HospitalCity\": \"Macon\",\r\n//   \"HospitalName\": \"Summer Haven\",\r\n//   \"HospitalPincode\": \"335001\",\r\n//   \"HospitalStreet\": \"string\",\r\n//   \"Lastname\": \"Summers\"\r\n \r\n// }\r\n\r\n",
+									"raw": "// {\r\n//   \"ContactNumber\": \"{{phoneNumber}}\",\r\n//   \"DateOfBirth\": \"{{dob}}\",\r\n//   \"Education\": \"string\",\r\n//   \"Email\": \"string\",\r\n//   \"Firstname\": \"string\",\r\n//   \"HospitalCity\": \"string\",\r\n//   \"HospitalName\": \"string\",\r\n//   \"HospitalPincode\": \"string\",\r\n//   \"HospitalStreet\": \"string\",\r\n//   \"Lastname\": \"string\"\r\n \r\n// }\r\n\r\n\t{\r\n  \"ContactNumber\": \"{{phoneNumber}}\",\r\n  \"DateOfBirth\": \"{{dob}}\",\r\n  \"Education\": \"PhD\",\r\n  \"Email\": \"{{dietmail}}\",\r\n  \"Firstname\": \"Donna\",\r\n  \"HospitalCity\": \"Macon\",\r\n  \"HospitalName\": \"Summer Haven\",\r\n  \"HospitalPincode\": \"335001\",\r\n  \"HospitalStreet\": \"24 Boulevard\",\r\n  \"Lastname\": \"Summers\"\r\n \r\n}\r\n\r\n\r\n// \t{\r\n//   \"ContactNumber\": \"1251246353\",\r\n//   \"DateOfBirth\": \"1998-07-26T18:14:08.570Z\",\r\n//   \"Education\": \"PhD\",\r\n//   \"Email\": \"diet@avidapier.com\",\r\n//   \"Firstname\": \"Donna\",\r\n//   \"HospitalCity\": \"Macon\",\r\n//   \"HospitalName\": \"Summer Haven\",\r\n//   \"HospitalPincode\": \"335001\",\r\n//   \"HospitalStreet\": \"string\",\r\n//   \"Lastname\": \"Summers\"\r\n \r\n// }\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1203,7 +1266,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"password\":\"{{pwdiet}}\",\r\n  \"userLoginEmail\":\"{{dietid}}\"\r\n}\r\n\r\n// {\r\n//   \"password\":\"Clover21\",\r\n//   \"userLoginEmail\":\"diet@avidapier.com\"\r\n// }\r\n\r\n\r\n//     \"id\": 861,\r\n//     \"loginPassword\": \"Clover21\",\r\n//     \"Firstname\": \"Donna\",\r\n//     \"Lastname\": \"Summers\",\r\n//     \"ContactNumber\": \"9413203887\",\r\n//     \"DateOfBirth\": \"2023-10-16T12:56:08.000+00:00\",\r\n//     \"Email\": \"diet@avidapier.com\",\r\n//     \"HospitalName\": \"Summer Haven\",\r\n//     \"HospitalStreet\": \"string\",\r\n//     \"HospitalCity\": \"Macon\",\r\n//     \"HospitalPincode\": \"335001\",\r\n//     \"Education\": \"PhD\"\r\n// }",
+									"raw": "{\r\n  \"password\":\"{{pwdiet}}\",\r\n  \"userLoginEmail\":\"{{dietmail}}\"\r\n}\r\n\r\n// {\r\n//   \"password\":\"Clover21\",\r\n//   \"userLoginEmail\":\"diet@avidapier.com\"\r\n// }\r\n\r\n\r\n//     \"id\": 861,\r\n//     \"loginPassword\": \"Clover21\",\r\n//     \"Firstname\": \"Donna\",\r\n//     \"Lastname\": \"Summers\",\r\n//     \"ContactNumber\": \"9413203887\",\r\n//     \"DateOfBirth\": \"2023-10-16T12:56:08.000+00:00\",\r\n//     \"Email\": \"diet@avidapier.com\",\r\n//     \"HospitalName\": \"Summer Haven\",\r\n//     \"HospitalStreet\": \"string\",\r\n//     \"HospitalCity\": \"Macon\",\r\n//     \"HospitalPincode\": \"335001\",\r\n//     \"Education\": \"PhD\"\r\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1216,63 +1279,6 @@
 						}
 					],
 					"id": "79eb9308-cb24-4c8e-9279-7410cedf7b22"
-				},
-				{
-					"name": "GET DIETITIAN 861 864",
-					"id": "2f3dd6c2-563b-4276-beb7-133361bedb2d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{AdminToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/dietician/861"
-					},
-					"response": []
-				},
-				{
-					"name": "GET DIETITIAN 861 864 Copy",
-					"id": "1a2ea5f7-bc59-4ddb-8da7-3b146e9e4c1e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{AdminToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/dietician/861"
-					},
-					"response": []
-				},
-				{
-					"name": "GET DIETITIAN 861 864 Copy 2",
-					"id": "6f397f2f-79b0-4c63-9708-331901095379",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{AdminToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/dietician/861"
-					},
-					"response": []
 				}
 			],
 			"id": "281e42fe-d5cc-4640-9205-e2deeebfa918"
