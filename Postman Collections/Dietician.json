@@ -462,11 +462,6 @@
 			"name": "MorbityTesting NegativeScenarios",
 			"item": [
 				{
-					"name": "PostRequisites",
-					"item": [],
-					"id": "23db8cde-efdf-48ea-9167-208b9acb438b"
-				},
-				{
 					"name": "Admin User Login Copy",
 					"event": [
 						{
@@ -1113,117 +1108,129 @@
 					"id": "79eb9308-cb24-4c8e-9279-7410cedf7b22"
 				},
 				{
-					"name": "POST Patient Positive",
-					"event": [
+					"name": "Tests",
+					"item": [
 						{
-							"listen": "prerequest",
-							"script": {
-								"id": "e690cf65-12d5-401d-a4cd-9918cd68508d",
-								"exec": [
-									"",
-									"",
-									"// Load lodash library code",
-									"const lodash = require('lodash');",
-									"",
-									"",
-									"//Select Random Allergy",
-									"var allergy = lodash.sample([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
-									"",
-									"pm.environment.set(\"allergyKB\",allergy);",
-									"",
-									"// Select Random cuisine",
-									"",
-									"",
-									"var cuisine = lodash.sample([\"ndian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
-									"",
-									"pm.environment.set(\"cuisineKB\",cuisine);",
-									"",
-									"//select Random food preference",
-									"",
-									"var foodpref = lodash.sample([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
-									"",
-									"pm.environment.set(\"foodpref\",foodpref);",
-									"",
-									"",
-									"//Generate random contact number",
-									"let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number",
-									"pm.environment.set(\"phoneptKB\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
-									"",
-									"",
-									"//generate random email address",
-									"",
-									"let mail = pm.variables.replaceIn(\"{{$randomEmail}}\");// Generate random email",
-									"pm.environment.set(\"mailptKB\",mail);",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
-								"exec": [
-									"",
-									"let response = pm.response.json();",
-									"pm.environment.set(\"patientIdKB\", response.patientId);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "6482d75e-6914-4623-b319-1df4f129590d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{DietTokenKB}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
+							"name": "POST Patient Positive",
+							"event": [
 								{
-									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
-									"type": "text"
+									"listen": "prerequest",
+									"script": {
+										"id": "e690cf65-12d5-401d-a4cd-9918cd68508d",
+										"exec": [
+											"",
+											"",
+											"// Load lodash library code",
+											"const lodash = require('lodash');",
+											"",
+											"",
+											"//Select Random Allergy",
+											"var allergy = lodash.sample([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+											"",
+											"pm.environment.set(\"allergyKB\",allergy);",
+											"",
+											"// Select Random cuisine",
+											"",
+											"",
+											"var cuisine = lodash.sample([\"ndian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
+											"",
+											"pm.environment.set(\"cuisineKB\",cuisine);",
+											"",
+											"//select Random food preference",
+											"",
+											"var foodpref = lodash.sample([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
+											"",
+											"pm.environment.set(\"foodpref\",foodpref);",
+											"",
+											"",
+											"//Generate random contact number",
+											"let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number",
+											"pm.environment.set(\"phoneptKB\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
+											"",
+											"",
+											"//generate random email address",
+											"",
+											"let mail = pm.variables.replaceIn(\"{{$randomEmail}}\");// Generate random email",
+											"pm.environment.set(\"mailptKB\",mail);",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								},
 								{
-									"key": "file",
-									"type": "file",
-									"src": "d_e_N8Ov2/test.pdf"
+									"listen": "test",
+									"script": {
+										"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
+										"exec": [
+											"",
+											"let response = pm.response.json();",
+											"pm.environment.set(\"patientIdKB\", response.patientId);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
-							]
-						},
-						"url": "{{BaseURL}}/patient"
-					},
-					"response": []
+							],
+							"id": "6482d75e-6914-4623-b319-1df4f129590d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "d_e_N8Ov2/test.pdf"
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient"
+							},
+							"response": []
+						}
+					],
+					"id": "a95ec6d1-9ea0-4776-b80c-371ba7c1c072"
 				},
 				{
-					"name": "Delete Patient",
-					"id": "68a5bccb-a933-42d3-b375-5abf1aaf4a2a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{DietTokenKB}}"
-							}
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": "{{BaseURL}}/patient/{{patientIdKB}}"
-					},
-					"response": []
+					"name": "PostRequisites",
+					"item": [
+						{
+							"name": "Delete Patient",
+							"id": "68a5bccb-a933-42d3-b375-5abf1aaf4a2a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
+							},
+							"response": []
+						}
+					],
+					"id": "23db8cde-efdf-48ea-9167-208b9acb438b"
 				}
 			],
 			"id": "281e42fe-d5cc-4640-9205-e2deeebfa918"
