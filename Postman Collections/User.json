@@ -1774,8 +1774,15 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{AdminToken}}"
+									}
+								},
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": "{{BaseURL}}/logoutdietician"
 							},
 							"response": []
 						}
