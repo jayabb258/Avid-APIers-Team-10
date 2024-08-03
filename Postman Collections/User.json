@@ -1224,20 +1224,34 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{AdminToken}}"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{BaseURL}}/dietician/861"
 					},
 					"response": []
 				},
 				{
 					"name": "GET DIETITIAN 861 864 Copy",
-					"id": "05919d82-9462-4027-84f5-1e40c2ddbef1",
+					"id": "1a2ea5f7-bc59-4ddb-8da7-3b146e9e4c1e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{AdminToken}}"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{BaseURL}}/dietician/861"
 					},
 					"response": []
 				}
