@@ -1725,7 +1725,7 @@
 					"name": "Negative Tests",
 					"item": [
 						{
-							"name": "1.\tCreate New Patient Patient that already exists",
+							"name": "1.\tCreate New Patient Patient that already exists 400",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1875,6 +1875,47 @@
 									]
 								},
 								"url": "{{BaseURL}}/patient"
+							},
+							"response": []
+						},
+						{
+							"name": "2. Update Patient invalid ID",
+							"id": "09407d65-9b74-4c31-b047-2289e1609c80",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Corbett\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1992-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0",
+											"disabled": true
+										},
+										{
+											"key": "vitals",
+											"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient/99"
 							},
 							"response": []
 						}
