@@ -1708,6 +1708,11 @@
 					"id": "a95ec6d1-9ea0-4776-b80c-371ba7c1c072"
 				},
 				{
+					"name": "Negative Tests",
+					"item": [],
+					"id": "951d1390-bc10-4764-ba4c-38dac9ccd232"
+				},
+				{
 					"name": "PostRequisites",
 					"item": [
 						{
