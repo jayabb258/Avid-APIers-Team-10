@@ -494,7 +494,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{thyroid_TSH}}"
+						"url": "{{BaseURL}}/logoutdietician"
 					},
 					"response": []
 				},
