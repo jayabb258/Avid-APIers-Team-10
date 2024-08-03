@@ -1730,7 +1730,26 @@
 							"response": []
 						},
 						{
-							"name": "DELETE DIETITIAN Copy",
+							"name": "Logout Dietitian User",
+							"id": "49f24196-acb4-4225-b24b-1efe17d3dd3f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseURL}}/logoutdietician"
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE DIETITIAN created",
 							"id": "dfd55536-5cab-4999-8f94-d4e89bd065b5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1744,7 +1763,19 @@
 								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{BaseURL}}/dietician/864"
+								"url": "{{BaseURL}}/dietician/{{dietid}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Logout Admin User",
+							"id": "515dd6ea-274a-473d-8c6e-c5f9f1d8bb47",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
