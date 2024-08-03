@@ -1282,6 +1282,44 @@
 				},
 				{
 					"name": "POST Patient Positive",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e690cf65-12d5-401d-a4cd-9918cd68508d",
+								"exec": [
+									"//Select Random Allergy",
+									"",
+									"// var Cities = [\"San Francisco\", \"San Diego\", \"Boston\"];",
+									"",
+									"// pm.environment.set('Cities',Cities);",
+									"",
+									"// pm.environment.set(\"CITY\", Cities[Math.floor(Math.random() * Cities.length)]);",
+									"",
+									"var allergy = _.sample([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+									"",
+									"pm.environment.set(\"allergyKB\",allergy);",
+									"",
+									"",
+									"",
+									"// Select Random cuisine",
+									"",
+									"",
+									"var cuisine = _.sample([\"Indian\", \"South Indian\", \"Rajasthani\", \"Punjabi\", \"Bengali\", \"Orissa\", \"Gujarathi\", \"Maharastrian\", \"Andhra\", \"Kerala\", \"Goa\", \"Kashmir\", \"Himachali\", \"Tamil nadu\", \"Sindhi\", \"Chhattisgarhi\", \"Madhya Pradesh\", \"Assamese\", \"Manipuri\", \"Tripuri\", \"Sikkimese\", \"Mizo\", \"Arunachali\", \"Uttarakhand\", \"Bihari\" ]);",
+									"",
+									"pm.environment.set(\"cuisineKB\",cuisine);",
+									"",
+									"//select Random food preference",
+									"",
+									"var foodpref = _.sample([\"Vegan\", \"Vegetarian\", \"Jain\", \"Eggitarian\", \"NonVeg\"]);",
+									"",
+									"pm.environment.set(\"foodpref\",foodpref);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "6482d75e-6914-4623-b319-1df4f129590d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1297,7 +1335,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "Key : patientInfo\n\nValue : { \"FirstName\": \"string\",\n\"LastName\": \"string\",\n\"ContactNumber\": \"string\",\n\"Email\": \"string\",\n\"Allergy\": \"string\",\n\"FoodPreference\": \"string\",\n\"CuisineCategory\":\"string\",\n\"DateOfBirth\": \"1986-02-14\"\n}\n\nKey : file\nValue : upload\n",
 							"options": {
 								"raw": {
 									"language": "json"
