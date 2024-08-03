@@ -400,6 +400,27 @@
 				},
 				{
 					"name": "Retrieve Thyroid Test T3",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "950286ed-c4e7-4d15-8c3a-10d84ce81c0b",
+								"exec": [
+									"const thyroid=pm.collectionVariables.get('thyroid_T');\r",
+									"if(thyroid==undefined\r",
+									")\r",
+									"{\r",
+									"console.log('ccccccccccccc',thyroid)\r",
+									"}\r",
+									"else{\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "059a7369-f2e4-4d30-8701-f5bf813b154d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
