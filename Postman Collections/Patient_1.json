@@ -2579,7 +2579,7 @@
 											"",
 											"",
 											"pm.test(\"Error message shows duplicate patient exists due to same Dob and contact number\", function () {",
-											"    pm.expect(pm.response.text()).to.include(\"firstName : User First Name is Mandatory!\");",
+											"    pm.expect(pm.response.text()).to.include(\"lastName : User Last Name is Mandatory!\");",
 											"});",
 											"",
 											"",
