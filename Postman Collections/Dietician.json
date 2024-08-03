@@ -922,71 +922,90 @@
 			"name": "Patient - PUT & POST",
 			"item": [
 				{
-					"name": "PreRequisites",
+					"name": "Temporary",
 					"item": [
 						{
-							"name": "Temporary",
-							"item": [
-								{
-									"name": "GET DIETITIAN 861 864",
-									"id": "2f3dd6c2-563b-4276-beb7-133361bedb2d",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{AdminToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": "{{BaseURL}}/dietician/861"
-									},
-									"response": []
+							"name": "GET DIETITIAN 861 864",
+							"id": "2f3dd6c2-563b-4276-beb7-133361bedb2d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{AdminToken}}"
+									}
 								},
-								{
-									"name": "GET DIETITIAN 861 864 Copy",
-									"id": "1a2ea5f7-bc59-4ddb-8da7-3b146e9e4c1e",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{AdminToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": "{{BaseURL}}/dietician"
-									},
-									"response": []
-								},
-								{
-									"name": "GET DIETITIAN 861 864 Copy 2",
-									"id": "6f397f2f-79b0-4c63-9708-331901095379",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{AdminToken}}"
-											}
-										},
-										"method": "DELETE",
-										"header": [],
-										"url": "{{BaseURL}}/dietician/864"
-									},
-									"response": []
-								}
-							],
-							"id": "2c84e4ff-ec2c-41f9-8e43-cab7afff15d8"
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseURL}}/dietician/861"
+							},
+							"response": []
 						},
+						{
+							"name": "GET DIETITIAN 861 864 Copy",
+							"id": "1a2ea5f7-bc59-4ddb-8da7-3b146e9e4c1e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{AdminToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE DIETITIAN",
+							"id": "6f397f2f-79b0-4c63-9708-331901095379",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{AdminToken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{BaseURL}}/dietician/864"
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE PATIENT",
+							"id": "d373f06c-ab38-4428-aeee-64faa69d8d25",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
+							},
+							"response": []
+						}
+					],
+					"id": "2c84e4ff-ec2c-41f9-8e43-cab7afff15d8"
+				},
+				{
+					"name": "PreRequisites",
+					"item": [
 						{
 							"name": "Admin User Login",
 							"event": [
@@ -1170,7 +1189,7 @@
 					"id": "79eb9308-cb24-4c8e-9279-7410cedf7b22"
 				},
 				{
-					"name": "Tests",
+					"name": "Positive Tests",
 					"item": [
 						{
 							"name": "2.\tCreate New Patient positive",
@@ -1258,7 +1277,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "postman-cloud:///1ef51b81-b15a-4390-b425-3b11ac6df8a0"
+											"src": "postman-cloud:///1ef51c28-d3c7-46b0-be9b-23781b2180b5"
 										}
 									]
 								},
