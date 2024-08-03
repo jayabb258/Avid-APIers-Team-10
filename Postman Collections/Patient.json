@@ -480,6 +480,25 @@
 					"response": []
 				},
 				{
+					"name": "Admin Logout",
+					"id": "8938238a-b1dc-4c84-b009-689f1067878e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{thyroid_TSH}}"
+					},
+					"response": []
+				},
+				{
 					"name": "GET using Dietician Token",
 					"id": "2b7c0042-ba46-42c5-9798-90db27a823a7",
 					"protocolProfileBehavior": {
