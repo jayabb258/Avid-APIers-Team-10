@@ -259,7 +259,7 @@
 									" if (responseBody[i].morbidityTestName==='TSH')\r",
 									"{\r",
 									"    // console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"  pm.collectionVariables.set('thyroid_TSH ',responseBody[i].morbidityTestName);\r",
+									"  pm.collectionVariables.set('thyroid_TSH',responseBody[i].morbidityTestName);\r",
 									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
 									"}\r",
 									"\r",
@@ -274,7 +274,7 @@
 									" if (responseBody[i].morbidityTestName==='T4')\r",
 									"{\r",
 									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"  pm.collectionVariables.set('thyroid_T4 ',responseBody[i].morbidityTestName);\r",
+									"  pm.collectionVariables.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
 									" \r",
 									"}\r",
 									"\r",
@@ -1879,6 +1879,14 @@
 		},
 		{
 			"key": "thyroid_T4 ",
+			"value": ""
+		},
+		{
+			"key": "thyroid_TSH",
+			"value": ""
+		},
+		{
+			"key": "thyroid_T4",
 			"value": ""
 		}
 	]
