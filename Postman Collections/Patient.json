@@ -1163,7 +1163,7 @@
 									"script": {
 										"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
 										"exec": [
-											"pm.globals.set(\"variable_key\", \"variable_value\");"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1191,17 +1191,11 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{AdminToken}}"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"password\":\"{{pwdiet}}\",\r\n  \"userLoginEmail\":\"{{dietid}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
+									"raw": "{\r\n  \"password\":\"{{pwdiet}}\",\r\n  \"userLoginEmail\":\"{{dietid}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
