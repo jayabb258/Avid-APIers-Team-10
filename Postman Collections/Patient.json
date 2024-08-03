@@ -1192,7 +1192,7 @@
 					"name": "Positive Tests",
 					"item": [
 						{
-							"name": "2.\tCreate New Patient positive",
+							"name": "1.\tCreate New Patient positive",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1395,7 +1395,7 @@
 							]
 						},
 						{
-							"name": "3.\tUpdate Patient by UserId",
+							"name": "2. Update Patient",
 							"id": "a5967d4c-bfd1-430a-9298-f6784c089a26",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1434,14 +1434,41 @@
 							"response": []
 						},
 						{
-							"name": "4.\tAdd New Reports with/without Vitals for existing Patient",
-							"id": "b3e6a50e-c495-49c9-93fe-a378f7df6619",
+							"name": "3.Add New Reports with/without Vitals for existing Patient Copy",
+							"id": "dd5e924d-31d3-47a7-9359-44fcb796371a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0"
+										},
+										{
+											"key": "vitals",
+											"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
 						}
