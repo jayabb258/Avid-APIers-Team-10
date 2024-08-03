@@ -1279,6 +1279,34 @@
 						}
 					],
 					"id": "79eb9308-cb24-4c8e-9279-7410cedf7b22"
+				},
+				{
+					"name": "POST Patient Positive",
+					"id": "6482d75e-6914-4623-b319-1df4f129590d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{DietTokenKB}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/patient"
+					},
+					"response": []
 				}
 			],
 			"id": "281e42fe-d5cc-4640-9205-e2deeebfa918"
