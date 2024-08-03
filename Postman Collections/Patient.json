@@ -1099,7 +1099,7 @@
 							"id": "2c84e4ff-ec2c-41f9-8e43-cab7afff15d8"
 						},
 						{
-							"name": "Admin User Login Copy",
+							"name": "Admin User Login",
 							"event": [
 								{
 									"listen": "prerequest",
