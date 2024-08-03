@@ -381,6 +381,24 @@
 				},
 				{
 					"name": "Retrieve Thyroid Test T4",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "69dbb6c8-4a6b-4ed6-bfdf-67d896dcd0e9",
+								"exec": [
+									"const thyroidT4=pm.collectionVariables.get('thyroid_T4');\r",
+									"if(thyroidT4==undefined)\r",
+									"{\r",
+									"\r",
+									"pm.collectionVariables.set('thyroid_T4',T4)\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "65c887d5-5f04-42d2-94bc-4e2a982eefd8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -406,19 +424,18 @@
 							"script": {
 								"id": "950286ed-c4e7-4d15-8c3a-10d84ce81c0b",
 								"exec": [
-									"const thyroidT4=pm.collectionVariables.get('thyroid_T4');\r",
-									"if(thyroidT4==undefined)\r",
-									"{\r",
-									"\r",
-									"pm.collectionVariables.set('thyroid_T4',T4)\r",
-									"}\r",
-									"\r",
 									"const thyroidT3=pm.collectionVariables.get('thyroid_T3');\r",
 									"if(thyroidT3==undefined)\r",
 									"{\r",
 									"\r",
 									"pm.collectionVariables.set('thyroid_T3',T3)\r",
 									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript",
