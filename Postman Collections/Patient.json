@@ -1409,6 +1409,26 @@
 								},
 								"method": "PUT",
 								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0"
+										},
+										{
+											"key": "vitals",
+											"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
+											"type": "text"
+										}
+									]
+								},
 								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
