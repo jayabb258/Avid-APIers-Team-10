@@ -1711,7 +1711,7 @@
 					"name": "Negative Tests",
 					"item": [
 						{
-							"name": "1.\tCreate New Patient Patient exists",
+							"name": "1.\tCreate New Patient Patient that already exists",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1764,10 +1764,16 @@
 										"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
 										"exec": [
 											"",
-											"// let response = pm.response.json();",
+											"let response = pm.response.json();",
 											"// pm.environment.set(\"patientIdKB\", response.patientId);",
 											"",
-											"//Check error message"
+											"//Check error message",
+											"",
+											"pm.test(\"Error message shows duplicate patient\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Patient already exists with given DateOfBirth and ContactNumber\");",
+											"});",
+											"",
+											"// Check if format is correct"
 										],
 										"type": "text/javascript",
 										"packages": {}
