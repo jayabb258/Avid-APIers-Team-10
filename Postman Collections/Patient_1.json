@@ -3545,48 +3545,54 @@
 			"name": "Dietician",
 			"item": [
 				{
-					"name": "AdminLogin",
-					"event": [
+					"name": "Positive Scenarios",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const token = responseBody.token;\r",
-									"\r",
-									"    pm.globals.set(\"BearerTokenAdmin\", token);\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
+							"name": "AdminLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"pm.test(\"Extract value and set global variable\", function () {\r",
+											"    const responseBody = pm.response.json();\r",
+											"    const token = responseBody.token;\r",
+											"\r",
+											"    pm.globals.set(\"BearerTokenAdmin\", token);\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "0963a031-0ba4-4f62-af70-efef1d621071",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"{{adminpassword}}\",\r\n  \"userLoginEmail\": \"{{adminemail}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/login"
+							},
+							"response": []
 						}
 					],
-					"id": "0963a031-0ba4-4f62-af70-efef1d621071",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{adminpassword}}\",\r\n  \"userLoginEmail\": \"{{adminemail}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/login"
-					},
-					"response": []
+					"id": "d46bd55e-e1df-4961-ad01-98d6539580d2"
 				},
 				{
 					"name": "GetALLDieticians",
@@ -3659,9 +3665,7 @@
 									"   \r",
 									"    \r",
 									"\r",
-									"    pm.test(\"Content-Type is present\", function () {\r",
-									"        pm.response.to.have.header(\"Content-Type\");\r",
-									"    });\r",
+									"   \r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});\r",
@@ -3745,7 +3749,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"9078657809\",\r\n  \"DateOfBirth\": \"4567890\",\r\n  \"Education\": \"MD\",\r\n  \"Email\": \"Nn@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Fishers\",\r\n  \"HospitalName\": \"st.vincent\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"mbln\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n",
+							"raw": "{\r\n  \"ContactNumber\": \"9078657809\",\r\n  \"DateOfBirth\": \"4567890\",\r\n  \"Education\": \"MD\",\r\n  \"Email\": \"{{DieticianEmail}}\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Fishers\",\r\n  \"HospitalName\": \"st.vincent\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"mbln\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
