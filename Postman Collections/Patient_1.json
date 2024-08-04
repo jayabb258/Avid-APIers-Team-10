@@ -3656,7 +3656,7 @@
 									"pm.test(\"Content-Type is present\", function () {\r",
 									"    pm.response.to.have.header(\"Content-Type\");\r",
 									"});\r",
-									"    \r",
+									"   \r",
 									"    \r",
 									"\r",
 									"    pm.test(\"Content-Type is present\", function () {\r",
@@ -3803,121 +3803,6 @@
 					"response": []
 				},
 				{
-					"name": "dietician login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const token = responseBody.token;\r",
-									"\r",
-									"    pm.globals.set(\"BearerTokenDietician\", token);\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "e3c228f4-ad8a-4c9a-be04-87aaffe910cd",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "e011d8e1-4de2-4b32-9543-ece62a29d356",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{Dieticianpassword}}\",\r\n  \"userLoginEmail\": \"{{DieticianEmail}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/login"
-					},
-					"response": []
-				},
-				{
-					"name": "dietician logout",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"/*pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const token = responseBody.token;\r",
-									"\r",
-									"    pm.globals.set(\"BearerTokenDieticin\", token);\r",
-									"    \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"});*/\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "ba2f0240-b209-4113-b1c8-3373117144ea",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{password for patients}}\",\r\n  \"userLoginEmail\": \"Selenium@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/logoutdietician"
-					},
-					"response": []
-				},
-				{
 					"name": "Delete dietcian By ID",
 					"event": [
 						{
@@ -3964,25 +3849,6 @@
 				}
 			],
 			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
-		},
-		{
-			"name": "Delete Patient",
-			"id": "3c02e8d4-83c8-49c5-a470-c90647538c90",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {
-						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhcGkxMEBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NDIxMTEsImV4cCI6MTcyMjU3MDkxMX0.-zCgfmt9bWTweFpSv5qHp6N_rNaG1qLwagJXXcIip_WTs5zt4GjAmQSZuqLggQQeXDKFZOKfHs0B4EnrfcGaTg"
-					}
-				},
-				"method": "DELETE",
-				"header": [],
-				"url": "{{BaseURL}}/patient/300"
-			},
-			"response": []
 		}
 	],
 	"variable": [
