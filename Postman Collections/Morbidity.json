@@ -3590,266 +3590,269 @@
 								"url": "{{BaseURL}}/login"
 							},
 							"response": []
+						},
+						{
+							"name": "GetALLDieticians",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"\r",
+											"    \r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "75654dff-d3e7-42ed-be23-ea75aad9336d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateDietcian",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"pm.test(\"Extract value and set global variable\", function () {\r",
+											"    const responseBody = pm.response.json();\r",
+											"    const id = responseBody.id;\r",
+											"    const  loginPassword = responseBody.loginPassword;\r",
+											"    const  Email = responseBody.Email;\r",
+											"    \r",
+											"  \r",
+											"    pm.globals.set(\"DieticianEmail\",Email);\r",
+											"    \r",
+											"  pm.globals.set(\"DieticianId\",id);\r",
+											"    pm.globals.set(\"Dieticianpassword\", loginPassword);\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"   \r",
+											"    \r",
+											"\r",
+											"   \r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "db030c4c-6cd6-4209-93a3-2909bf92bb4d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"1001023094\",\r\n  \"DateOfBirth\": \"2015-08-09\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Nee@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Dietician",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e3c228f4-ad8a-4c9a-be04-87aaffe910cd",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "df13c0b1-a9ae-410b-b1a9-0e719a1c8631",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"9078657809\",\r\n  \"DateOfBirth\": \"4567890\",\r\n  \"Education\": \"MD\",\r\n  \"Email\": \"{{DieticianEmail}}\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Fishers\",\r\n  \"HospitalName\": \"st.vincent\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"mbln\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete dietcian By ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"\r",
+											"    \r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "7e82d2b0-2998-4bce-a14e-bf50d7fad076",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+							},
+							"response": []
+						},
+						{
+							"name": "GetDieticianwithID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"\r",
+											"    \r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "251300a6-be4c-49cd-b836-4372deb0d174",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+							},
+							"response": []
 						}
 					],
 					"id": "d46bd55e-e1df-4961-ad01-98d6539580d2"
-				},
-				{
-					"name": "GetALLDieticians",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"\r",
-									"    \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "75654dff-d3e7-42ed-be23-ea75aad9336d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician"
-					},
-					"response": []
-				},
-				{
-					"name": "CreateDietcian",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const id = responseBody.id;\r",
-									"    const  loginPassword = responseBody.loginPassword;\r",
-									"    const  Email = responseBody.Email;\r",
-									"    \r",
-									"  \r",
-									"    pm.globals.set(\"DieticianEmail\",Email);\r",
-									"    \r",
-									"  pm.globals.set(\"DieticianId\",id);\r",
-									"    pm.globals.set(\"Dieticianpassword\", loginPassword);\r",
-									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"Content-Type\");\r",
-									"});\r",
-									"   \r",
-									"    \r",
-									"\r",
-									"   \r",
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "db030c4c-6cd6-4209-93a3-2909bf92bb4d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"1001023094\",\r\n  \"DateOfBirth\": \"2015-08-09\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Nee@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Dietician",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "e3c228f4-ad8a-4c9a-be04-87aaffe910cd",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "df13c0b1-a9ae-410b-b1a9-0e719a1c8631",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"9078657809\",\r\n  \"DateOfBirth\": \"4567890\",\r\n  \"Education\": \"MD\",\r\n  \"Email\": \"{{DieticianEmail}}\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Fishers\",\r\n  \"HospitalName\": \"st.vincent\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"mbln\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
-					},
-					"response": []
-				},
-				{
-					"name": "GetDieticianwithID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"\r",
-									"    \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "251300a6-be4c-49cd-b836-4372deb0d174",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete dietcian By ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-								"exec": [
-									"\r",
-									"    \r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "7e82d2b0-2998-4bce-a14e-bf50d7fad076",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{BearerTokenAdmin}}"
-							}
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/dietician/{{DieticianId}}"
-					},
-					"response": []
 				}
 			],
 			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
