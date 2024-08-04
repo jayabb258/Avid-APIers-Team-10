@@ -996,7 +996,7 @@
 								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
+								"url": "{{BaseURL}}/patient/706"
 							},
 							"response": []
 						}
