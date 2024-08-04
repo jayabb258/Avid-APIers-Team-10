@@ -3739,6 +3739,13 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
+									}
 								}
 							],
 							"id": "0963a031-0ba4-4f62-af70-efef1d621071",
@@ -3750,7 +3757,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"password\": \"{{adminpassword}}\",\r\n  \"userLoginEmail\": \"{{adminemail}}\"\r\n}",
+									"raw": "{\r\n  \"password\": \"{{pw}}\",\r\n  \"userLoginEmail\": \"{{UserID}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
