@@ -1566,7 +1566,7 @@
 							]
 						},
 						{
-							"name": "3.Add New Reports with/without Vitals for existing Patient Copy",
+							"name": "3.Add New Reports with/without Vitals for existing Patient",
 							"id": "dd5e924d-31d3-47a7-9359-44fcb796371a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
