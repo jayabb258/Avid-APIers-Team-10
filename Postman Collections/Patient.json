@@ -1793,7 +1793,13 @@
 											"    pm.response.to.have.status(\"Bad Request\");",
 											"});",
 											"",
+											"//response time is less than 500 ms",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);",
+											"});",
 											"",
+											"",
+											"// error message ",
 											"pm.test(\"Error message shows duplicate patient\", function () {",
 											"    pm.expect(pm.response.text()).to.include(\"DUPLICATE_ENTITY\");",
 											"});",
@@ -2661,7 +2667,7 @@
 							"response": []
 						},
 						{
-							"name": "6. [FAILED]Create New Patient Patient that already exists Mandatory Field Contact Number 404 Copy",
+							"name": "7. [FAILED]Create New Patient Patient that already exists Mandatory Field Contact Number 404 Copy",
 							"event": [
 								{
 									"listen": "prerequest",
