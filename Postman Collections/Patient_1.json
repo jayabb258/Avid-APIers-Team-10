@@ -3691,7 +3691,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"1001023094\",\r\n  \"DateOfBirth\": \"2015-08-09\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Nee@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3853,6 +3853,11 @@
 						}
 					],
 					"id": "d46bd55e-e1df-4961-ad01-98d6539580d2"
+				},
+				{
+					"name": "Negative Scenarios",
+					"item": [],
+					"id": "1086df2d-a189-411a-a2b5-4663259fdfe4"
 				}
 			],
 			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
