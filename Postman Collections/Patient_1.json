@@ -2661,7 +2661,7 @@
 							"response": []
 						},
 						{
-							"name": "6.\tCreate New Patient Patient that already exists Mandatory Field Contact Number 404 Copy",
+							"name": "6. [FAILED]Create New Patient Patient that already exists Mandatory Field Contact Number 404 Copy",
 							"event": [
 								{
 									"listen": "prerequest",
