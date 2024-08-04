@@ -3905,6 +3905,68 @@
 								"url": "{{BaseURL}}/dietician"
 							},
 							"response": []
+						},
+						{
+							"name": "CreateDietcian",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"pm.test(\"Extract value and set global variable\", function () {\r",
+											"    const responseBody = pm.response.json();\r",
+											"    const id = responseBody.id;\r",
+											"    const  loginPassword = responseBody.loginPassword;\r",
+											"    const  Email = responseBody.Email;\r",
+											"    \r",
+											"  \r",
+											"    pm.globals.set(\"DieticianEmail\",Email);\r",
+											"    \r",
+											"  pm.globals.set(\"DieticianId\",id);\r",
+											"    pm.globals.set(\"Dieticianpassword\", loginPassword);\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"   \r",
+											"    \r",
+											"\r",
+											"   \r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "5f3b11e4-c4c0-4473-b29e-59604f2518a1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
 						}
 					],
 					"id": "1086df2d-a189-411a-a2b5-4663259fdfe4"
