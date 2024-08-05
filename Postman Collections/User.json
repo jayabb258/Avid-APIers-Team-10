@@ -1336,15 +1336,88 @@
 											"",
 											"});",
 											"",
+											"//Set environment variable Patient ID  ",
 											"",
 											"    try{",
-											"   pm.expect(response).to.have.own.property(\"userId\");",
+											"   pm.expect(response).to.have.own.property(\"patientId\");",
 											"   pm.environment.set(\"patientIdKB\", response.patientId);",
 											"",
-											"    pm.test(\"PASS - User ID was created successfully - \" + pm.environment.get(\"userIdkb\"), () => true); ",
+											"    pm.test(\"PASS - Patient was created successfully - \" + pm.environment.get(\"patientIdKB\"), () => true); ",
 											"}catch(e){",
-											"    pm.test(\"FAIL - User ID was not created as it already exists as the phone number will be duplicated or some other error\", () => {throw new Error(e.message)}); ",
+											"    pm.test(\"FAIL - User ID was not created as it already exists or some other error\", () => {throw new Error(e.message)}); ",
 											"}",
+											"",
+											"",
+											"//Header validation",
+											"",
+											"pm.test(\"Content-Type Header is present\", () => {",
+											"  pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"",
+											"//Header Type Validation",
+											"pm.test(\"Content-Type Header is application-json\", () => {",
+											"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");",
+											"});",
+											"",
+											"",
+											"// Data type validation",
+											"",
+											"pm.test(\"All Data types are correct\",()=>{",
+											"    ",
+											"    pm.expect(response.patientId).to.be.a(\"number\");",
+											"    pm.expect(response.FirstName).to.be.a(\"string\");",
+											"    pm.expect(response.LastName).to.be.a(\"string\");",
+											"    pm.expect(response.Email).to.be.a(\"string\");",
+											"    pm.expect(response.Allergy).to.be.a(\"string\");",
+											"    pm.expect(response.FileMorbidity).to.be.an(\"object\");",
+											"    pm.expect(response.FileMorbidityCondition).to.be.an(\"object\");",
+											"    pm.expect(response.DateOfBirth).to.be.a(\"string\");",
+											"    pm.expect(response.DieticianId).to.be.a(\"number\");",
+											"    pm.expect(response.Vitals).to.be.an(\"object\");",
+											"    pm.expect(response.LastVisitDate).to.be.a(\"string\");",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"//Validate Response body content",
+											"pm.test(\"Request body contains bad request confirmation \",() => {",
+											"   var jsonData = pm.response.json(); ",
+											"   pm.expect(jsonData).to.haveOwnProperty(\"status\");",
+											"   pm.expect(jsonData.status).to.eql(401);",
+											"   pm.expect(jsonData.error).to.include(\"Unauthorized\");",
+											" ",
+											" ",
+											"});",
+											"//Validating JSON Schema test",
+											"var schema = {",
+											"    properties: {",
+											"    timestamp: {",
+											"      type: \"string\",",
+											"    },",
+											"    status: {",
+											"      type: \"number\",",
+											"    },",
+											"    error: {",
+											"      type: \"string\",",
+											"    },",
+											"    path: {",
+											"      type: \"string\",",
+											"    },",
+											"  },",
+											"  required: [",
+											"    \"timestamp\",",
+											"    \"status\",",
+											"    \"error\",",
+											"    \"path\"",
+											"  ],",
+											"};",
+											"",
+											"pm.test(\"Schema is valid\", () => {",
+											"  pm.response.to.have.jsonSchema(schema);",
+											"});",
 											"",
 											""
 										],
@@ -4401,6 +4474,62 @@
 							"response": []
 						},
 						{
+							"name": "Create a Dietician without bearerToken Authentication",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											";\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"   \r",
+											"    \r",
+											"\r",
+											"   \r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Bad Request\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "3c4493d6-2275-4ef5-83b4-2b17104ea075",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
+						},
+						{
 							"name": "Create a Dietician with  MissingMandatory Fields",
 							"event": [
 								{
@@ -4793,7 +4922,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthN}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthN}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincodeN}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
