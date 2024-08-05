@@ -307,6 +307,13 @@
 									"    const responseBody = pm.response.json();\r",
 									"\r",
 									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.response.to.have.responseTimeBelow(800);\r",
+									"});\r",
 									"\r",
 									"    for(i=0;i<responseBody.length;i++){\r",
 									"     //define an array in Javascript. Use Set instead\r",
@@ -357,9 +364,7 @@
 									" \r",
 									"}\r",
 									"}\r",
-									"// pm.test(\"Status code is 200\", function () {\r",
-									"//     pm.response.to.have.status(200);\r",
-									"// });\r",
+									"\r",
 									"\r",
 									"\r",
 									"\r",
@@ -374,8 +379,12 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"packages": {},
-								"type": "text/javascript"
+								"id": "cf1b7ea9-33bb-4302-bc47-da4a804e895b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
