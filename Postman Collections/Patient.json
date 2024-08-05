@@ -5564,7 +5564,7 @@
 							"response": []
 						},
 						{
-							"name": "Update Dietician with missing mandatory field Copy",
+							"name": "Update Dietician with Invalid Dietician Id",
 							"event": [
 								{
 									"listen": "test",
