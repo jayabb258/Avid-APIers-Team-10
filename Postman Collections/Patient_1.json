@@ -2040,7 +2040,8 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0"
+											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0",
+											"disabled": true
 										},
 										{
 											"key": "vitals",
@@ -2168,7 +2169,7 @@
 							]
 						},
 						{
-							"name": "new 3.Add New Reports with/without Vitals for existing Patient Copy",
+							"name": "4.Add New Reports without Vitals for existing Patient",
 							"event": [
 								{
 									"listen": "test",
@@ -2331,7 +2332,8 @@
 										{
 											"key": "vitals",
 											"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
