@@ -2044,7 +2044,7 @@
 										},
 										{
 											"key": "vitals",
-											"value": "{“Weight“ : 168,\n“Height” : 162,\n“Temperature” : 98,\n“SP” : 120,\n“DP” : 80\n}\n",
+											"value": "{\"Weight\" : 168.1,\n\"Height\": 5.4,\n\"Temperature\": 98.6,\n\"SP\" : 120,\n\"DP\" : 80\n}\n",
 											"type": "text"
 										}
 									]
