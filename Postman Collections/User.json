@@ -1515,7 +1515,10 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "Wfs5X9iCB/Hypo Thyroid-Report.pdf.pdf"
+											"src": [
+												"Wfs5X9iCB/Hypo Thyroid-Report.pdf.pdf",
+												"JnunEIBB3/Hypo Thyroid-Report.pdf.pdf"
+											]
 										}
 									]
 								},
