@@ -1515,10 +1515,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": [
-												"Wfs5X9iCB/Hypo Thyroid-Report.pdf.pdf",
-												"JnunEIBB3/Hypo Thyroid-Report.pdf.pdf"
-											]
+											"src": "JnunEIBB3/Hypo Thyroid-Report.pdf.pdf"
 										}
 									]
 								},
@@ -1788,7 +1785,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Corbett\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1992-01-01\"\n}\n",
+											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Corbett\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
 											"type": "text"
 										},
 										{
