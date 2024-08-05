@@ -2069,7 +2069,7 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
+								"url": "{{BaseURL}}/patient/newReports/{{patientIdKB}}"
 							},
 							"response": [
 								{
