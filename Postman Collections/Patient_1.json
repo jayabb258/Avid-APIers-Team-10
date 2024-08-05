@@ -6079,18 +6079,29 @@
 									"script": {
 										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 										"exec": [
-											"\r",
-											"\r",
 											"pm.test(\"Status code is 404\", function () {\r",
 											"    pm.response.to.have.status(404);\r",
+											"});\r",
 											"pm.test(\"Status code name has string\", function () {\r",
 											"    pm.response.to.have.status(\"Not Found\");\r",
 											"});\r",
 											"pm.test(\"Content-Type is present\", function () {\r",
 											"    pm.response.to.have.header(\"Content-Type\");\r",
 											"});\r",
-											"});\r",
 											"\r",
+											"pm.test(\"Schema is valid\", function () {\r",
+											"  var schema = {\r",
+											"    type: \"object\",\r",
+											"    properties: {\r",
+											"      message: {\r",
+											"        type: \"string\"\r",
+											"      }\r",
+											"    },\r",
+											"    required: [\"message\"],\r",
+											"  };\r",
+											"\r",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+											"});\r",
 											""
 										],
 										"type": "text/javascript",
@@ -6187,7 +6198,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{UpdatedContactNumber}}\",\r\n  \"DateOfBirth\": \"{{UpdatedDateOfBirth}}\",\r\n  \"Education\": \"{{UpdatedEducation}}\",\r\n  \"Email\": \"{{DieticianEmail}}\",\r\n  \"Firstname\": \"{{UpdatedFirstname}}\",\r\n  \"HospitalCity\": \"{{UpdatedHospitalCity}}\",\r\n  \"HospitalName\": \"{{UpdatedHospitalName}}\",\r\n  \"HospitalPincode\": \"{{UpdatedHospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{UpdatedHospitalStreet}}\",\r\n  \"Lastname\": \"{{UpdatedLastname}}\"\r\n \r\n}\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{UpdatedContactNumber}}\",\r\n  \"DateOfBirth\": \"{{UpdatedDateOfBirth}}\",\r\n  \"Education\": \"{{UpdatedEducation}}\",\r\n  \"Email\": \"{{DieticianEmail2}}\",\r\n  \"Firstname\": \"{{UpdatedFirstname}}\",\r\n  \"HospitalCity\": \"{{UpdatedHospitalCity}}\",\r\n  \"HospitalName\": \"{{UpdatedHospitalName}}\",\r\n  \"HospitalPincode\": \"{{UpdatedHospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{UpdatedHospitalStreet}}\",\r\n  \"Lastname\": \"{{UpdatedLastname}}\"\r\n \r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
