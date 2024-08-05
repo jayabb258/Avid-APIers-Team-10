@@ -4345,7 +4345,7 @@
 							"response": []
 						},
 						{
-							"name": "CreateDietcian",
+							"name": "Create a Dietician with  existing values in contactnumber and email id",
 							"event": [
 								{
 									"listen": "test",
