@@ -4581,7 +4581,7 @@
 							"response": []
 						},
 						{
-							"name": "Create a Dietician   firstname and last field accept only alpahabets",
+							"name": "Create a Dietician Checking   firstname and last field accept only alpahabets",
 							"event": [
 								{
 									"listen": "test",
@@ -4625,7 +4625,63 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
+						},
+						{
+							"name": "Create a Dietician Checking   firstname and last field accept only alpahabets Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											";\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"   \r",
+											"    \r",
+											"\r",
+											"   \r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Bad Request\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "49aeae6e-8d1a-4315-8e8b-2491ce089262",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
