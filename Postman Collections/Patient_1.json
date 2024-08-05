@@ -1989,7 +1989,7 @@
 											"    pm.expect(response.LastVisitDate).to.be.a(\"string\");",
 											"});",
 											"",
-											"",
+											"// Check if Vitals are updated",
 											"",
 											"",
 											"//Validating JSON Schema test",
