@@ -4457,8 +4457,12 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"id": "9bacf7ad-1cad-40bb-a5e3-fe34e9d8bc98",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -4467,6 +4471,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenadminn}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
