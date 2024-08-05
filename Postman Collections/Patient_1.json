@@ -2502,7 +2502,7 @@
 					"name": "Negative Tests",
 					"item": [
 						{
-							"name": "1.\tCreate New Patient Patient that already exists 400",
+							"name": "1.\tCreate New Patient that already exists 400",
 							"event": [
 								{
 									"listen": "prerequest",
