@@ -4974,55 +4974,6 @@
 					"name": "Negative Scenarios",
 					"item": [
 						{
-							"name": "GetALLDieticians",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-										"exec": [
-											"\r",
-											"    \r",
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"pm.test(\"Content-Type is present\", function () {\r",
-											"    pm.response.to.have.header(\"Content-Type\");\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "492d0323-ac65-436e-bfd8-b4d59c61ac8a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{BaseURL}}/dietician"
-							},
-							"response": []
-						},
-						{
 							"name": "Create a Dietician without AdminbearerToken Authentication",
 							"event": [
 								{
@@ -5110,7 +5061,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
@@ -5234,7 +5185,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
@@ -5290,7 +5241,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
@@ -5402,7 +5353,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
