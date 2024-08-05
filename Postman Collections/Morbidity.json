@@ -3729,7 +3729,7 @@
 											"    const responseBody = pm.response.json();\r",
 											"    const token = responseBody.token;\r",
 											"\r",
-											"    pm.globals.set(\"BearerTokenAdmin\", token);\r",
+											"    pm.globals.set(\"BearerTokenadminn\", token);\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -3743,8 +3743,12 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"id": "95faf019-af07-4515-b716-5412a8df94a0",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -3784,7 +3788,34 @@
 											"\r",
 											"pm.test(\"Status code name has string\", function () {\r",
 											"    pm.response.to.have.status(\"OK\");\r",
-											"});"
+											"});\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"    \r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"pm.test(\"Validate the response schema for required fields\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData).to.be.an('array');\r",
+											"  responseData.forEach(function(item) {\r",
+											"    pm.expect(item).to.have.property('id').that.is.a('number');\r",
+											"    pm.expect(item).to.have.property('Firstname').that.is.a('string');\r",
+											"    pm.expect(item).to.have.property('Lastname').that.is.a('string');\r",
+											"    pm.expect(item).to.have.property('ContactNumber').that.is.a('string');\r",
+											"    pm.expect(item).to.have.property('DateOfBirth').that.is.a('string');\r",
+											"    pm.expect(item).to.have.property('Email').that.is.a('string');\r",
+											"  });\r",
+											"});\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -3941,6 +3972,52 @@
 							"response": []
 						},
 						{
+							"name": "GetDieticianwithID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"\r",
+											"    \r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "251300a6-be4c-49cd-b836-4372deb0d174",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+							},
+							"response": []
+						},
+						{
 							"name": "Delete dietcian By ID",
 							"event": [
 								{
@@ -3974,52 +4051,6 @@
 									}
 								},
 								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
-							},
-							"response": []
-						},
-						{
-							"name": "GetDieticianwithID",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
-										"exec": [
-											"\r",
-											"    \r",
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "251300a6-be4c-49cd-b836-4372deb0d174",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
-									}
-								},
-								"method": "GET",
 								"header": [],
 								"body": {
 									"mode": "raw",
