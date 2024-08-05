@@ -5451,7 +5451,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
@@ -5701,8 +5701,6 @@
 									"script": {
 										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 										"exec": [
-											"\r",
-											"\r",
 											"pm.test(\"Status code is 401\", function () {\r",
 											"    pm.response.to.have.status(401);\r",
 											"pm.test(\"Status code name has string\", function () {\r",
