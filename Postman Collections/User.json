@@ -2036,6 +2036,139 @@
 						},
 						{
 							"name": "new 3.Add New Reports with/without Vitals for existing Patient Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a53af930-bb1f-441a-ba7d-5357a1f0ae32",
+										"exec": [
+											"",
+											"let response = pm.response.json();",
+											"",
+											"// Successful POST request",
+											"",
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);",
+											"});",
+											"",
+											"// Status code name ",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});",
+											"",
+											"//Test response times",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);",
+											"",
+											"",
+											"});",
+											"",
+											"",
+											"//Header validation",
+											"",
+											"pm.test(\"Content-Type Header is present\", () => {",
+											"  pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"",
+											"//Header Type Validation",
+											"pm.test(\"Content-Type Header is application-json\", () => {",
+											"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");",
+											"});",
+											"",
+											"",
+											"// Data type & Drop down selection validation",
+											"",
+											"pm.test(\"All Data types and drop down selections are correct\",()=>{",
+											"",
+											"    pm.expect(response.patientId).to.be.a(\"number\");",
+											"    pm.expect(response.FirstName).to.be.a(\"string\");",
+											"    pm.expect(response.LastName).to.be.a(\"string\");",
+											"    pm.expect(response.ContactNumber).to.be.a(\"string\");",
+											"    pm.expect(response.Email).to.be.a(\"string\");",
+											"    pm.expect(response.Allergy).to.be.a(\"string\");",
+											"    pm.expect(response.Allergy).to.be.oneOf([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+											"    pm.expect(response.FoodPreference).to.be.a(\"string\");",
+											"    pm.expect(response.FoodPreference).to.be.oneOf([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
+											"    pm.expect(response.CuisineCategory).to.be.a(\"string\");",
+											"    pm.expect(response.CuisineCategory).to.be.oneOf([\"indian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
+											"    pm.expect(response.FileMorbidity).to.be.an(\"object\");",
+											"    pm.expect(response.FileMorbidityCondition).to.be.an(\"object\");",
+											"    pm.expect(response.DateOfBirth).to.be.a(\"string\");",
+											"    pm.expect(response.DieticianId).to.be.a(\"number\");",
+											"    pm.expect(response.Vitals).to.be.an(\"object\");",
+											"    pm.expect(response.LastVisitDate).to.be.a(\"string\");",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"//Validating JSON Schema test",
+											"",
+											"var schema = {",
+											"    properties: {",
+											"    patientId: {",
+											"      type: \"number\",",
+											"    },",
+											"    FirstName: {",
+											"      type: \"string\",",
+											"    },",
+											"    LastName: {",
+											"      type: \"string\",",
+											"    },",
+											"    Email: {",
+											"      type: \"string\",",
+											"    },",
+											"    Allergy: {",
+											"      type: \"string\",",
+											"    },",
+											"    FoodPreference: {",
+											"      type: \"string\",",
+											"    },",
+											"    CuisineCategory: {",
+											"      type: \"string\",",
+											"    },",
+											"    FileMorbidity: {",
+											"      type: \"object\",",
+											"    },",
+											"    FileMorbidityCondition: {",
+											"      type: \"object\",",
+											"    },",
+											"    DateOfBirth: {",
+											"      type: \"string\",",
+											"    },",
+											"    DieticianId: {",
+											"      type: \"number\",",
+											"    },",
+											"    Vitals: {",
+											"      type: \"object\",",
+											"    },",
+											"    LastVisitDate: {",
+											"      type: \"string\",",
+											"    },",
+											"  },",
+											"  required: [",
+											"    \"patientId\",",
+											"    \"FirstName\",",
+											"    \"LastName\",",
+											"    \"ContactNumber\",",
+											"    \"Email\"",
+											"  ],",
+											"};",
+											"",
+											"pm.test(\"Schema is valid\", () => {",
+											"  pm.response.to.have.jsonSchema(schema);",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d5b3348b-7764-4ac5-be2d-b5ebb303b793",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2071,121 +2204,7 @@
 								},
 								"url": "{{BaseURL}}/patient/newReports/{{patientIdKB}}"
 							},
-							"response": [
-								{
-									"id": "86801a63-d6b1-4281-b2c8-37f67363e029",
-									"name": "2.Add New Reports with/without Vitals for existing Patient Copy",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "formdata",
-											"formdata": [
-												{
-													"key": "patientInfo",
-													"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
-													"type": "text"
-												},
-												{
-													"key": "file",
-													"type": "file",
-													"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0"
-												},
-												{
-													"key": "vitals",
-													"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
-													"type": "text"
-												}
-											]
-										},
-										"url": "{{BaseURL}}/patient/{{patientIdKB}}"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Server",
-											"value": "Cowboy"
-										},
-										{
-											"key": "Report-To",
-											"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1722709129&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=uXAcgVbSlx78S8wPR4H5RLJdpG6KhzEHlyYRRFfqMUw%3D\"}]}"
-										},
-										{
-											"key": "Reporting-Endpoints",
-											"value": "heroku-nel=https://nel.heroku.com/reports?ts=1722709129&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=uXAcgVbSlx78S8wPR4H5RLJdpG6KhzEHlyYRRFfqMUw%3D"
-										},
-										{
-											"key": "Nel",
-											"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Vary",
-											"value": "Origin"
-										},
-										{
-											"key": "Vary",
-											"value": "Access-Control-Request-Method"
-										},
-										{
-											"key": "Vary",
-											"value": "Access-Control-Request-Headers"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-Xss-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, no-store, max-age=0, must-revalidate"
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "Expires",
-											"value": "0"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=31536000 ; includeSubDomains"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "DENY"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										},
-										{
-											"key": "Date",
-											"value": "Sat, 03 Aug 2024 18:18:50 GMT"
-										},
-										{
-											"key": "Via",
-											"value": "1.1 vegur"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"patientId\": 529,\n    \"FirstName\": \"Patricia\",\n    \"LastName\": \"Bennet\",\n    \"ContactNumber\": \"2136345591\",\n    \"Email\": \"Vinnie.Collins@yahoo.com\",\n    \"Allergy\": \"WALNUT\",\n    \"FoodPreference\": \"NONVEG\",\n    \"CuisineCategory\": \"rajasthani\",\n    \"FileMorbidity\": {\n        \"66ae748ab8896d2890f49796\": {\n            \"HbA1c\": \"6.5 %\",\n            \"Average Glucose\": \"131.0 mg/dl\"\n        },\n        \"66ae7186b8896d2890f49784\": {\n            \"T3\": \"6.3 ng/mL\",\n            \"T4\": \"15.7 µg/dL\",\n            \"TSH\": \"0.016 µIU/mL\"\n        }\n    },\n    \"FileMorbidityCondition\": {\n        \"66ae748ab8896d2890f49796\": \"Prediabetic \\n\",\n        \"66ae7186b8896d2890f49784\": \"Thyroid: Hyperthyroidism \\nBlood Pressure: Hypotension \\n\"\n    },\n    \"DateOfBirth\": \"1980-01-01\",\n    \"DieticianId\": 942,\n    \"Vitals\": {\n        \"66ae7186b8896d2890f49784\": {\n            \"Weight\": 0,\n            \"Height\": 0,\n            \"Temperature\": 0,\n            \"SP\": 0,\n            \"DP\": 0\n        }\n    },\n    \"LastVisitDate\": \"2024-08-03T18:05:58.164+00:00\"\n}"
-								}
-							]
+							"response": []
 						}
 					],
 					"id": "a95ec6d1-9ea0-4776-b80c-371ba7c1c072"
