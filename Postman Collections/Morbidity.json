@@ -4401,7 +4401,7 @@
 							"response": []
 						},
 						{
-							"name": "Create a Dietician with  existing values in contactnumber and email id Copy",
+							"name": "Create a Dietician with  MissingMandatory Fields",
 							"event": [
 								{
 									"listen": "test",
@@ -4445,7 +4445,63 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
+						},
+						{
+							"name": "Create a Dietician with  Check if user able to create a Dietician with (less than 10 number in contact number field )",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											";\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"   \r",
+											"    \r",
+											"\r",
+											"   \r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Bad Request\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "63fc932a-402f-4125-912b-1da1e7cce317",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
