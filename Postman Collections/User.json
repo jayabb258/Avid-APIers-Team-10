@@ -1255,7 +1255,7 @@
 											"    pm.globals.set(\"DietTokenKB\", token);\r",
 											"});\r",
 											"\r",
-											""
+											"pm.execution.setNextRequest(null);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -4128,7 +4128,7 @@
 									"script": {
 										"id": "8dbddb3a-e06a-4181-9a18-534b7da2b78d",
 										"exec": [
-											"pm.execution.setNextRequest(\"DELETE DIETITIAN created\");"
+											"pm.execution.setNextRequest(\"DELETE DIETITIAN\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -4153,7 +4153,20 @@
 							"response": []
 						},
 						{
-							"name": "DELETE DIETITIAN created",
+							"name": "DELETE DIETITIAN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "52ac7b29-7b39-44e0-854c-8d3f9418a079",
+										"exec": [
+											"pm.execution.setNextRequest(\"Logout Admin User\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "dfd55536-5cab-4999-8f94-d4e89bd065b5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4173,6 +4186,19 @@
 						},
 						{
 							"name": "Logout Admin User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cf8f1d41-1d3f-4405-8bf8-c866d5d0ba46",
+										"exec": [
+											"pm.execution.setNextRequest(null);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "515dd6ea-274a-473d-8c6e-c5f9f1d8bb47",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
