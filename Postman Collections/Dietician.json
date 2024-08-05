@@ -1882,7 +1882,7 @@
 							]
 						},
 						{
-							"name": "[500] 3.Add New Reports with Vitals for existing Patient",
+							"name": "3.Add New Reports with Vitals for existing Patient",
 							"event": [
 								{
 									"listen": "test",
