@@ -4691,6 +4691,118 @@
 								"url": "{{BaseURL}}/dietician"
 							},
 							"response": []
+						},
+						{
+							"name": "Create a Dietician,Check if the  Dateofbirth field accept only Numbers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											";\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"   \r",
+											"    \r",
+											"\r",
+											"   \r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Bad Request\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d1f0fd46-636c-4d38-831e-df90c5bdae02",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthN}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
+						},
+						{
+							"name": "Create a Dietician,Check if the  Hospitalpincode field accept only 6digits",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											";\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"   \r",
+											"    \r",
+											"\r",
+											"   \r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Bad Request\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "8871d9bd-224c-4db6-9c6e-18f4ff174788",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenAdmin}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthN}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician"
+							},
+							"response": []
 						}
 					],
 					"id": "1086df2d-a189-411a-a2b5-4663259fdfe4"
