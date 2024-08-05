@@ -456,11 +456,11 @@
 							"script": {
 								"id": "69dbb6c8-4a6b-4ed6-bfdf-67d896dcd0e9",
 								"exec": [
-									"const thyroidT4=pm.collectionVariables.get('thyroid_T4');\r",
+									"const thyroidT4=pm.environment.get('thyroid_T4');\r",
 									"if(thyroidT4==undefined)\r",
 									"{\r",
 									"\r",
-									"pm.collectionVariables.set('thyroid_T4',T4)\r",
+									"pm.environment.set('thyroid_T4',T4)\r",
 									"}"
 								],
 								"type": "text/javascript",
@@ -493,11 +493,11 @@
 							"script": {
 								"id": "950286ed-c4e7-4d15-8c3a-10d84ce81c0b",
 								"exec": [
-									"const thyroidT3=pm.collectionVariables.get('thyroid_T3');\r",
+									"const thyroidT3=pm.environment.get('thyroid_T3');\r",
 									"if(thyroidT3==undefined)\r",
 									"{\r",
 									"\r",
-									"pm.collectionVariables.set('thyroid_T3',T3)\r",
+									"pm.environment.set('thyroid_T3',T3)\r",
 									"}\r",
 									"\r",
 									"\r",
