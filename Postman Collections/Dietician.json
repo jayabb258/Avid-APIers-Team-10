@@ -5409,14 +5409,14 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthN}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthN}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{DieticianEmailEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5465,7 +5465,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
@@ -5521,7 +5521,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "POST",
@@ -5910,7 +5910,7 @@
 										}
 									}
 								},
-								"url": "{{BaseURL}}/dietician/{{InvalidDieticianId}}"
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
 							},
 							"response": []
 						}
