@@ -5034,7 +5034,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{DieticianEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5270,7 +5270,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5326,7 +5326,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumberl}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthformat}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{InvalidEmail}}\",\r\n  \"Firstname\": \"{{FirstnameN}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{LastnameN}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirthformat}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
