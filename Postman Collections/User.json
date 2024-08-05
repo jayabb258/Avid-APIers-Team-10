@@ -4525,7 +4525,7 @@
 							"response": []
 						},
 						{
-							"name": "Create a Dietician with  Check if user able to create a Dietician with (less than 10 number in contact number field ) Copy",
+							"name": "Create a Dietician with  Check if user able to create a Dietician with invalid email format",
 							"event": [
 								{
 									"listen": "test",
