@@ -2040,17 +2040,16 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0",
-											"disabled": true
+											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0"
 										},
 										{
 											"key": "vitals",
-											"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
+											"value": "{“Weight“ : 168,\n“Height” : 162,\n“Temperature” : 98,\n“SP” : 120,\n“DP” : 80\n}\n",
 											"type": "text"
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
+								"url": "{{BaseURL}}/patient/newReports/{{patientIdKB}}"
 							},
 							"response": [
 								{
