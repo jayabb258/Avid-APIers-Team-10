@@ -356,12 +356,26 @@
 									"  pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
 									" \r",
 									"}\r",
+									"}\r",
+									"// pm.test(\"Status code is 200\", function () {\r",
+									"//     pm.response.to.have.status(200);\r",
+									"// });\r",
 									"\r",
 									"\r",
-									"}})"
+									"\r",
+									"\r",
+									"\r",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -1109,7 +1123,9 @@
 											"    const token = responseBody.token;\r",
 											"\r",
 											"    pm.globals.set(\"AdminToken\", token);\r",
-											"});"
+											"});\r",
+											"\r",
+											"pm.execution.setNextRequest(\"Gather Dietitian Credentials\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1177,7 +1193,10 @@
 											"    let pwdiet = responseBody.loginPassword;",
 											"",
 											"    pm.globals.set(\"dietid\", dietid);",
-											"    pm.globals.set(\"pwdiet\", pwdiet);});"
+											"    pm.globals.set(\"pwdiet\", pwdiet);});",
+											"",
+											"",
+											"    pm.execution.setNextRequest(\"Dietitian Login - Generate Token\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1234,7 +1253,9 @@
 											"    const token = responseBody.token;\r",
 											"\r",
 											"    pm.globals.set(\"DietTokenKB\", token);\r",
-											"});"
+											"});\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
