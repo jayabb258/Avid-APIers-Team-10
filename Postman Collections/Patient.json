@@ -3836,7 +3836,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "GET",
@@ -4133,7 +4133,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "PUT",
@@ -4245,7 +4245,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "GET",
@@ -4351,7 +4351,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenAdmin}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "DELETE",
