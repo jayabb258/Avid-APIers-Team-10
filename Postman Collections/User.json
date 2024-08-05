@@ -85,6 +85,75 @@
 						"url": "{{BaseURL}}/login"
 					},
 					"response": []
+				},
+				{
+					"name": "{{BaseURL}}/login",
+					"id": "2bc8440d-aa3c-4bc6-a772-714478b56a33",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "{{BaseURL}}/dietician/",
+					"id": "7401bdc2-9c6f-4d16-b1ba-a7e4845ae2f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenNeethu}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/dietician/"
+					},
+					"response": []
+				},
+				{
+					"name": "{{BaseURL}}/dietician/dietician",
+					"id": "b6482ec6-53ed-4f34-bf52-fe1e2a7d9de4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerTokenNeethu}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/dietician/dietician"
+					},
+					"response": []
 				}
 			],
 			"id": "df261ba2-65ed-429c-86c1-39fee62b9f39",
@@ -3791,36 +3860,6 @@
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
-											"\r",
-											"pm.test(\"Status code name has string\", function () {\r",
-											"    pm.response.to.have.status(\"OK\");\r",
-											"});\r",
-											"pm.test(\"Content-Type is present\", function () {\r",
-											"    pm.response.to.have.header(\"Content-Type\");\r",
-											"});\r",
-											"    \r",
-											"\r",
-											"pm.test(\"Response time is within an acceptable range\", function () {\r",
-											"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-											"});\r",
-											"\r",
-											"\r",
-											"\r",
-											"\r",
-											"pm.test(\"Validate the response schema for required fields\", function () {\r",
-											"  const responseData = pm.response.json();\r",
-											"\r",
-											"  pm.expect(responseData).to.be.an('array');\r",
-											"  responseData.forEach(function(item) {\r",
-											"    pm.expect(item).to.have.property('id').that.is.a('number');\r",
-											"    pm.expect(item).to.have.property('Firstname').that.is.a('string');\r",
-											"    pm.expect(item).to.have.property('Lastname').that.is.a('string');\r",
-											"    pm.expect(item).to.have.property('ContactNumber').that.is.a('string');\r",
-											"    pm.expect(item).to.have.property('DateOfBirth').that.is.a('string');\r",
-											"    pm.expect(item).to.have.property('Email').that.is.a('string');\r",
-											"  });\r",
-											"});\r",
-											"\r",
 											""
 										],
 										"type": "text/javascript",
@@ -3836,7 +3875,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{BearerTokenadminn}}"
+										"token": "{{BearerTokenAdmin}}"
 									}
 								},
 								"method": "GET",
@@ -3865,142 +3904,29 @@
 											"pm.test(\"Extract value and set global variable\", function () {\r",
 											"    const responseBody = pm.response.json();\r",
 											"    const id = responseBody.id;\r",
-											"    const  Email = responseBody.Email;\r",
-											"    const loginPassword = responseBody.loginPassword;\r",
+											"    const  loginPassword = responseBody.loginPassword;\r",
 											"  pm.globals.set(\"DieticianId\",id);\r",
 											"    pm.globals.set(\"Dieticianpassword\",loginPassword);\r",
-											"    pm.globals.set(\"DieticianEmail\",Email);\r",
 											"    \r",
 											"    \r",
 											"\r",
 											"    pm.test(\"Content-Type is present\", function () {\r",
 											"        pm.response.to.have.header(\"Content-Type\");\r",
 											"    });\r",
-											"\r",
-											"    pm.test(\"Status code is 201\", function () {\r",
-											"        pm.response.to.have.status(201);\r",
-											"    });\r",
-											"var expectedSchema = {\r",
-											"  \r",
-											"  \"type\": \"object\",\r",
-											"  \"properties\": {\r",
-											"    \"id\": {\r",
-											"      \"type\": \"integer\"\r",
-											"    },\r",
-											"    \"loginPassword\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"Firstname\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"Lastname\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"ContactNumber\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"DateOfBirth\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"Email\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"HospitalName\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"HospitalStreet\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"HospitalCity\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"HospitalPincode\": {\r",
-											"      \"type\": \"string\"\r",
-											"    },\r",
-											"    \"Education\": {\r",
-											"      \"type\": \"string\"\r",
-											"    }\r",
-											"  },\r",
-											"  \"required\": [\r",
-											"    \"id\",\r",
-											"    \"loginPassword\",\r",
-											"    \"Firstname\",\r",
-											"    \"Lastname\",\r",
-											"    \"ContactNumber\",\r",
-											"    \"DateOfBirth\",\r",
-											"    \"Email\",\r",
-											"    \"HospitalName\",\r",
-											"    \"HospitalStreet\",\r",
-											"    \"HospitalCity\",\r",
-											"    \"HospitalPincode\",\r",
-											"    \"Education\"\r",
-											"  ]\r",
-											"}\r",
-											"pm.test('Schema Validation', () => {\r",
-											"        pm.response.to.have.jsonSchema(expectedSchema);\r",
-											"    });\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
 											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 500ms\", function () {\r",
-											"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
-											"});\r",
-											"\r",
-											"\r",
-											"\r",
-											"\r",
-											"pm.test(\"Validate the presence of required fields\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"    \r",
-											"    pm.expect(responseData).to.be.an('object');\r",
-											"    const requiredFields = [\r",
-											"        \"id\", \r",
-											"        \"loginPassword\", \r",
-											"        \"Firstname\", \r",
-											"        \"Lastname\", \r",
-											"        \"ContactNumber\", \r",
-											"        \"DateOfBirth\", \r",
-											"        \"Email\", \r",
-											"        \"HospitalName\", \r",
-											"        \"HospitalStreet\", \r",
-											"        \"HospitalCity\", \r",
-											"        \"HospitalPincode\", \r",
-											"        \"Education\"\r",
-											"    ];\r",
-											"    \r",
-											"    requiredFields.forEach(field => {\r",
-											"        pm.expect(responseData).to.have.property(field);\r",
-											"    });\r",
-											"});\r",
-											"\r",
-											"\r",
-											"pm.test(\"Id should be an integer\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"    pm.expect(responseData.id).to.be.a('number');\r",
-											"});\r",
-											"\r",
-											"pm.test(\"LoginPassword should be a string\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"    pm.expect(responseData.loginPassword).to.be.a('string');\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Other fields should be strings\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"    for (const key in responseData) {\r",
-											"        if (key !== 'id' && key !== 'loginPassword') {\r",
-											"            pm.expect(responseData[key]).to.be.a('string');\r",
-											"        }\r",
-											"    }\r",
-											"});\r",
-											"\r",
-											"\r",
-											"pm.test(\"Content-Type header is present in the response\", function () {\r",
-											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.exist;\r",
-											"});\r",
-											"\r",
-											""
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -4009,17 +3935,11 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{BearerTokenadminn}}"
-									}
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{$randomEmail}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n \r\n}\r\n\r\n\r\n\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"9045783410\",\r\n  \"DateOfBirth\": \"2024-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"Selenium@gmail.com\",\r\n  \"Firstname\": \"John\",\r\n  \"HospitalCity\": \"Carmel\",\r\n  \"HospitalName\": \"Ascension\",\r\n  \"HospitalPincode\": \"123456\",\r\n  \"HospitalStreet\": \"warren\",\r\n  \"Lastname\": \"Adam\"\r\n \r\n}\r\n\r\n\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
