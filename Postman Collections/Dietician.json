@@ -5589,6 +5589,127 @@
 							"response": []
 						},
 						{
+							"name": "Update Dietician without authorization",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
+										"exec": [
+											"\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Unauthorized\");\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"});\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e3c228f4-ad8a-4c9a-be04-87aaffe910cd",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"var expectedSchema = {\r",
+											"\"type\": \"object\",\r",
+											"  \"properties\": {\r",
+											"    \"id\": {\r",
+											"      \"type\": \"integer\"\r",
+											"    },\r",
+											"    \"Firstname\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"Lastname\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"ContactNumber\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"DateOfBirth\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"Email\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"HospitalName\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"HospitalStreet\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"HospitalCity\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"HospitalPincode\": {\r",
+											"      \"type\": \"string\"\r",
+											"    },\r",
+											"    \"Education\": {\r",
+											"      \"type\": \"string\"\r",
+											"    }\r",
+											"  },\r",
+											"  \"required\": [\r",
+											"    \"id\",\r",
+											"    \"Firstname\",\r",
+											"    \"Lastname\",\r",
+											"    \"ContactNumber\",\r",
+											"    \"DateOfBirth\",\r",
+											"    \"Email\",\r",
+											"    \"HospitalName\",\r",
+											"    \"HospitalStreet\",\r",
+											"    \"HospitalCity\",\r",
+											"    \"HospitalPincode\",\r",
+											"    \"Education\"\r",
+											"  ]\r",
+											"}\r",
+											"pm.test('Schema Validation', () => {\r",
+											"        pm.response.to.have.jsonSchema(expectedSchema);\r",
+											"});\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"OK\");\r",
+											"});\r",
+											"pm.test('Content-Type header is application/json', function () {\r",
+											"        pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
+											"    });\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "eee0be88-b720-421e-8ba2-055ea787f724",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{UpdatedContactNumber}}\",\r\n  \"DateOfBirth\": \"{{UpdatedDateOfBirth}}\",\r\n  \"Education\": \"{{UpdatedEducation}}\",\r\n  \"Email\": \"\",\r\n  \"Firstname\": \"{{UpdatedFirstname}}\",\r\n  \"HospitalCity\": \"{{UpdatedHospitalCity}}\",\r\n  \"HospitalName\": \"{{UpdatedHospitalName}}\",\r\n  \"HospitalPincode\": \"{{UpdatedHospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{UpdatedHospitalStreet}}\",\r\n  \"Lastname\": \"{{UpdatedLastname}}\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+							},
+							"response": []
+						},
+						{
 							"name": "Update Dietician with missing mandatory field",
 							"event": [
 								{
