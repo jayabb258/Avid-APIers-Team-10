@@ -4997,7 +4997,7 @@
 									"script": {
 										"id": "7e3dbf6b-caaa-433b-b4d7-922d29ce63dc",
 										"exec": [
-											";\r",
+											"\r",
 											"pm.test(\"Content-Type is present\", function () {\r",
 											"    pm.response.to.have.header(\"Content-Type\");\r",
 											"});\r",
