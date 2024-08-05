@@ -2361,7 +2361,7 @@
 										},
 										{
 											"key": "vitals",
-											"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
+											"value": "{\"Weight\" : 168.1,\n\"Height\": 5.4,\n\"Temperature\": 100,\n\"SP\" : 120,\n\"DP\" : 80\n}\n",
 											"type": "text",
 											"disabled": true
 										}
@@ -4090,6 +4090,19 @@
 					"item": [
 						{
 							"name": "Delete Patient",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b074df98-5d65-4172-ac51-ea3b227e3aeb",
+										"exec": [
+											"pm.execution.setNextRequest(\"Logout Dietitian User\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "68a5bccb-a933-42d3-b375-5abf1aaf4a2a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4109,6 +4122,19 @@
 						},
 						{
 							"name": "Logout Dietitian User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8dbddb3a-e06a-4181-9a18-534b7da2b78d",
+										"exec": [
+											"pm.execution.setNextRequest(\"DELETE DIETITIAN created\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "49f24196-acb4-4225-b24b-1efe17d3dd3f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
