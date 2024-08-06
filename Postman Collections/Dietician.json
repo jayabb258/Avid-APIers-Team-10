@@ -6311,7 +6311,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-02\"\n}\n",
+											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-04\"\n}\n",
 											"type": "text"
 										},
 										{
@@ -7146,7 +7146,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"EGG\",\n\"FoodPreference\": \"EGGETARIAN\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1992-01-01\"\n}\n",
+											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"EGG\",\n\"FoodPreference\": \"EGGETARIAN\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1992-01-04\"\n}\n",
 											"type": "text"
 										},
 										{
@@ -7281,121 +7281,7 @@
 								},
 								"url": "{{BaseURL}}/patient/99"
 							},
-							"response": [
-								{
-									"id": "9d1a61d9-7814-41e1-8199-43d15048d48a",
-									"name": "2.Add New Reports with/without Vitals for existing Patient Copy",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "formdata",
-											"formdata": [
-												{
-													"key": "patientInfo",
-													"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
-													"type": "text"
-												},
-												{
-													"key": "file",
-													"type": "file",
-													"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0"
-												},
-												{
-													"key": "vitals",
-													"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
-													"type": "text"
-												}
-											]
-										},
-										"url": "{{BaseURL}}/patient/{{patientIdKB}}"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Server",
-											"value": "Cowboy"
-										},
-										{
-											"key": "Report-To",
-											"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1722709129&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=uXAcgVbSlx78S8wPR4H5RLJdpG6KhzEHlyYRRFfqMUw%3D\"}]}"
-										},
-										{
-											"key": "Reporting-Endpoints",
-											"value": "heroku-nel=https://nel.heroku.com/reports?ts=1722709129&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=uXAcgVbSlx78S8wPR4H5RLJdpG6KhzEHlyYRRFfqMUw%3D"
-										},
-										{
-											"key": "Nel",
-											"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Vary",
-											"value": "Origin"
-										},
-										{
-											"key": "Vary",
-											"value": "Access-Control-Request-Method"
-										},
-										{
-											"key": "Vary",
-											"value": "Access-Control-Request-Headers"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-Xss-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, no-store, max-age=0, must-revalidate"
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "Expires",
-											"value": "0"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=31536000 ; includeSubDomains"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "DENY"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										},
-										{
-											"key": "Date",
-											"value": "Sat, 03 Aug 2024 18:18:50 GMT"
-										},
-										{
-											"key": "Via",
-											"value": "1.1 vegur"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"patientId\": 529,\n    \"FirstName\": \"Patricia\",\n    \"LastName\": \"Bennet\",\n    \"ContactNumber\": \"2136345591\",\n    \"Email\": \"Vinnie.Collins@yahoo.com\",\n    \"Allergy\": \"WALNUT\",\n    \"FoodPreference\": \"NONVEG\",\n    \"CuisineCategory\": \"rajasthani\",\n    \"FileMorbidity\": {\n        \"66ae748ab8896d2890f49796\": {\n            \"HbA1c\": \"6.5 %\",\n            \"Average Glucose\": \"131.0 mg/dl\"\n        },\n        \"66ae7186b8896d2890f49784\": {\n            \"T3\": \"6.3 ng/mL\",\n            \"T4\": \"15.7 µg/dL\",\n            \"TSH\": \"0.016 µIU/mL\"\n        }\n    },\n    \"FileMorbidityCondition\": {\n        \"66ae748ab8896d2890f49796\": \"Prediabetic \\n\",\n        \"66ae7186b8896d2890f49784\": \"Thyroid: Hyperthyroidism \\nBlood Pressure: Hypotension \\n\"\n    },\n    \"DateOfBirth\": \"1980-01-01\",\n    \"DieticianId\": 942,\n    \"Vitals\": {\n        \"66ae7186b8896d2890f49784\": {\n            \"Weight\": 0,\n            \"Height\": 0,\n            \"Temperature\": 0,\n            \"SP\": 0,\n            \"DP\": 0\n        }\n    },\n    \"LastVisitDate\": \"2024-08-03T18:05:58.164+00:00\"\n}"
-								}
-							]
+							"response": []
 						}
 					],
 					"id": "951d1390-bc10-4764-ba4c-38dac9ccd232"
