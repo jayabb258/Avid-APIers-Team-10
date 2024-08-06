@@ -7160,17 +7160,32 @@
 						},
 						{
 							"name": "Update Diectician Without Authorization",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eb7689d8-9fc9-471b-a8e2-9154d36116e3",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Unauthorized\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "28001a6d-af58-430e-88e6-8d3d5582b221",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{BearerTokenadminn}}"
-									}
-								},
 								"method": "PUT",
 								"header": [],
 								"body": {
