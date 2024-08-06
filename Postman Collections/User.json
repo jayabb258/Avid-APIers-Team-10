@@ -3808,7 +3808,7 @@
 							"response": []
 						},
 						{
-							"name": "6.\tCreate New Patient Patient that already exists Mandatory Field LastName 404",
+							"name": "6.\tCreate New Patient Patient that already exists Mandatory Field LastName missing 404",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -3970,7 +3970,7 @@
 							"response": []
 						},
 						{
-							"name": "6.\tCreate New Patient Patient that already exists Mandatory Field Cuisine Category",
+							"name": "6.\tCreate New Patient Patient that already exists Mandatory Field Cuisine Category missing",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4132,7 +4132,7 @@
 							"response": []
 						},
 						{
-							"name": "7. [BUG]Create New Patient Patient that already exists Mandatory Field Contact Number 404",
+							"name": "7. [BUG]Create New Patient Patient that already exists Mandatory Field Contact Number missing 404",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4398,7 +4398,7 @@
 							]
 						},
 						{
-							"name": "8.\tCreate New Patient Patient that already exists Mandatory Field DOB 400",
+							"name": "8.\tCreate New Patient Patient that already exists Mandatory Field DOB missing 400",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4561,7 +4561,7 @@
 							"response": []
 						},
 						{
-							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field Allergies 500",
+							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field Allergies missing 500",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -5250,7 +5250,7 @@
 							"response": []
 						},
 						{
-							"name": "2. Update Patient",
+							"name": "2. Update Patient invalid",
 							"event": [
 								{
 									"listen": "test",
