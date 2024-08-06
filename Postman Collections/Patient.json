@@ -365,7 +365,7 @@
 									"// {\r",
 									"// pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
 									"// });\r",
-									"}\r",
+									"//}\r",
 									"\r",
 									"const expectedJsonSchema=\r",
 									" {\r",
