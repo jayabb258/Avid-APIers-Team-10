@@ -1461,7 +1461,7 @@
 					"response": []
 				},
 				{
-					"name": "GET operation 200 as admin",
+					"name": "GET operation 200 admin",
 					"event": [
 						{
 							"listen": "test",
