@@ -1852,10 +1852,6 @@
 										{
 											"key": "file",
 											"type": "file",
-											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
-											"filesNotInWorkingDirectory": [
-												"JnunEIBB3/Hypo Thyroid-Report.pdf.pdf"
-											],
 											"src": "postman-cloud:///1ef538fb-527f-4c20-ac44-8c5c1d22a3be"
 										}
 									]
