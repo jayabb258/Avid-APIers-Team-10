@@ -4626,6 +4626,10 @@
 											"",
 											"// let mail = pm.variables.replaceIn(\"{{$randomEmail}}\");// Generate random email",
 											"// pm.environment.set(\"mailptKB\",mail);",
+											"",
+											"",
+											"var moment = require(\"moment\");",
+											"pm.variables.set(\"DOBkb\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
 											""
 										],
 										"type": "text/javascript",
@@ -4727,7 +4731,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1968-01-01\"\n}\n",
+											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb}}\"\n}\n",
 											"type": "text"
 										},
 										{
