@@ -1359,7 +1359,7 @@
 					"response": []
 				},
 				{
-					"name": "Dietician Login",
+					"name": "Patient Login",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1500,7 +1500,7 @@
 					"response": []
 				},
 				{
-					"name": "GET AllMorbidities withinvalid endpoint- AS DIETICIAN",
+					"name": "GET Morbidities with valid PatientToken",
 					"event": [
 						{
 							"listen": "test",
@@ -1570,6 +1570,93 @@
 						}
 					],
 					"id": "389e073a-6b90-4760-b7b8-f20f4412b9d3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "GET AllMorbidities withinvalid endpoint- AS DIETICIAN Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbcdfa96-f59f-4a00-9429-9a2b77463a49",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"   //  pm.collectionVariables.set('MorbidityTestNames',responseBody[i].morbidityTestName);\r",
+									"    if(responseBody[i].morbidityTestName==='Fasting Glucose')\r",
+									"    {\r",
+									"         pm.collectionVariables.set('MorbidityTestName_Fasting_G',responseBody[i].morbidityTestName);\r",
+									"      \r",
+									"          console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"}\r",
+									" if (responseBody[i].morbidityTestName==='Average Glucose')\r",
+									"{\r",
+									"  pm.collectionVariables.set('MorbidityTestName_Average_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='Plasma Glucose')\r",
+									"{\r",
+									"  pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='HbA1c')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='TSH')\r",
+									"{\r",
+									"    // console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_TSH ',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T3')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_T3',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T4')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.collectionVariables.set('thyroid_T4 ',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									"\r",
+									"}})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "acd204a6-c0c6-4666-827c-64fecffb1d53",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
