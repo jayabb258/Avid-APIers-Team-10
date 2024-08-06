@@ -7161,7 +7161,7 @@
 							"response": []
 						},
 						{
-							"name": "1.Add New Reports with/without Vitals for existing Patient 404 not found",
+							"name": "1.Add New Reports without Vitals for existing Patient 404 not found",
 							"event": [
 								{
 									"listen": "test",
@@ -7275,16 +7275,17 @@
 										{
 											"key": "vitals",
 											"value": "{\"Weight\" : 168.1,\n\"Height\": 5.4,\n\"Temperature\": 98.6,\n\"SP\" : 120,\n\"DP\" : 80\n}\n",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient/99"
+								"url": "{{BaseURL}}/patient/newReports/99"
 							},
 							"response": []
 						},
 						{
-							"name": "1.Add New Reports with/without Vitals for existing Patient 404 not found Copy",
+							"name": "1.Add New Reports with Vitals for existing Patient 404 not found",
 							"event": [
 								{
 									"listen": "test",
@@ -7402,7 +7403,7 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient/99"
+								"url": "{{BaseURL}}/patient/newReports/99"
 							},
 							"response": []
 						}
