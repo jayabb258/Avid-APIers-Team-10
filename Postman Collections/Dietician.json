@@ -4731,7 +4731,7 @@
 							"response": []
 						},
 						{
-							"name": "11.\tCreate New Patient that already exists Mandatory Field Cuisine 500 Copy",
+							"name": "11.\tCreate New Patient that already exists Mandatory Field Cuisine 500",
 							"event": [
 								{
 									"listen": "prerequest",
