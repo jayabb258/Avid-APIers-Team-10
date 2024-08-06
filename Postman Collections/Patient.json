@@ -6169,7 +6169,7 @@
 							"response": []
 						},
 						{
-							"name": "8. [BUG]Create New Patient Mandatory Field Contact Number missing 404 Copy",
+							"name": "8. [BUG] Update Patient Mandatory Field Contact Number missing 404",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -6304,7 +6304,7 @@
 										"token": "{{DietTokenKB}}"
 									}
 								},
-								"method": "POST",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "formdata",
@@ -6321,7 +6321,7 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient"
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": [
 								{
@@ -6435,7 +6435,7 @@
 							]
 						},
 						{
-							"name": "9.\tCreate New Patient Mandatory Field DOB missing 400 Copy",
+							"name": "9.\tUpdate Patient Mandatory Field DOB missing 400",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -6576,7 +6576,7 @@
 										"token": "{{DietTokenKB}}"
 									}
 								},
-								"method": "POST",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "formdata",
@@ -6593,12 +6593,12 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient"
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
 						},
 						{
-							"name": "10.\tCreate New Patient Mandatory Field Allergies missing 500 Copy",
+							"name": "10.\tUpdate Patient Mandatory Field Allergies missing 500",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -6746,7 +6746,7 @@
 										"token": "{{DietTokenKB}}"
 									}
 								},
-								"method": "POST",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "formdata",
@@ -6763,12 +6763,12 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient"
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
 						},
 						{
-							"name": "11.\tCreate New Patient Mandatory Field Cuisine missing 500 Copy",
+							"name": "11.\tUpdate Patient Mandatory Field Cuisine missing 500",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -6916,7 +6916,7 @@
 										"token": "{{DietTokenKB}}"
 									}
 								},
-								"method": "POST",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "formdata",
@@ -6933,7 +6933,7 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient"
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
 						},
