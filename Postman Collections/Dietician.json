@@ -1528,6 +1528,25 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "53d2e935-30d4-45fe-b3a7-54cb2e6e6b28",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"\r",
+									"    })\r",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"id": "13757a5b-590a-4643-ad2b-6d509b601940",
