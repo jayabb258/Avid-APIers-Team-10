@@ -369,6 +369,8 @@
 									"});\r",
 									"\r",
 									"pm.test(\"Validate json value in response\",function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"     //pm.expect(responseBody.morbidityId).to.be.a('number');\r",
 									"    pm.expect(responseBody.morbidityTestName).to.be.a(\"String\")\r",
 									"});\r",
 									"\r",
