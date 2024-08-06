@@ -4561,7 +4561,7 @@
 							"response": []
 						},
 						{
-							"name": "10.\tCreate New Patient that already exists Mandatory Field Food Preference 500 Copy",
+							"name": "10.\tCreate New Patient that already exists Mandatory Field Food Preference 500",
 							"event": [
 								{
 									"listen": "prerequest",
