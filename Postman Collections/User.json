@@ -3970,7 +3970,7 @@
 							"response": []
 						},
 						{
-							"name": "6.\tCreate New Patient Patient that already exists Mandatory Field Cuisine Category missing",
+							"name": "7.\tCreate New Patient Patient that already exists Mandatory Field Cuisine Category missing",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4132,7 +4132,7 @@
 							"response": []
 						},
 						{
-							"name": "7. [BUG]Create New Patient Patient that already exists Mandatory Field Contact Number missing 404",
+							"name": "8. [BUG]Create New Patient Patient that already exists Mandatory Field Contact Number missing 404",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4398,7 +4398,7 @@
 							]
 						},
 						{
-							"name": "8.\tCreate New Patient Patient that already exists Mandatory Field DOB missing 400",
+							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field DOB missing 400",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4561,7 +4561,7 @@
 							"response": []
 						},
 						{
-							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field Allergies missing 500",
+							"name": "10.\tCreate New Patient Patient that already exists Mandatory Field Allergies missing 500",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4731,7 +4731,7 @@
 							"response": []
 						},
 						{
-							"name": "10.\tCreate New Patient that already exists Mandatory Field Cuisine missing 500",
+							"name": "11.\tCreate New Patient that already exists Mandatory Field Cuisine missing 500",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4901,7 +4901,7 @@
 							"response": []
 						},
 						{
-							"name": "11.\t[BUG]Create New Patient Eggetarian selection food preference & Egg allergy",
+							"name": "[BUG]Create New Patient Eggetarian selection food preference & Egg allergy",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -5367,7 +5367,7 @@
 							"response": []
 						},
 						{
-							"name": "3.\tCreate New Patient incorrect selection Allergy 400",
+							"name": "3.\tUpdate Patient incorrect selection Allergy 400",
 							"event": [
 								{
 									"listen": "prerequest",
