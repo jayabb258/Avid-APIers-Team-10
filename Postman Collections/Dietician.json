@@ -1500,7 +1500,7 @@
 					"response": []
 				},
 				{
-					"name": "GET AllMorbidities withinvalid endpoint- AS DIETICIAN",
+					"name": "GET AllMorbidities withinvalid with PatientToken",
 					"event": [
 						{
 							"listen": "test",
