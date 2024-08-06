@@ -1398,7 +1398,7 @@
 					"response": []
 				},
 				{
-					"name": "GET AllMorbidities withinvalid endpoint- AS DIETICIAN Copy",
+					"name": "GET AllMorbidities withinvalid endpoint- AS DIETICIAN",
 					"event": [
 						{
 							"listen": "test",
