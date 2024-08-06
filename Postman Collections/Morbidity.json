@@ -1541,7 +1541,20 @@
 									"    pm.test(\"Status code is 404\", function () {\r",
 									"    pm.response.to.have.status(404);\r",
 									"     })\r",
-									"    })"
+									"    })\r",
+									"\r",
+									"\r",
+									"    pm.test(\"Get error Message from response\",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.error) {\r",
+									"    console.error('Error------', responseBody.error);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
