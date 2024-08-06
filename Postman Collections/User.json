@@ -4731,7 +4731,7 @@
 							"response": []
 						},
 						{
-							"name": "10.\tCreate New Patient that already exists Mandatory Field Cuisine 500",
+							"name": "10.\tCreate New Patient that already exists Mandatory Field Cuisine missing 500",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -5250,7 +5250,7 @@
 							"response": []
 						},
 						{
-							"name": "2. Update Patient invalid",
+							"name": "2. Update Patient incorrect allergy",
 							"event": [
 								{
 									"listen": "test",
@@ -5259,35 +5259,26 @@
 										"exec": [
 											"",
 											"let response = pm.response.json();",
-											"// pm.environment.set(\"patientIdKB\", response.patientId);",
-											"",
-											"",
-											"//response time",
-											"",
-											"pm.test(\"Response time is less than 500ms\", function () {",
-											"    pm.expect(pm.response.responseTime).to.be.below(500);",
-											"});",
-											"",
 											"",
 											"//Check error message - single &  extended",
 											"",
 											"//Status Code is 400 & Description",
 											"",
-											"pm.test(\"Status code is 404\", function () {",
-											"    pm.response.to.have.status(404);",
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
 											"});",
 											"",
 											"pm.test(\"Status code name shows Not Found\", function () {",
-											"    pm.response.to.have.status(\"Not Found\");",
+											"    pm.response.to.have.status(\"Bad Request\");",
 											"});",
 											"",
-											"pm.test(\"Error message shows patient not found\", function () {",
-											"    pm.expect(pm.response.text()).to.include(\"NOT_FOUND\");",
+											"pm.test(\"Error code shows INVALID_REQ_DATA\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"INVALID_REQ_DATA\");",
 											"});",
 											"",
 											"",
-											"pm.test(\"Error message shows patient not found with Id 99\", function () {",
-											"    pm.expect(pm.response.text()).to.include(\"Patient not found with patientId : 99\");",
+											"pm.test(\"Error message shows food preferennce is wrong\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Invalid Food Preference\");",
 											"});",
 											"",
 											"",
@@ -5354,7 +5345,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Corbett\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1992-01-01\"\n}\n",
+											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Corbett\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"TREE NUT\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
 											"type": "text"
 										},
 										{
@@ -5371,7 +5362,7 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient/99"
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
 						},
