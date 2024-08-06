@@ -1347,7 +1347,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// {\r\n//   \"password\":\"{{pw}}\",\r\n//   \"userLoginEmail\":\"{{UserID}}\"\r\n// }\r\n\r\n{\r\n  \"password\": \"invalidPassword\",\r\n  \"userLoginEmail\": \"invalid email.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"invalidPassword\",\r\n  \"userLoginEmail\": \"invalid@email.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
