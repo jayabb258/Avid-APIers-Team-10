@@ -4731,7 +4731,177 @@
 							"response": []
 						},
 						{
-							"name": "11.\t[BUG]Create New Patient Eggetarian selection food preference & Egg allergy",
+							"name": "11.\tCreate New Patient that already exists Mandatory Field Cuisine 500 Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e690cf65-12d5-401d-a4cd-9918cd68508d",
+										"exec": [
+											"",
+											"",
+											"// // Load lodash library code",
+											"// const lodash = require('lodash');",
+											"",
+											"",
+											"// //Select Random Allergy",
+											"// var allergy = lodash.sample([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+											"",
+											"// pm.environment.set(\"allergyKB\",allergy);",
+											"",
+											"// // Select Random cuisine",
+											"",
+											"",
+											"// var cuisine = lodash.sample([\"ndian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
+											"",
+											"// pm.environment.set(\"cuisineKB\",cuisine);",
+											"",
+											"// //select Random food preference",
+											"",
+											"// var foodpref = lodash.sample([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
+											"",
+											"// pm.environment.set(\"foodpref\",foodpref);",
+											"",
+											"",
+											"// //Generate random contact number",
+											"// let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number",
+											"// pm.environment.set(\"phoneptKB\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
+											"",
+											"",
+											"// //generate random email address",
+											"",
+											"// let mail = pm.variables.replaceIn(\"{{$randomEmail}}\");// Generate random email",
+											"// pm.environment.set(\"mailptKB\",mail);",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
+										"exec": [
+											"",
+											"let response = pm.response.json();",
+											"// pm.environment.set(\"patientIdKB\", response.patientId);",
+											"//Response time",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);",
+											"});",
+											"",
+											"//Check error message - single &  extended",
+											"",
+											"//Status Code is 400 & Status description",
+											"",
+											"pm.test(\"Status code is 500\", function () {",
+											"    pm.response.to.have.status(500);",
+											"});",
+											"",
+											"pm.test(\"Status code name is Internal Server Error\", function () {",
+											"    pm.response.to.have.status(\"Internal Server Error\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Error code shows Internal Server Error\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Internal Server Error\");",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"// Content header check",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"",
+											"//validation of content type",
+											"pm.test('Content-Type Header is application-json', () => {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+											"})",
+											"//Data type validation",
+											"",
+											"let dateFormat = /([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))/;",
+											"pm.test('All Data types are correct', () => {",
+											"    pm.expect(response.timestamp).to.match(dateFormat);",
+											"    pm.expect(response.status).to.be.a('number');",
+											"    pm.expect(response.error).to.be.a('string');",
+											"    pm.expect(response.path).to.be.a('string');",
+											"})",
+											"",
+											"//check if all items are present",
+											"",
+											"",
+											"var schema = {",
+											"    properties: {",
+											"    timestamp: {",
+											"      type: \"string\",",
+											"    },",
+											"    status: {",
+											"      type: \"number\",",
+											"    },",
+											"    error: {",
+											"      type: \"string\",",
+											"    },",
+											"    path: {",
+											"      type: \"string\",",
+											"    },",
+											"  },",
+											"  required: [",
+											"    \"timestamp\",",
+											"    \"status\",",
+											"    \"error\",",
+											"    \"path\"",
+											"  ],",
+											"};",
+											"",
+											"pm.test(\"Schema is valid\", () => {",
+											"  pm.response.to.have.jsonSchema(schema);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "56231d35-58c9-45e7-a040-0dd882abbd71",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{\"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\":\"{{allergyKB}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1982-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef51c28-d3c7-46b0-be9b-23781b2180b5"
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient"
+							},
+							"response": []
+						},
+						{
+							"name": "12.\t[BUG]Create New Patient Eggetarian selection food preference & Egg allergy",
 							"event": [
 								{
 									"listen": "prerequest",
