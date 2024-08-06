@@ -4233,7 +4233,7 @@
 							"response": []
 						},
 						{
-							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field LastName 404 Copy",
+							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field Allergies 404",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4380,7 +4380,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\": \"Colbert\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"value": "{\"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
 											"type": "text"
 										},
 										{
@@ -7159,7 +7159,7 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "Update Diectician Without Authorization",
 							"id": "28001a6d-af58-430e-88e6-8d3d5582b221",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
