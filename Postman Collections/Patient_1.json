@@ -3651,7 +3651,7 @@
 							"response": []
 						},
 						{
-							"name": "5.\tCreate New Patient Patient that already exists Mandatory Field FirstName missing",
+							"name": "5.\tCreate New Patient Mandatory Field FirstName missing",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -3808,7 +3808,7 @@
 							"response": []
 						},
 						{
-							"name": "6.\tCreate New Patient Patient that already exists Mandatory Field LastName missing 404",
+							"name": "6.\tCreate New Patient Mandatory Field LastName missing 404",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -3970,7 +3970,7 @@
 							"response": []
 						},
 						{
-							"name": "7.\tCreate New Patient Patient that already exists Mandatory Field Cuisine Category missing",
+							"name": "7.\tCreate New Patient Mandatory Field Cuisine Category missing",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4132,7 +4132,7 @@
 							"response": []
 						},
 						{
-							"name": "8. [BUG]Create New Patient Patient that already exists Mandatory Field Contact Number missing 404",
+							"name": "8. [BUG]Create New Patient Mandatory Field Contact Number missing 404",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4398,7 +4398,7 @@
 							]
 						},
 						{
-							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field DOB missing 400",
+							"name": "9.\tCreate New Patient Mandatory Field DOB missing 400",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4561,7 +4561,7 @@
 							"response": []
 						},
 						{
-							"name": "10.\tCreate New Patient Patient that already exists Mandatory Field Allergies missing 500",
+							"name": "10.\tCreate New Patient Mandatory Field Allergies missing 500",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -5528,7 +5528,7 @@
 							"response": []
 						},
 						{
-							"name": "4.\tCreate New Patient incorrect selection Cuisine Category 400",
+							"name": "4.\tUpdate Patient incorrect selection Cuisine Category 400",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -5674,6 +5674,163 @@
 										{
 											"key": "patientInfo",
 											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"Japanese\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef51c28-d3c7-46b0-be9b-23781b2180b5"
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
+							},
+							"response": []
+						},
+						{
+							"name": "5.\tUpdate Patient that already exists Mandatory Field FirstName missing",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e690cf65-12d5-401d-a4cd-9918cd68508d",
+										"exec": [
+											"",
+											"",
+											"// // Load lodash library code",
+											"// const lodash = require('lodash');",
+											"",
+											"",
+											"// //Select Random Allergy",
+											"// var allergy = lodash.sample([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+											"",
+											"// pm.environment.set(\"allergyKB\",allergy);",
+											"",
+											"// // Select Random cuisine",
+											"",
+											"",
+											"// var cuisine = lodash.sample([\"ndian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
+											"",
+											"// pm.environment.set(\"cuisineKB\",cuisine);",
+											"",
+											"// //select Random food preference",
+											"",
+											"// var foodpref = lodash.sample([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
+											"",
+											"// pm.environment.set(\"foodpref\",foodpref);",
+											"",
+											"",
+											"// //Generate random contact number",
+											"// let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number",
+											"// pm.environment.set(\"phoneptKB\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
+											"",
+											"",
+											"// //generate random email address",
+											"",
+											"// let mail = pm.variables.replaceIn(\"{{$randomEmail}}\");// Generate random email",
+											"// pm.environment.set(\"mailptKB\",mail);",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
+										"exec": [
+											"",
+											"let response = pm.response.json();",
+											"// pm.environment.set(\"patientIdKB\", response.patientId);",
+											"",
+											"//Check error message - single &  extended",
+											"",
+											"//Status Code is 400 & Status description",
+											"",
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Status code name is Bad Request\", function () {",
+											"    pm.response.to.have.status(\"Bad Request\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Error code shows INVALID_REQ_DATA\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"INVALID_REQ_DATA\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Error message shows duplicate patient exists due to same Dob and contact number\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"firstName : User First Name is Mandatory!\");",
+											"});",
+											"",
+											"",
+											"",
+											"// Content header check",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"",
+											"//validation of content type",
+											"pm.test('Content-Type Header is application-json', () => {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+											"})",
+											"//Data type validation",
+											"pm.test('All Data types are correct', () => {",
+											"    pm.expect(response.errorCode).to.be.a('string');",
+											"    pm.expect(response.errorMessage).to.be.a('string');",
+											"})",
+											"",
+											"//check if all items are present",
+											"",
+											"",
+											"var schema = {",
+											"    properties: {",
+											"    errorCode: {",
+											"      type: \"string\",",
+											"    },",
+											"    errorMessage: {",
+											"      type: \"string\",",
+											"    },",
+											"  },",
+											"  required: [",
+											"    \"errorCode\",",
+											"    \"errorMessage\"",
+											"  ],",
+											"};",
+											"",
+											"pm.test(\"Schema is valid\", () => {",
+											"  pm.response.to.have.jsonSchema(schema);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e9c92e76-609c-4bdc-aede-516d6f3c5d5c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
 											"type": "text"
 										},
 										{
