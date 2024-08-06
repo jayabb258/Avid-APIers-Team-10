@@ -1500,7 +1500,7 @@
 					"response": []
 				},
 				{
-					"name": "GET AllMorbidities withinvalid with PatientToken",
+					"name": "GET Morbidities with valid PatientToken",
 					"event": [
 						{
 							"listen": "test",
