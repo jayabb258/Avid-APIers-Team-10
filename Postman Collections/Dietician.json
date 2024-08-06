@@ -10619,7 +10619,7 @@
 										}
 									}
 								},
-								"url": "{{BaseURI}}/dietician/999"
+								"url": "{{BaseURL}}/dietician/999"
 							},
 							"response": []
 						},
@@ -10632,6 +10632,9 @@
 										"id": "13cf1ad7-1f9e-4fe3-b38a-4ffbf9e2421c",
 										"exec": [
 											"pm.test(\"Content-Type is present\", function () {\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Not Found\");\r",
+											"});\r",
 											"        pm.response.to.have.header(\"Content-Type\");\r",
 											"    });\r",
 											"pm.test(\"Status code is 404\", function () {\r",
@@ -10652,12 +10655,12 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{IshuToken}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{BaseURI}}/dietician/089"
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
 							},
 							"response": []
 						}
