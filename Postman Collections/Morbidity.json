@@ -4274,7 +4274,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-02\"\n}\n",
+											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-03\"\n}\n",
 											"type": "text"
 										},
 										{
@@ -6938,7 +6938,7 @@
 							"response": []
 						},
 						{
-							"name": "[BUG]Create New Patient Eggetarian selection food preference & Egg allergy Copy",
+							"name": "[BUG]Create New Patient Eggetarian selection food preference & Egg allergy",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -7139,7 +7139,7 @@
 										"token": "{{DietTokenKB}}"
 									}
 								},
-								"method": "POST",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "formdata",
@@ -7156,7 +7156,7 @@
 										}
 									]
 								},
-								"url": "{{BaseURL}}/patient"
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
 						},
