@@ -369,7 +369,7 @@
 									"});\r",
 									"\r",
 									"pm.test(\"Validate json value in response\",function () {\r",
-									"    pm.expect(responseBody.morbidityTestNameumber).to.be.a(\"string\")\r",
+									"    pm.expect(responseBody.morbidityTestName).to.be.a(\"String\")\r",
 									"});\r",
 									"\r",
 									"\r",
