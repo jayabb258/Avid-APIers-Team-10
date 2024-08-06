@@ -1652,6 +1652,49 @@
 				},
 				{
 					"name": "Retrieve Thyroid Test T3 with invalidtestname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9207d2fb-abda-4fb6-ac63-89028a3a6ec1",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"     })\r",
+									"    })\r",
+									"\r",
+									"\r",
+									" pm.test(\"Get error Message from response:-> Morbidity not found with MorbidityTestName \",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorMessage) {\r",
+									"    console.error('Error------', responseBody.errorMessage);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									" pm.test(\"Get error errorCode: NOT_FOUND\",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorCode) {\r",
+									"    console.error('errorCode------', responseBody.errorCode);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "5b205ae1-9b55-4301-a6b3-85876d1d2022",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1671,6 +1714,49 @@
 				},
 				{
 					"name": "Retrieve Thyroid Test T4 with wrong testname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7510da9d-81ac-4de4-b313-454ac009c06a",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"     })\r",
+									"    })\r",
+									"\r",
+									"\r",
+									" pm.test(\"Get error Message from response:-> Morbidity not found with MorbidityTestName \",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorMessage) {\r",
+									"    console.error('Error------', responseBody.errorMessage);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									" pm.test(\"Get error errorCode: NOT_FOUND\",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorCode) {\r",
+									"    console.error('errorCode------', responseBody.errorCode);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "bd623db5-b65f-4d1a-9543-017a9f4b7c4e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1690,6 +1776,49 @@
 				},
 				{
 					"name": "Retrieve DiabetesTest HBA1C negativeTesting Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b093a02a-0a35-4e93-a737-d7100e6002d1",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"     })\r",
+									"    })\r",
+									"\r",
+									"\r",
+									" pm.test(\"Get error Message from response:-> Morbidity not found with MorbidityTestName \",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorMessage) {\r",
+									"    console.error('Error------', responseBody.errorMessage);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									" pm.test(\"Get error errorCode: NOT_FOUND\",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorCode) {\r",
+									"    console.error('errorCode------', responseBody.errorCode);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "4464a4c0-30be-4a57-ab33-4563db34b04c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1709,6 +1838,49 @@
 				},
 				{
 					"name": "Retrieve Diabetes Test Average Glucose with invalid testname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "38807993-9edb-43ec-be5a-dc327c7ab885",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"     })\r",
+									"    })\r",
+									"\r",
+									"\r",
+									" pm.test(\"Get error Message from response:-> Morbidity not found with MorbidityTestName \",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorMessage) {\r",
+									"    console.error('Error------', responseBody.errorMessage);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									" pm.test(\"Get error errorCode: NOT_FOUND\",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorCode) {\r",
+									"    console.error('errorCode------', responseBody.errorCode);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "77fcf65b-f6ad-454c-8eb1-64ea67b21040",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1728,6 +1900,49 @@
 				},
 				{
 					"name": "Retrieve Diabetes Test Fasting Glucose with invalid testname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58bb5d1b-a56c-4f41-920f-835aca16f794",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"     })\r",
+									"    })\r",
+									"\r",
+									"\r",
+									" pm.test(\"Get error Message from response:-> Morbidity not found with MorbidityTestName \",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorMessage) {\r",
+									"    console.error('Error------', responseBody.errorMessage);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									" pm.test(\"Get error errorCode: NOT_FOUND\",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorCode) {\r",
+									"    console.error('errorCode------', responseBody.errorCode);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "156f9b71-2015-4556-a75e-81f2fc83b33c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1747,6 +1962,49 @@
 				},
 				{
 					"name": "Retrieve Diabetes Test  Plasma Glucose with inavalid Test_name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40738e37-4bad-47c8-b614-bcc2ae270bc9",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"     })\r",
+									"    })\r",
+									"\r",
+									"\r",
+									" pm.test(\"Get error Message from response:-> Morbidity not found with MorbidityTestName \",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorMessage) {\r",
+									"    console.error('Error------', responseBody.errorMessage);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									" pm.test(\"Get error errorCode: NOT_FOUND\",()=>\r",
+									"{\r",
+									"   var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract and log the error message if present\r",
+									"if (responseBody.errorCode) {\r",
+									"    console.error('errorCode------', responseBody.errorCode);\r",
+									"}\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "809b8f56-2606-4685-96e7-fb41cefb43dc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
