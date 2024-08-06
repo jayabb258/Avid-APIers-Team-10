@@ -10597,6 +10597,27 @@
 						},
 						{
 							"name": "DieticianID Negative",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "884438d9-c4c7-46d0-9cf5-f5fb2089c7c7",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"pm.test(\"Status code name has string\", function () {\r",
+											"    pm.response.to.have.status(\"Not Found\");\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});\r",
+											"});\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "54c60323-1666-47ca-b951-8f831fb32c78",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -10605,21 +10626,21 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{IshuToken}}"
+										"token": "{{BearerTokenadminn}}"
 									}
 								},
 								"method": "GET",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"1523782318\",\r\n  \"DateOfBirth\": \"2016-03-22T18:14:08.570Z\",\r\n  \"Education\": \"BSC\",\r\n  \"Email\": \"abc@gmail.com\",\r\n  \"Firstname\": \"ishu\",\r\n  \"HospitalCity\": \"exton\",\r\n  \"HospitalName\": \"CHN\",\r\n  \"HospitalPincode\": \"192822\",\r\n  \"HospitalStreet\": \"an\",\r\n  \"Lastname\": \"gautham\"\r\n \r\n}\r\n",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{BaseURL}}/dietician/999"
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
 							},
 							"response": []
 						},
