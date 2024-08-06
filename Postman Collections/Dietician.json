@@ -3729,7 +3729,7 @@
 							]
 						},
 						{
-							"name": "8.\tCreate New Patient Patient that already exists Mandatory Field LastName 404",
+							"name": "8.\tCreate New Patient Patient that already exists Mandatory Field DOB 400",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -3937,7 +3937,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\"\n}\n",
 											"type": "text"
 										},
 										{
