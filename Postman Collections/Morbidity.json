@@ -4561,7 +4561,7 @@
 							"response": []
 						},
 						{
-							"name": "9.\tCreate New Patient Patient that already exists Mandatory Field Allergies 500 Copy",
+							"name": "10.\tCreate New Patient that already exists Mandatory Field Food Preference 500 Copy",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4716,7 +4716,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{\"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1982-01-01\"\n}\n",
+											"value": "{\"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\":\"{{allergyKB}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1982-01-01\"\n}\n",
 											"type": "text"
 										},
 										{
