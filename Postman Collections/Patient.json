@@ -1587,7 +1587,7 @@
 					"response": []
 				},
 				{
-					"name": "GET AllMorbidities withinvalid endpoint- AS DIETICIAN Copy",
+					"name": "GET AllMorbidities withinvalid endpoint",
 					"event": [
 						{
 							"listen": "test",
@@ -1669,7 +1669,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}/morbidity"
+						"url": "{{BaseURL}}/morbid__"
 					},
 					"response": []
 				},
