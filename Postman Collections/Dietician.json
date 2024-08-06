@@ -1308,7 +1308,58 @@
 			"name": "MorbityTesting NegativeScenarios",
 			"item": [
 				{
-					"name": "Admin User Login Copy",
+					"name": "Admin User Login with invalid credential",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
+								"exec": [
+									"pm.globals.set(\"variable_key\", \"variable_value\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
+								"exec": [
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.globals.set(\"Bearertk\", token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "ee3f12c5-fd77-43c7-af5a-aea8d42c0a99",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//   \"password\":\"{{pw}}\",\r\n//   \"userLoginEmail\":\"{{UserID}}\"\r\n// }\r\n\r\n{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin User Login",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1347,7 +1398,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// {\r\n//   \"password\":\"{{pw}}\",\r\n//   \"userLoginEmail\":\"{{UserID}}\"\r\n// }\r\n\r\n{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team10@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\":\"{{pw}}\",\r\n  \"userLoginEmail\":\"{{UserID}}\"\r\n}\r\n\r\n// {\r\n//   \"password\": \"test\",\r\n//   \"userLoginEmail\": \"Team10@gmail.com\"\r\n// }",
 							"options": {
 								"raw": {
 									"language": "json"
