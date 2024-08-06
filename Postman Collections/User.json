@@ -7274,7 +7274,130 @@
 										},
 										{
 											"key": "vitals",
-											"value": "{\n       “Weight“ : 168.1,\n       “Height” : 5.4,\n        “Temperature” : 98.6,\n        “SP” : 120,\n        “DP” : 80\n \n             \t}\n",
+											"value": "{\"Weight\" : 168.1,\n\"Height\": 5.4,\n\"Temperature\": 98.6,\n\"SP\" : 120,\n\"DP\" : 80\n}\n",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient/99"
+							},
+							"response": []
+						},
+						{
+							"name": "1.Add New Reports with/without Vitals for existing Patient 404 not found Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7deb8ac9-9e36-42a4-800d-c085e0db8a7b",
+										"exec": [
+											"",
+											"let response = pm.response.json();",
+											"// pm.environment.set(\"patientIdKB\", response.patientId);",
+											"",
+											"//Response time",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);",
+											"});",
+											"",
+											"",
+											"//Check error message - single &  extended",
+											"",
+											"//Status Code is 400 & Description",
+											"",
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Status code name shows Not Found\", function () {",
+											"    pm.response.to.have.status(\"Not Found\");",
+											"});",
+											"",
+											"pm.test(\"Error message shows patient not found\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"NOT_FOUND\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Error message shows patient not found with Id 99\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Patient not found with patientId : 99\");",
+											"});",
+											"",
+											"",
+											"",
+											"// Content header check",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"",
+											"//validation of content type",
+											"pm.test('Content-Type Header is application-json', () => {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+											"})",
+											"//Data type validation",
+											"pm.test('All Data types are correct', () => {",
+											"    pm.expect(response.errorCode).to.be.a('string');",
+											"    pm.expect(response.errorMessage).to.be.a('string');",
+											"})",
+											"",
+											"//check if all items are present",
+											"",
+											"",
+											"var schema = {",
+											"    properties: {",
+											"    errorCode: {",
+											"      type: \"string\",",
+											"    },",
+											"    errorMessage: {",
+											"      type: \"string\",",
+											"    },",
+											"  },",
+											"  required: [",
+											"    \"errorCode\",",
+											"    \"errorMessage\"",
+											"  ],",
+											"};",
+											"",
+											"pm.test(\"Schema is valid\", () => {",
+											"  pm.response.to.have.jsonSchema(schema);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "31109ecc-e22e-4322-a3a7-275668e7d68e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef51c3b-e7e3-4730-8555-d932e269dae0"
+										},
+										{
+											"key": "vitals",
+											"value": "{\"Weight\" : 168.1,\n\"Height\": 5.4,\n\"Temperature\": 98.6,\n\"SP\" : 120,\n\"DP\" : 80\n}\n",
 											"type": "text"
 										}
 									]
