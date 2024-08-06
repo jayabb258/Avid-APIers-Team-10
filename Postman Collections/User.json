@@ -1540,8 +1540,7 @@
 									"    console.log('pm.response',pm.response.json())\r",
 									"    pm.test(\"Status code is 404\", function () {\r",
 									"    pm.response.to.have.status(404);\r",
-									"\r",
-									"    })\r",
+									"     })\r",
 									"    })"
 								],
 								"type": "text/javascript",
