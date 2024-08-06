@@ -2463,7 +2463,7 @@
 											"",
 											"//Generate random last name ",
 											"",
-											"pm.environment.set(\"fnameKB\",pm.variables.replaceIn(\"{{$randomLastName}}\"));;",
+											"pm.environment.set(\"lnameKB\",pm.variables.replaceIn(\"{{$randomLastName}}\"));;",
 											""
 										],
 										"type": "text/javascript",
@@ -2631,7 +2631,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"{{firstNamePatient}}\",\n\"LastName\": \"{{lastNamePatient}}\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOB}}\"\n}\n",
+											"value": "{ \"FirstName\": \"{{fnameKB}}\",\n\"LastName\": \"{{lnameKB}}\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
 											"type": "text"
 										},
 										{
