@@ -6991,6 +6991,34 @@
 								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
 							},
 							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "28001a6d-af58-430e-88e6-8d3d5582b221",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{BearerTokenadminn}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ContactNumber\": \"{{UpdatedContactNumber}}\",\r\n  \"DateOfBirth\": \"{{UpdatedDateOfBirth}}\",\r\n  \"Education\": \"{{UpdatedEducation}}\",\r\n  \"Email\": \"{{DieticianEmail2}}\",\r\n  \"Firstname\": \"{{UpdatedFirstname}}\",\r\n  \"HospitalCity\": \"{{UpdatedHospitalCity}}\",\r\n  \"HospitalName\": \"{{UpdatedHospitalName}}\",\r\n  \"HospitalPincode\": \"{{UpdatedHospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{UpdatedHospitalStreet}}\",\r\n  \"Lastname\": \"{{UpdatedLastname}}\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURL}}/dietician/{{DieticianId}}"
+							},
+							"response": []
 						}
 					],
 					"id": "1086df2d-a189-411a-a2b5-4663259fdfe4"
