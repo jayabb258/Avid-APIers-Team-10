@@ -4133,7 +4133,7 @@
 							"response": []
 						},
 						{
-							"name": "1.\tCreate New Patient with invalid LastName Copy",
+							"name": "1.\tCreate New Patient with invalid Contact number",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -4286,7 +4286,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Charlie\",\n\"LastName\": \"123\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb}}\"\n}\n",
+											"value": "{ \"FirstName\": \"Charlie\",\n\"LastName\": \"Brown\",\n\"ContactNumber\": \"HAPPY12345678\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb}}\"\n}\n",
 											"type": "text"
 										},
 										{
