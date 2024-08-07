@@ -2407,6 +2407,18 @@
 								"url": "{{BaseURL}}/login"
 							},
 							"response": []
+						},
+						{
+							"name": "GET PATIENT by patient",
+							"id": "ce37a5bb-5963-4291-afbf-bb5effbcdba2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
 					"id": "79eb9308-cb24-4c8e-9279-7410cedf7b22"
