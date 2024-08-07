@@ -2423,7 +2423,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{BaseURL}}/patient/testReports/viewFile/66b2e030caaebf47586de6b7"
+								"url": "{{BaseURL}}/patient/testReports/viewFile/66b2e498caaebf47586de6fd"
 							},
 							"response": []
 						}
@@ -8809,7 +8809,7 @@
 								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
+								"url": "{{BaseURL}}/patient/1654"
 							},
 							"response": []
 						},
