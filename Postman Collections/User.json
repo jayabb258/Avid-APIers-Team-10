@@ -2415,8 +2415,15 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": "{{BaseURL}}/patient/testReports/viewFile/66b2e030caaebf47586de6b7"
 							},
 							"response": []
 						}
@@ -2623,6 +2630,30 @@
 											"  pm.response.to.have.jsonSchema(schema);",
 											"});",
 											"",
+											"",
+											"// Parse the JSON response",
+											"var Response = pm.response.json();",
+											"",
+											"var jsonData = jsonData.Vitals ",
+											"",
+											"// Function to recursively log all keys and values in the JSON object",
+											"function logKeysAndValues(obj, parentKey = '') {",
+											"    for (var key in obj) {",
+											"        if (obj.hasOwnProperty(key)) {",
+											"            var fullKey = parentKey ? parentKey + '.' + key : key;",
+											"            if (typeof obj[key] === 'object' && obj[key] !== null) {",
+											"                // If the value is an object, recursively call the function",
+											"                logKeysAndValues(obj[key], fullKey);",
+											"            } else {",
+											"                // Log the key and value",
+											"                console.log(fullKey + ': ' + obj[key]);",
+											"            }",
+											"        }",
+											"    }",
+											"}",
+											"",
+											"// Call the function to log all keys and values",
+											"logKeysAndValues(jsonData);",
 											""
 										],
 										"type": "text/javascript",
