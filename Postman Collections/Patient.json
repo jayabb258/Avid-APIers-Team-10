@@ -254,24 +254,24 @@
 							"script": {
 								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
 								"exec": [
-									"pm.test(\"Extract value and set environment variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
+									"// pm.test(\"Extract value and set environment variable\", function () {\r",
+									"//     const responseBody = pm.response.json();\r",
 									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
+									"//     console.log('pm.response',pm.response.json())\r",
 									"\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
+									"//     for(i=0;i<responseBody.length;i++){\r",
 									"     \r",
-									"    if(i===2)\r",
-									"    {\r",
+									"//     if(i===2)\r",
+									"//     {\r",
 									"      \r",
-									"          console.log('morbidity name',responseBody[i].morbidityTestName) \r",
+									"//           console.log('morbidity name',responseBody[i].morbidityTestName) \r",
 									"\r",
-									" pm.environment.set(\"morbidity_test_name\", responseBody[i].morbidityTestName)\r",
-									"}\r",
+									"//  pm.environment.set(\"morbidity_test_name\", responseBody[i].morbidityTestName)\r",
+									"// }\r",
 									"\r",
-									"}\r",
+									"// }\r",
 									"  \r",
-									"});"
+									"// });"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -280,8 +280,12 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"packages": {},
-								"type": "text/javascript"
+								"id": "ad489995-0f23-4c25-ab66-97f4b3bd1056",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
