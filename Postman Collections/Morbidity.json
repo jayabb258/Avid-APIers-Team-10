@@ -8473,7 +8473,7 @@
 									"script": {
 										"id": "b074df98-5d65-4172-ac51-ea3b227e3aeb",
 										"exec": [
-											"pm.execution.setNextRequest(\"Logout Dietitian User\");"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -8505,7 +8505,7 @@
 									"script": {
 										"id": "8dbddb3a-e06a-4181-9a18-534b7da2b78d",
 										"exec": [
-											"pm.execution.setNextRequest(\"DELETE DIETITIAN\");"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -8537,7 +8537,7 @@
 									"script": {
 										"id": "52ac7b29-7b39-44e0-854c-8d3f9418a079",
 										"exec": [
-											"pm.execution.setNextRequest(\"Logout Admin User\");"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
