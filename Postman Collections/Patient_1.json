@@ -5207,9 +5207,9 @@
 											"// pm.environment.set(\"foodpref\",foodpref);",
 											"",
 											"",
-											"// //Generate random contact number",
+											"//Generate random contact number",
 											"// let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number",
-											"// pm.environment.set(\"phoneptKB\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
+											"// pm.environment.set(\"phoneptKB1\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
 											"",
 											"",
 											"// //generate random email address",
@@ -5219,7 +5219,7 @@
 											"",
 											"",
 											"var moment = require(\"moment\");",
-											"pm.variables.set(\"DOBkb\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
+											"pm.environment.set(\"DOBkb1\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
 											""
 										],
 										"type": "text/javascript",
@@ -5321,7 +5321,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb}}\"\n}\n",
+											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb1}}\"\n}\n",
 											"type": "text"
 										},
 										{
@@ -7256,7 +7256,7 @@
 											"//generate random DOB",
 											"",
 											"var moment = require(\"moment\");",
-											"pm.variables.set(\"DOBkb1\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
+											"pm.environment.set(\"DOBkb1\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
 											""
 										],
 										"type": "text/javascript",
