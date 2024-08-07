@@ -3566,7 +3566,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+											"value": "{ \"FirstName\": \"Patricia\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb}}\"\n}",
 											"type": "text"
 										},
 										{
@@ -4295,8 +4295,8 @@
 											"});",
 											"",
 											"",
-											"pm.test(\"Error message shows FirstName should only contain Alphabets\", function () {",
-											"    pm.expect(pm.response.text()).to.include(\"LastName should only contain Alphabets\");",
+											"pm.test(\"Error message shows Contact number should contain 10 digits\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Contact number should contain 10 digits\");",
 											"});",
 											"",
 											"",
