@@ -8957,7 +8957,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "BearerTokenDietician1"
+								"token": "{{DieticianToken2}}"
 							}
 						},
 						"method": "POST",
