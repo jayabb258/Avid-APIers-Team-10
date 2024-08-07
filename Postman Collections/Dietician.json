@@ -556,6 +556,23 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7570c203-a512-430d-8ddd-2ded3878d936",
+								"exec": [
+									"\r",
+									"const morbiditytestName_HBA1C =pm.environment.get('MorbidityTestName_HBA1C');\r",
+									"if(morbiditytestName_HBA1C==undefined)\r",
+									"{\r",
+									"\r",
+									"pm.environment.set('MorbidityTestName_HBA1C',\"HBA1C\")\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"id": "84cf1358-6264-4142-891f-215c8e7dc9f9",
@@ -1435,7 +1452,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"invalidPassword\",\r\n  \"userLoginEmail\": \"invalid@email.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"{{password}}\",\r\n  \"userLoginEmail\": \"{{userLoginEmail}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
