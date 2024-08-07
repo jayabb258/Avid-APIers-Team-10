@@ -2468,7 +2468,7 @@
 					"name": "Positive Tests",
 					"item": [
 						{
-							"name": "1.\tCreate New Patient positive Copy",
+							"name": "1.\tCreate New Patient positive",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -2521,7 +2521,7 @@
 											"//generate random DOB",
 											"",
 											"var moment = require(\"moment\");",
-											"pm.variables.set(\"DOBkb\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
+											"pm.environment.set(\"DOBkb\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
 											""
 										],
 										"type": "text/javascript",
