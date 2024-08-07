@@ -8967,7 +8967,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"{{firstNamePatient}}\",\n\"LastName\": \"{{lastNamePatient}}\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOB}}\"\n}",
+									"value": "{ \"FirstName\": \"{{firstNamePat1}}\",\n\"LastName\": \"{{lastNamePat1}}\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOB1}}\"\n}",
 									"type": "text"
 								},
 								{
