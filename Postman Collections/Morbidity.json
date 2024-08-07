@@ -2634,7 +2634,7 @@
 											"// Parse the JSON response",
 											"var Response = pm.response.json();",
 											"",
-											"var jsonData = jsonData.Vitals ",
+											"var jsonData = jsonData.Vitals; ",
 											"",
 											"// Function to recursively log all keys and values in the JSON object",
 											"function logKeysAndValues(obj, parentKey = '') {",
@@ -2694,6 +2694,375 @@
 							"response": [
 								{
 									"id": "0b7f0997-cbc1-4d85-a378-a33218345e40",
+									"name": "2.\tCreate New Patient positive",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "patientInfo",
+													"value": "{ \"FirstName\": \"Patty\",\n\"LastName\": \"Bennet\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"1980-01-01\"\n}\n",
+													"type": "text"
+												},
+												{
+													"key": "file",
+													"type": "file",
+													"src": "postman-cloud:///1ef51c28-d3c7-46b0-be9b-23781b2180b5"
+												}
+											]
+										},
+										"url": "{{BaseURL}}/patient"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Cowboy"
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1722708357&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=A66S3wmb7NPdg%2B8TP0YsijHZ8rhk2g7kgzab2jz1%2FHU%3D\"}]}"
+										},
+										{
+											"key": "Reporting-Endpoints",
+											"value": "heroku-nel=https://nel.heroku.com/reports?ts=1722708357&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=A66S3wmb7NPdg%2B8TP0YsijHZ8rhk2g7kgzab2jz1%2FHU%3D"
+										},
+										{
+											"key": "Nel",
+											"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Xss-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000 ; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 03 Aug 2024 18:05:58 GMT"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"patientId\": 529,\n    \"FirstName\": \"Patty\",\n    \"LastName\": \"Bennet\",\n    \"ContactNumber\": \"2136345591\",\n    \"Email\": \"Vinnie.Collins@yahoo.com\",\n    \"Allergy\": \"WALNUT\",\n    \"FoodPreference\": \"NONVEG\",\n    \"CuisineCategory\": \"rajasthani\",\n    \"FileMorbidity\": {\n        \"66ae7186b8896d2890f49784\": {\n            \"T3\": \"6.3 ng/mL\",\n            \"T4\": \"15.7 µg/dL\",\n            \"TSH\": \"0.016 µIU/mL\"\n        }\n    },\n    \"FileMorbidityCondition\": {\n        \"66ae7186b8896d2890f49784\": \"Thyroid: Hyperthyroidism \\nBlood Pressure: Hypotension \\n\"\n    },\n    \"DateOfBirth\": \"1980-01-01\",\n    \"DieticianId\": 942,\n    \"Vitals\": {\n        \"66ae7186b8896d2890f49784\": {\n            \"Weight\": 0,\n            \"Height\": 0,\n            \"Temperature\": 0,\n            \"SP\": 0,\n            \"DP\": 0\n        }\n    },\n    \"LastVisitDate\": \"2024-08-03T18:05:58.164+00:00\"\n}"
+								}
+							]
+						},
+						{
+							"name": "1.\tCreate New Patient positive Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e690cf65-12d5-401d-a4cd-9918cd68508d",
+										"exec": [
+											"",
+											"",
+											"// Load lodash library code",
+											"const lodash = require('lodash');",
+											"",
+											"",
+											"//Select Random Allergy",
+											"var allergy = lodash.sample([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+											"",
+											"pm.environment.set(\"allergyKB\",allergy);",
+											"",
+											"// Select Random cuisine",
+											"",
+											"",
+											"var cuisine = lodash.sample([\"indian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
+											"",
+											"pm.environment.set(\"cuisineKB\",cuisine);",
+											"",
+											"//select Random food preference",
+											"",
+											"var foodpref = lodash.sample([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
+											"",
+											"pm.environment.set(\"foodpref\",foodpref);",
+											"",
+											"",
+											"//Generate random contact number",
+											"let phn = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\");// Generate random phone number",
+											"pm.environment.set(\"phoneptKB\", phn.replace(/[^0-9.]+/g,\"\"));// remove hyphens",
+											"",
+											"",
+											"//generate random email address",
+											"",
+											"let mail = pm.variables.replaceIn(\"{{$randomEmail}}\");// Generate random email",
+											"pm.environment.set(\"mailptKB\",mail);",
+											"",
+											"//Generate random first name",
+											"",
+											"pm.environment.set(\"fnameKB\",pm.variables.replaceIn(\"{{$randomFirstName}}\"));",
+											"",
+											"//Generate random last name ",
+											"",
+											"pm.environment.set(\"lnameKB\",pm.variables.replaceIn(\"{{$randomLastName}}\"));",
+											"",
+											"//generate random DOB",
+											"",
+											"var moment = require(\"moment\");",
+											"pm.variables.set(\"DOBkb\", moment().subtract(18, \"years\").format((\"YYYY-MM-DD\")));",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "6ba9c033-6eee-40e3-a32e-127bf8fff318",
+										"exec": [
+											"",
+											"let response = pm.response.json();",
+											"",
+											"// Successful POST request",
+											"",
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"});",
+											"",
+											"// Status code name ",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"    pm.response.to.have.status(\"Created\");",
+											"});",
+											"",
+											"//Test response times",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);",
+											"",
+											"",
+											"});",
+											"",
+											"//Set environment variable Patient ID  ",
+											"",
+											"    try{",
+											"   pm.expect(response).to.have.own.property(\"patientId\");",
+											"   pm.environment.set(\"patientIdKB\", response.patientId);",
+											"",
+											"    pm.test(\"PASS - Patient was created successfully - \" + pm.environment.get(\"patientIdKB\"), () => true); ",
+											"}catch(e){",
+											"    pm.test(\"FAIL - User ID was not created as it already exists or some other error\", () => {throw new Error(e.message)}); ",
+											"}",
+											"",
+											"",
+											"//Header validation",
+											"",
+											"pm.test(\"Content-Type Header is present\", () => {",
+											"  pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"",
+											"//Header Type Validation",
+											"pm.test(\"Content-Type Header is application-json\", () => {",
+											"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");",
+											"});",
+											"",
+											"",
+											"// Data type & Drop down selection validation",
+											"",
+											"pm.test(\"All Data types and drop down selections are correct\",()=>{",
+											"",
+											"    pm.expect(response.patientId).to.be.a(\"number\");",
+											"    pm.expect(response.FirstName).to.be.a(\"string\");",
+											"    pm.expect(response.LastName).to.be.a(\"string\");",
+											"    pm.expect(response.ContactNumber).to.be.a(\"string\");",
+											"    pm.expect(response.Email).to.be.a(\"string\");",
+											"    pm.expect(response.Allergy).to.be.a(\"string\");",
+											"    pm.expect(response.Allergy).to.be.oneOf([\"SOY\", \"ALMOND\", \"WALNUT\", \"PISTACHO\", \"SESAME\", \"PECAN\", \"CASHEW\", \"PEANUT\", \"EGG\", \"MILK\", \"NONE\"]);",
+											"    pm.expect(response.FoodPreference).to.be.a(\"string\");",
+											"    pm.expect(response.FoodPreference).to.be.oneOf([\"VEGAN\", \"VEGETARIAN\", \"JAIN\", \"EGGETARIAN\", \"NONVEG\"]);",
+											"    pm.expect(response.CuisineCategory).to.be.a(\"string\");",
+											"    pm.expect(response.CuisineCategory).to.be.oneOf([\"indian\", \"south indian\", \"rajasthani\", \"punjabi\", \"bengali\", \"orissa\", \"gujarati\", \"maharashtrian\", \"andhra\", \"kerala\", \"goan\", \"kashmiri\", \"himachali\", \"tamil nadu\", \"karnataka\", \"sindhi\", \"chhattisgarhi\", \"madhya pradesh\", \"assamese\", \"manipuri\", \"tripuri\", \"sikkimese\", \"mizo\", \"arunachali\", \"uttarakhand\", \"haryanvi\", \"awadhi\", \"bihari\", \"uttar pradesh\", \"delhi\", \"north indian\", \"italian\", \"french\", \"arabic\", \"lebanese\", \"thai\", \"mexican\", \"american\"]);",
+											"    pm.expect(response.FileMorbidity).to.be.an(\"object\");",
+											"    pm.expect(response.FileMorbidityCondition).to.be.an(\"object\");",
+											"    pm.expect(response.DateOfBirth).to.be.a(\"string\");",
+											"    pm.expect(response.DieticianId).to.be.a(\"number\");",
+											"    pm.expect(response.Vitals).to.be.an(\"object\");",
+											"    pm.expect(response.LastVisitDate).to.be.a(\"string\");",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"//Validating JSON Schema test",
+											"",
+											"var schema = {",
+											"    properties: {",
+											"    patientId: {",
+											"      type: \"number\",",
+											"    },",
+											"    FirstName: {",
+											"      type: \"string\",",
+											"    },",
+											"    LastName: {",
+											"      type: \"string\",",
+											"    },",
+											"    Email: {",
+											"      type: \"string\",",
+											"    },",
+											"    Allergy: {",
+											"      type: \"string\",",
+											"    },",
+											"    FoodPreference: {",
+											"      type: \"string\",",
+											"    },",
+											"    CuisineCategory: {",
+											"      type: \"string\",",
+											"    },",
+											"    FileMorbidity: {",
+											"      type: \"object\",",
+											"    },",
+											"    FileMorbidityCondition: {",
+											"      type: \"object\",",
+											"    },",
+											"    DateOfBirth: {",
+											"      type: \"string\",",
+											"    },",
+											"    DieticianId: {",
+											"      type: \"number\",",
+											"    },",
+											"    Vitals: {",
+											"      type: \"object\",",
+											"    },",
+											"    LastVisitDate: {",
+											"      type: \"string\",",
+											"    },",
+											"  },",
+											"  required: [",
+											"    \"patientId\",",
+											"    \"FirstName\",",
+											"    \"LastName\",",
+											"    \"ContactNumber\",",
+											"    \"Email\"",
+											"  ],",
+											"};",
+											"",
+											"pm.test(\"Schema is valid\", () => {",
+											"  pm.response.to.have.jsonSchema(schema);",
+											"});",
+											"",
+											"",
+											"// Parse the JSON response",
+											"var Response = pm.response.json();",
+											"",
+											"var jsonData = jsonData.Vitals(); ",
+											"",
+											"// Function to recursively log all keys and values in the JSON object",
+											"function logKeysAndValues(obj, parentKey = '') {",
+											"    for (var key in obj) {",
+											"        if (obj.hasOwnProperty(key)) {",
+											"            var fullKey = parentKey ? parentKey + '.' + key : key;",
+											"            if (typeof obj[key] === 'object' && obj[key] !== null) {",
+											"                // If the value is an object, recursively call the function",
+											"                logKeysAndValues(obj[key], fullKey);",
+											"            } else {",
+											"                // Log the key and value",
+											"                console.log(fullKey + ': ' + obj[key]);",
+											"            }",
+											"        }",
+											"    }",
+											"}",
+											"",
+											"// Call the function to log all keys and values",
+											"logKeysAndValues(jsonData);",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "0eceb3e3-db4a-458e-9fdd-c65599ed6735",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{DietTokenKB}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patientInfo",
+											"value": "{ \"FirstName\": \"{{fnameKB}}\",\n\"LastName\": \"{{lnameKB}}\",\n\"ContactNumber\": \"{{phoneptKB}}\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb}}\"\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1ef538fb-527f-4c20-ac44-8c5c1d22a3be"
+										}
+									]
+								},
+								"url": "{{BaseURL}}/patient"
+							},
+							"response": [
+								{
+									"id": "4284579e-624c-4f8b-93c6-0112106556da",
 									"name": "2.\tCreate New Patient positive",
 									"originalRequest": {
 										"method": "POST",
