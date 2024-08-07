@@ -254,7 +254,7 @@
 							"script": {
 								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
 								"exec": [
-									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"pm.test(\"Extract value and set environment variable\", function () {\r",
 									"    const responseBody = pm.response.json();\r",
 									"\r",
 									"    console.log('pm.response',pm.response.json())\r",
@@ -275,6 +275,13 @@
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
