@@ -2423,7 +2423,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{BaseURL}}/patient/testReports/viewFile/66b2e498caaebf47586de6fd"
+								"url": "{{BaseURL}}/patient/testReports/viewFile/{{fileidKB}}"
 							},
 							"response": []
 						}
