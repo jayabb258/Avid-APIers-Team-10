@@ -7358,7 +7358,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb1}}\n}\n",
+											"value": "{ \"FirstName\": \"Connie\",\n\"LastName\":\"Mitchell\",\n\"Email\": \"{{mailptKB}}\",\n\"Allergy\": \"{{allergyKB}}\",\n\"FoodPreference\": \"{{foodpref}}\",\n\"CuisineCategory\":\"{{cuisineKB}}\",\n\"DateOfBirth\": \"{{DOBkb1}}\"\n}\n",
 											"type": "text"
 										},
 										{
@@ -9101,6 +9101,24 @@
 				},
 				{
 					"name": "patient-morbidity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1dde19ac-a6f3-4320-b888-b014792074bb",
+								"exec": [
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "4f0bb02a-be49-482b-b1cc-94da6bb75080",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -9118,7 +9136,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "{{BaseURL}}/patient/testReports/300"
+						"url": "{{BaseURL}}/patient/testReports/{patientId}"
 					},
 					"response": []
 				}
