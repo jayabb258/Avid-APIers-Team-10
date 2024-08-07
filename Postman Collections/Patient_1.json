@@ -8809,7 +8809,7 @@
 								},
 								"method": "DELETE",
 								"header": [],
-								"url": "{{BaseURL}}/patient/1654"
+								"url": "{{BaseURL}}/patient/{{patientIdKB}}"
 							},
 							"response": []
 						},
