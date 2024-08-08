@@ -11373,7 +11373,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{BaseURL}}/patient/testReports/viewFile/{{fileidKB}}"
+								"url": "{{BaseURL}}/patient/testReports/viewFile/{{1fileidKB}}"
 							},
 							"response": []
 						},
