@@ -183,1181 +183,6 @@
 			]
 		},
 		{
-			"name": "Morbidity Positive Testing",
-			"item": [
-				{
-					"name": "Admin User Login",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
-								"exec": [
-									"pm.globals.set(\"variable_key\", \"variable_value\");"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
-								"exec": [
-									"pm.test(\"Extract value and set environment variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"    const token = responseBody.token;\r",
-									"\r",
-									"    pm.environment.set(\"Bearertk\", token);\r",
-									"});\r",
-									"// pm.test(\"Status code is 200\", function () {\r",
-									"//     pm.response.to.have.status(200);\r",
-									"// });\r",
-									"\r",
-									"// // pm.test(\"Response time is less than 800ms\", function () {\r",
-									"// //     pm.response.to.have.responseTimeBelow(800);\r",
-									"// // });\r",
-									"// pm.test(\"Content-Type is JSON\", function () {\r",
-									"//     pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
-									"// });"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "e3c52da5-21c9-4beb-a388-fa34676d4865",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{password}}\",\r\n  \"userLoginEmail\": \"{{userLoginEmail}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{BaseURL}}/login"
-					},
-					"response": []
-				},
-				{
-					"name": "GET operation -200- AS ADMIN",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
-								"exec": [
-									"pm.test(\"Extract value and set environment variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     \r",
-									"    if(i===2)\r",
-									"    {\r",
-									"      \r",
-									"          console.log('morbidity name',responseBody[i].morbidityTestName) \r",
-									"\r",
-									" pm.environment.set(\"morbidity_test_name\", responseBody[i].morbidityTestName)\r",
-									"}\r",
-									"\r",
-									"}\r",
-									"  \r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "ad489995-0f23-4c25-ab66-97f4b3bd1056",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "f1d6178c-5f0e-4445-a397-ced24bbff717",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity"
-					},
-					"response": []
-				},
-				{
-					"name": "GET AllMorbidities -200- AS DIETICIAN",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "824122c3-d3be-4d68-97ff-99b109d0ef0d",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"// pm.test(\"Response time is less than 1000ms\", function () \r",
-									"// {\r",
-									"//      pm.response.to.have.responseTimeBelow(500);\r",
-									"\r",
-									"//  });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									"// pm.test(\"Response time is less than 100ms\", function () {\r",
-									"//     pm.response.to.have.responseTimeBelow(500);\r",
-									"// });\r",
-									"\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									"\r",
-									"   //  pm.collectionVariables.set('MorbidityTestNames',responseBody[i].morbidityTestName);\r",
-									"    if(responseBody[i].morbidityTestName==='Fasting Glucose')\r",
-									"    {\r",
-									"         pm.environment.set('MorbidityTestName_Fasting_G',responseBody[i].morbidityTestName);\r",
-									"      \r",
-									"          console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"}\r",
-									" if (responseBody[i].morbidityTestName==='Average Glucose')\r",
-									"{\r",
-									"  pm.environment.set('MorbidityTestName_Average_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='Plasma Glucose')\r",
-									"{\r",
-									"  pm.environment.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='HbA1c')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"  pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
-									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='TSH')\r",
-									"{\r",
-									"    // console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"  pm.environment.set('thyroid_TSH',responseBody[i].morbidityTestName);\r",
-									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='T3')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"  pm.environment.set('thyroid_T3',responseBody[i].morbidityTestName);\r",
-									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='T4')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"  pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
-									" \r",
-									"}\r",
-									"}\r",
-									"})\r",
-									"\r",
-									"// const testUtil = pm.require(\"morbidity_module_testutil\");\r",
-									"\r",
-									"// testUtil.commonTest(\"GET\",\"content-type header\");\r",
-									"// testUtil.commonTest(\"GET\",\"content-type response\");\r",
-									"// testUtil.commonTest(\"GET\",\"response time\");"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "cf1b7ea9-33bb-4302-bc47-da4a804e895b",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "7dd367e1-d664-4dc7-9e57-82f034f8ce39",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve DiabetesTest HBA1C",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "e81fa7f4-8b31-447d-9b63-3fcc6a77141b",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"// pm.test(\"Response time is less than 1000ms\", function () \r",
-									"// {\r",
-									"//      pm.response.to.have.responseTimeBelow(500);\r",
-									"\r",
-									"//  });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"\r",
-									"\r",
-									"});\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									"\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='HbA1c')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"     \r",
-									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
-									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"    }\r",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "7570c203-a512-430d-8ddd-2ded3878d936",
-								"exec": [
-									"\r",
-									"const morbiditytestName_HBA1C =pm.environment.get('MorbidityTestName_HBA1C');\r",
-									"if(morbiditytestName_HBA1C==undefined)\r",
-									"{\r",
-									"\r",
-									"pm.environment.set('MorbidityTestName_HBA1C',\"HBA1C\")\r",
-									"}"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "84cf1358-6264-4142-891f-215c8e7dc9f9",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_HBA1C}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Diabetes Test Average Glucose",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "73f4a42f-ebe0-4181-ae0e-f87c44a2a612",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"// pm.test(\"Response time is less than 1000ms\", function () \r",
-									"// {\r",
-									"//      pm.response.to.have.responseTimeBelow(500);\r",
-									"\r",
-									"//  });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"\r",
-									"\r",
-									"});\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									"\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='Average Glucose')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"     \r",
-									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
-									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"    }\r",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "969e8ab4-b23b-4165-bf9f-ee1eedfb42f8",
-								"exec": [
-									"\r",
-									"\r",
-									"const morbidity_testNameAverage_G =pm.environment.get('MorbidityTestName_Average_G');\r",
-									"// if(morbidity_testNameAverage_G==undefined)\r",
-									"// {\r",
-									"\r",
-									"// pm.environment.set('MorbidityTestName_Average_G',\"Average Glucose\")\r",
-									"// }"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "e57de8fc-c2e1-437c-b239-c2edb189df14",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Average_G}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Diabetes Test Fasting Glucose",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7fe1f6f8-3989-4110-b090-2231489f4d06",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"// pm.test(\"Response time is less than 1000ms\", function () \r",
-									"// {\r",
-									"//      pm.response.to.have.responseTimeBelow(500);\r",
-									"\r",
-									"//  });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"\r",
-									"\r",
-									"});\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									"\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='Fasting Glucose')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"     \r",
-									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
-									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"    }\r",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "e10f1798-b614-4a96-900e-8ae0c101f597",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"\r",
-									"const morbi_testName_Fasting_G =pm.environment.get('MorbidityTestName_Fasting_G');\r",
-									"// if(morbi_testName_Fasting_G===undefined)\r",
-									"// {\r",
-									"\r",
-									"// pm.environment.set('MorbidityTestName_Plasma_G',\"Fasting Glucose\")\r",
-									"// }"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "49d926f4-fa9b-4824-8755-1f51e56bbf0b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Fasting_G}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Diabetes Test  Plasma Glucose",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "6ddc4d1a-dfaa-4d69-913e-888d9fe4c7ef",
-								"exec": [
-									"\r",
-									"\r",
-									"const plasma_Glucose=pm.environment.get('MorbidityTestName_Plasma_G');\r",
-									"// if(plasma_Glucose==undefined)\r",
-									"// {\r",
-									"\r",
-									"// pm.environment.set('MorbidityTestName_Plasma_G',\"Plasma Glucose\")\r",
-									"// }\r",
-									"\r",
-									"// pm.test(\"Response time is less than 1000ms\", function () \r",
-									"// {\r",
-									"//      pm.response.to.have.responseTimeBelow(500);\r",
-									"\r",
-									"//  });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"\r",
-									"\r",
-									"});\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									"\r",
-									"\r",
-									" if (responseBody[i].morbidityTestName==='Plasma Glucose')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									"     \r",
-									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
-									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
-									"}\r",
-									"    }\r",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "25d86b33-145d-49fb-aded-344ca1c05a2b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Plasma_G}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Thyroid Test T4",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "69dbb6c8-4a6b-4ed6-bfdf-67d896dcd0e9",
-								"exec": [
-									"const thyroidT4=pm.environment.get('thyroid_T4');\r",
-									"// if(thyroidT4==undefined)\r",
-									"// {\r",
-									"\r",
-									"// pm.environment.set('thyroid_T4',T4)\r",
-									"// }"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "b6ca2b6c-6d0e-495f-8d59-c7cd79740211",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"// pm.test(\"Response time is less than 1000ms\", function () \r",
-									"// {\r",
-									"//      pm.response.to.have.responseTimeBelow(500);\r",
-									"\r",
-									"//  });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"\r",
-									"\r",
-									"});\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									" if (responseBody[i].morbidityTestName==='T4')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									" // pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
-									" \r",
-									"}\r",
-									"    }\r",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "65c887d5-5f04-42d2-94bc-4e2a982eefd8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Thyroid Test T3",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "950286ed-c4e7-4d15-8c3a-10d84ce81c0b",
-								"exec": [
-									"const thyroidT3=pm.environment.get('thyroid_T3');\r",
-									"// if(thyroidT3==undefined)\r",
-									"// {\r",
-									"\r",
-									"// pm.environment.set('thyroid_T3',T3)\r",
-									"// }\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "c316b173-2b6c-4d5c-a23e-7e972532d41a",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"// pm.test(\"Response time is less than 1000ms\", function () \r",
-									"// {\r",
-									"//      pm.response.to.have.responseTimeBelow(500);\r",
-									"\r",
-									"//  });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"\r",
-									"\r",
-									"});\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									" if (responseBody[i].morbidityTestName==='T3')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									" // pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
-									" \r",
-									"}\r",
-									"    }\r",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "059a7369-f2e4-4d30-8701-f5bf813b154d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{thyroid_T3}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Thyroid Test TSH",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "b43faf76-5fce-4117-ad37-e5badf6993c3",
-								"exec": [
-									"pm.test(\"Content-Type Header is present\",()=>\r",
-									"{\r",
-									"     pm.response.to.have.header(\"Content-Type\")\r",
-									"});\r",
-									"pm.test(\"Content-Type Header is application/json\",()=>\r",
-									"{\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
-									"})\r",
-									"// pm.test(\"Response time is less than 500ms\", function () {\r",
-									"//     pm.expect(pm.response.responseTime).to.be.below(500);\r",
-									"// });\r",
-									"\r",
-									" const expectedJsonSchema=\r",
-									" {\r",
-									" \r",
-									"  \"type\": \"array\",\r",
-									"  \"properties\": {\r",
-									"    \"morbidityId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"morbidityTestId\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityNameRegex\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityTestUnit\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMinVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    },\r",
-									"    \"morbidityMarkerMaxVal\": {\r",
-									"      \"type\": \"number\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"morbidityId\",\r",
-									"    \"morbidityTestId\",\r",
-									"    \"morbidityNameRegex\",\r",
-									"    \"morbidityTestName\",\r",
-									"    \"morbidityTestUnit\",\r",
-									"    \"morbidityMarkerMinVal\",\r",
-									"    \"morbidityMarkerMaxVal\"\r",
-									"  ]\r",
-									"}\r",
-									"pm.test(\"Verify JsonSchema \",function()\r",
-									"{\r",
-									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Extract value and set global variable\", function () {\r",
-									"    const responseBody = pm.response.json();\r",
-									"\r",
-									"    console.log('pm.response',pm.response.json())\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"\r",
-									"\r",
-									"});\r",
-									"    for(i=0;i<responseBody.length;i++){\r",
-									"     //define an array in Javascript. Use Set instead\r",
-									" if (responseBody[i].morbidityTestName==='TSH')\r",
-									"{\r",
-									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
-									" // pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
-									" \r",
-									"}\r",
-									"    }\r",
-									"})"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "c58f1649-5f1e-4ede-9af1-46bbade4b2e6",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/morbidity/{{thyroid_TSH}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Admin Logout",
-					"id": "8938238a-b1dc-4c84-b009-689f1067878e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{Bearertk}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{BaseURL}}/logoutdietician"
-					},
-					"response": []
-				}
-			],
-			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
-		},
-		{
 			"name": "MorbityTesting NegativeScenarios",
 			"item": [
 				{
@@ -11354,6 +10179,1181 @@
 				}
 			],
 			"id": "cc867dff-6a7c-496c-9444-829d2cc38b76"
+		},
+		{
+			"name": "Morbidity Positive Testing",
+			"item": [
+				{
+					"name": "Admin User Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7e2210a4-388e-4d98-9fe0-07ccbca6e48d",
+								"exec": [
+									"pm.globals.set(\"variable_key\", \"variable_value\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de052572-67c1-4992-9098-3c46b5bf58bb",
+								"exec": [
+									"pm.test(\"Extract value and set environment variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"    const token = responseBody.token;\r",
+									"\r",
+									"    pm.environment.set(\"Bearertk\", token);\r",
+									"});\r",
+									"// pm.test(\"Status code is 200\", function () {\r",
+									"//     pm.response.to.have.status(200);\r",
+									"// });\r",
+									"\r",
+									"// // pm.test(\"Response time is less than 800ms\", function () {\r",
+									"// //     pm.response.to.have.responseTimeBelow(800);\r",
+									"// // });\r",
+									"// pm.test(\"Content-Type is JSON\", function () {\r",
+									"//     pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"// });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "fc18ba9f-397d-4aaf-b64e-1c89df41677e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"{{password}}\",\r\n  \"userLoginEmail\": \"{{userLoginEmail}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "GET operation -200- AS ADMIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27be77a2-f359-418c-b495-c57f466f2dbb",
+								"exec": [
+									"pm.test(\"Extract value and set environment variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     \r",
+									"    if(i===2)\r",
+									"    {\r",
+									"      \r",
+									"          console.log('morbidity name',responseBody[i].morbidityTestName) \r",
+									"\r",
+									" pm.environment.set(\"morbidity_test_name\", responseBody[i].morbidityTestName)\r",
+									"}\r",
+									"\r",
+									"}\r",
+									"  \r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ad489995-0f23-4c25-ab66-97f4b3bd1056",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "cd6aa972-6fcd-4539-8fa9-70e3919a59e6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "GET AllMorbidities -200- AS DIETICIAN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "824122c3-d3be-4d68-97ff-99b109d0ef0d",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"// pm.test(\"Response time is less than 1000ms\", function () \r",
+									"// {\r",
+									"//      pm.response.to.have.responseTimeBelow(500);\r",
+									"\r",
+									"//  });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// pm.test(\"Response time is less than 100ms\", function () {\r",
+									"//     pm.response.to.have.responseTimeBelow(500);\r",
+									"// });\r",
+									"\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"   //  pm.collectionVariables.set('MorbidityTestNames',responseBody[i].morbidityTestName);\r",
+									"    if(responseBody[i].morbidityTestName==='Fasting Glucose')\r",
+									"    {\r",
+									"         pm.environment.set('MorbidityTestName_Fasting_G',responseBody[i].morbidityTestName);\r",
+									"      \r",
+									"          console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"}\r",
+									" if (responseBody[i].morbidityTestName==='Average Glucose')\r",
+									"{\r",
+									"  pm.environment.set('MorbidityTestName_Average_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='Plasma Glucose')\r",
+									"{\r",
+									"  pm.environment.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='HbA1c')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='TSH')\r",
+									"{\r",
+									"    // console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.environment.set('thyroid_TSH',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T3')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.environment.set('thyroid_T3',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='T4')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"  pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
+									" \r",
+									"}\r",
+									"}\r",
+									"})\r",
+									"\r",
+									"// const testUtil = pm.require(\"morbidity_module_testutil\");\r",
+									"\r",
+									"// testUtil.commonTest(\"GET\",\"content-type header\");\r",
+									"// testUtil.commonTest(\"GET\",\"content-type response\");\r",
+									"// testUtil.commonTest(\"GET\",\"response time\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cf1b7ea9-33bb-4302-bc47-da4a804e895b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "a3fd0e8a-718e-4ca0-b509-8287bb930c34",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve DiabetesTest HBA1C",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e81fa7f4-8b31-447d-9b63-3fcc6a77141b",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"// pm.test(\"Response time is less than 1000ms\", function () \r",
+									"// {\r",
+									"//      pm.response.to.have.responseTimeBelow(500);\r",
+									"\r",
+									"//  });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"\r",
+									"});\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='HbA1c')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"     \r",
+									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7570c203-a512-430d-8ddd-2ded3878d936",
+								"exec": [
+									"\r",
+									"const morbiditytestName_HBA1C =pm.environment.get('MorbidityTestName_HBA1C');\r",
+									"if(morbiditytestName_HBA1C==undefined)\r",
+									"{\r",
+									"\r",
+									"pm.environment.set('MorbidityTestName_HBA1C',\"HBA1C\")\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "4b13dce1-284c-4c8d-a116-d4413aa39e4c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_HBA1C}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test Average Glucose",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73f4a42f-ebe0-4181-ae0e-f87c44a2a612",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"// pm.test(\"Response time is less than 1000ms\", function () \r",
+									"// {\r",
+									"//      pm.response.to.have.responseTimeBelow(500);\r",
+									"\r",
+									"//  });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"\r",
+									"});\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='Average Glucose')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"     \r",
+									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "969e8ab4-b23b-4165-bf9f-ee1eedfb42f8",
+								"exec": [
+									"\r",
+									"\r",
+									"const morbidity_testNameAverage_G =pm.environment.get('MorbidityTestName_Average_G');\r",
+									"// if(morbidity_testNameAverage_G==undefined)\r",
+									"// {\r",
+									"\r",
+									"// pm.environment.set('MorbidityTestName_Average_G',\"Average Glucose\")\r",
+									"// }"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "cd21c207-93f3-408f-915e-bd47c83645af",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Average_G}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test Fasting Glucose",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7fe1f6f8-3989-4110-b090-2231489f4d06",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"// pm.test(\"Response time is less than 1000ms\", function () \r",
+									"// {\r",
+									"//      pm.response.to.have.responseTimeBelow(500);\r",
+									"\r",
+									"//  });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"\r",
+									"});\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='Fasting Glucose')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"     \r",
+									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e10f1798-b614-4a96-900e-8ae0c101f597",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"\r",
+									"const morbi_testName_Fasting_G =pm.environment.get('MorbidityTestName_Fasting_G');\r",
+									"// if(morbi_testName_Fasting_G===undefined)\r",
+									"// {\r",
+									"\r",
+									"// pm.environment.set('MorbidityTestName_Plasma_G',\"Fasting Glucose\")\r",
+									"// }"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "925d7d44-5a77-41b2-be11-56e630b94148",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Fasting_G}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Diabetes Test  Plasma Glucose",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6ddc4d1a-dfaa-4d69-913e-888d9fe4c7ef",
+								"exec": [
+									"\r",
+									"\r",
+									"const plasma_Glucose=pm.environment.get('MorbidityTestName_Plasma_G');\r",
+									"// if(plasma_Glucose==undefined)\r",
+									"// {\r",
+									"\r",
+									"// pm.environment.set('MorbidityTestName_Plasma_G',\"Plasma Glucose\")\r",
+									"// }\r",
+									"\r",
+									"// pm.test(\"Response time is less than 1000ms\", function () \r",
+									"// {\r",
+									"//      pm.response.to.have.responseTimeBelow(500);\r",
+									"\r",
+									"//  });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"\r",
+									"});\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									"\r",
+									"\r",
+									" if (responseBody[i].morbidityTestName==='Plasma Glucose')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									"     \r",
+									"  //pm.environment.set('MorbidityTestName_HBA1C',responseBody[i].morbidityTestName);\r",
+									" // pm.collectionVariables.set('MorbidityTestName_Plasma_G',responseBody[i].morbidityTestName);\r",
+									"}\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "06b755f1-6273-4531-9a8f-7c045820e1a0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{MorbidityTestName_Plasma_G}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid Test T4",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "69dbb6c8-4a6b-4ed6-bfdf-67d896dcd0e9",
+								"exec": [
+									"const thyroidT4=pm.environment.get('thyroid_T4');\r",
+									"// if(thyroidT4==undefined)\r",
+									"// {\r",
+									"\r",
+									"// pm.environment.set('thyroid_T4',T4)\r",
+									"// }"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b6ca2b6c-6d0e-495f-8d59-c7cd79740211",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"// pm.test(\"Response time is less than 1000ms\", function () \r",
+									"// {\r",
+									"//      pm.response.to.have.responseTimeBelow(500);\r",
+									"\r",
+									"//  });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"\r",
+									"});\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									" if (responseBody[i].morbidityTestName==='T4')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									" // pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
+									" \r",
+									"}\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "b954bb4d-f7c9-4c31-b93b-0dfc8d8accac",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{thyroid_T4}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid Test T3",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "950286ed-c4e7-4d15-8c3a-10d84ce81c0b",
+								"exec": [
+									"const thyroidT3=pm.environment.get('thyroid_T3');\r",
+									"// if(thyroidT3==undefined)\r",
+									"// {\r",
+									"\r",
+									"// pm.environment.set('thyroid_T3',T3)\r",
+									"// }\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c316b173-2b6c-4d5c-a23e-7e972532d41a",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"// pm.test(\"Response time is less than 1000ms\", function () \r",
+									"// {\r",
+									"//      pm.response.to.have.responseTimeBelow(500);\r",
+									"\r",
+									"//  });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"\r",
+									"});\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									" if (responseBody[i].morbidityTestName==='T3')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									" // pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
+									" \r",
+									"}\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "d203eb7a-6847-4c8e-b325-2cf4945c521f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{thyroid_T3}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Thyroid Test TSH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b43faf76-5fce-4117-ad37-e5badf6993c3",
+								"exec": [
+									"pm.test(\"Content-Type Header is present\",()=>\r",
+									"{\r",
+									"     pm.response.to.have.header(\"Content-Type\")\r",
+									"});\r",
+									"pm.test(\"Content-Type Header is application/json\",()=>\r",
+									"{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json')\r",
+									"})\r",
+									"// pm.test(\"Response time is less than 500ms\", function () {\r",
+									"//     pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"// });\r",
+									"\r",
+									" const expectedJsonSchema=\r",
+									" {\r",
+									" \r",
+									"  \"type\": \"array\",\r",
+									"  \"properties\": {\r",
+									"    \"morbidityId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"morbidityTestId\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityNameRegex\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityTestUnit\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMinVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    },\r",
+									"    \"morbidityMarkerMaxVal\": {\r",
+									"      \"type\": \"number\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"morbidityId\",\r",
+									"    \"morbidityTestId\",\r",
+									"    \"morbidityNameRegex\",\r",
+									"    \"morbidityTestName\",\r",
+									"    \"morbidityTestUnit\",\r",
+									"    \"morbidityMarkerMinVal\",\r",
+									"    \"morbidityMarkerMaxVal\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JsonSchema \",function()\r",
+									"{\r",
+									"pm.response.to.have.jsonSchema(expectedJsonSchema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Extract value and set global variable\", function () {\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    console.log('pm.response',pm.response.json())\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"\r",
+									"});\r",
+									"    for(i=0;i<responseBody.length;i++){\r",
+									"     //define an array in Javascript. Use Set instead\r",
+									" if (responseBody[i].morbidityTestName==='TSH')\r",
+									"{\r",
+									"     console.log('morbidity name-------',responseBody[i].morbidityTestName) \r",
+									" // pm.environment.set('thyroid_T4',responseBody[i].morbidityTestName);\r",
+									" \r",
+									"}\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "fa817218-30bb-4e45-90ad-6f34eeb5d66a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/morbidity/{{thyroid_TSH}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Logout",
+					"id": "96cd4569-ab6a-40c9-86f7-5cb3fa172f29",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearertk}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}/logoutdietician"
+					},
+					"response": []
+				}
+			],
+			"id": "842fc292-53e2-4523-819c-276c0d50d7b4"
 		}
 	],
 	"variable": [
