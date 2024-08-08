@@ -11326,7 +11326,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{BaseURL}}/patient/testReports/{{patientIdKB1}}"
+								"url": "{{BaseURL}}/patient/testReports/{{1patientIdKB1}}"
 							},
 							"response": []
 						},
