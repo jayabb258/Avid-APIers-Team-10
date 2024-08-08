@@ -7467,7 +7467,7 @@
 							"response": []
 						},
 						{
-							"name": "1.Add New Reports with Vitals for existing Patient 404 not found",
+							"name": "1.Add New Reports with Vitals for invalid Patient 404 not found",
 							"event": [
 								{
 									"listen": "test",
