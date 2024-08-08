@@ -9185,7 +9185,7 @@
 							"response": []
 						},
 						{
-							"name": "5.\tUpdate Patient that already exists Mandatory Field FirstName missing",
+							"name": "5.\tUpdate Patient Mandatory Field FirstName missing",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -11373,7 +11373,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{BaseURL}}/patient/testReports/viewFile/{{fileidKB1}}"
+								"url": "{{BaseURL}}/patient/testReports/viewFile/{{fileidKB}}"
 							},
 							"response": []
 						},
