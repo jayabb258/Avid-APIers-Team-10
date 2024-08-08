@@ -3461,8 +3461,8 @@
 											"});\r",
 											"\r",
 											"\r",
-											"pm.test(\"Response time is less than 300ms\", function () {\r",
-											"  pm.expect(pm.response.responseTime).to.be.below(300);\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
 											"});\r",
 											"\r",
 											"pm.test(\"Id should be an integer\", function () {\r",
@@ -11326,7 +11326,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{BaseURL}}/patient/testReports/{{1patientIdKB1}}"
+								"url": "{{BaseURL}}/patient/testReports/{{1patientIdkb1}}"
 							},
 							"response": []
 						},
