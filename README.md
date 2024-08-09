@@ -2,7 +2,7 @@
 
 
  <h1> Postman API Testing of Dietitian System </h1>
-  Use of <span style="color:orange"><b>Postman</b></span> to <b>GET, POST, PUT</b> & <b>DELETE</b> entries in the LMS modules:
+  Use of <span style="color:orange"><b>Postman</b></span> to <b>GET, POST, PUT</b> & <b>DELETE</b> entries in the Dietitian modules:
 
 - <b>User
 - Morbidities
