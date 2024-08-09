@@ -1,4 +1,5 @@
 # Avid-APIers-Team-10
+<img width="612" alt="AVID APIERS" src="https://github.com/user-attachments/assets/25be011b-c612-4dab-8f90-d4124c361330">
 
 
  <h1> Postman API Testing of Dietitian System </h1>
