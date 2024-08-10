@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "401e7bf0-2abc-41b6-95df-a455883b5303",
 		"name": "Team-10 Avid APIers",
+		"description": "End to End testing for Dietitian Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -612,6 +613,7 @@
 				}
 			],
 			"id": "513eaa1c-4f7f-46ab-b199-bb43bd217268",
+			"description": "User module is used to login as Admin,Dietitian, Patient",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -3266,7 +3268,8 @@
 					"id": "04ccc54a-5c4b-4625-bfff-512e351af8a1"
 				}
 			],
-			"id": "987a9a55-271e-4066-915d-ef97a3cae6b6"
+			"id": "987a9a55-271e-4066-915d-ef97a3cae6b6",
+			"description": "This is where Dietitian and Admin access Morbidities for patients"
 		},
 		{
 			"name": "Dietician",
@@ -4981,7 +4984,8 @@
 					"id": "3c4f0f6b-fc4e-4b3f-82ca-1f31450fd17f"
 				}
 			],
-			"id": "4d22cae5-9e79-4015-b336-c8e331592c97"
+			"id": "4d22cae5-9e79-4015-b336-c8e331592c97",
+			"description": "All dietitian scenarios with Admin login are covered here"
 		},
 		{
 			"name": "Patient",
@@ -11764,7 +11768,8 @@
 					"id": "313ac936-d51a-4357-afff-c0b44fc0899a"
 				}
 			],
-			"id": "4a36b366-0738-4df9-bf6b-5dc640f1681d"
+			"id": "4a36b366-0738-4df9-bf6b-5dc640f1681d",
+			"description": "All Patient scenarios with Dietitian login and some Patient login is covered here"
 		}
 	],
 	"variable": [
